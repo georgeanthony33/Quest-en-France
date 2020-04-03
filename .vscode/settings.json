@@ -1,0 +1,6 @@
+{
+    "emmet.includeLanguages": {
+        "javascript": "javascriptreact"
+    },
+    "python.pythonPath": "/Users/georgeanthony/.local/share/virtualenvs/quest-iToCazo0/bin/python"
+}
