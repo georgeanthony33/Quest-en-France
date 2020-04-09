@@ -18,7 +18,9 @@ from django.contrib import admin
 from django.urls import path, include
 
 urlpatterns = [
-    path('django-admin/', admin.site.urls),
-    path('admin/', include('rest_framework.urls')),
-    path('homes/', include('homes.urls'))
+    path('admin/', admin.site.urls),
+    path('homes/', include('homes.urls')),
+    path('sites/', include('sites.urls')),
+    path('bookings/', include('bookings.urls')),
+    path('', include('jwt_auth.urls')),
 ]

@@ -1,0 +1,19 @@
+[
+{
+  "model": "homes.home",
+  "pk": 1,
+  "fields": {
+    "plot": 35,
+    "home_type": "2012 CORDELIA 8.52M X 4M",
+    "bedrooms": 3,
+    "image": "",
+    "veranda": "Semi-covered",
+    "fridge": "Fridge / Freezer",
+    "gas_tails": "",
+    "tow_bars": "",
+    "pull_out_bed": "",
+    "tv": "",
+    "site": 1
+  }
+}
+]

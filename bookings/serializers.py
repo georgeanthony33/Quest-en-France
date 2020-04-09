@@ -1,0 +1,74 @@
+from rest_framework import serializers
+from django.contrib.auth import get_user_model
+from homes.models import Home
+from sites.models import Site
+from .models import Booking, Person, Ferry
+User = get_user_model()
+
+class UserSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = User
+        fields = ('id', 'first_name', 'last_name', 'email')
+
+class SiteSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Site
+        fields = ('name', 'country', 'short_description', 'images', 'latitude', 'longitude')
+
+class HomeSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Home
+        fields = '__all__'
+
+class PopulatedHomeSerializer(HomeSerializer):
+    site = SiteSerializer()
+
+class PersonSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Person
+        fields = '__all__'
+
+class FerrySerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Ferry
+        fields = '__all__'
+
+class BookingSerializer(serializers.ModelSerializer):
+
+    def validate(self, data):
+
+        ferry_quote = data.get('ferry_quote')
+
+        if len(ferry_quote) > 0:
+            raise serializers.ValidationError({'ferry_quote': 'Maximum of one ferry quote per booking'})
+
+        data['ferry_quote'] = ferry_quote
+
+        return data
+
+    class Meta:
+        model = Booking
+        fields = '__all__'
+
+class PopulatedBookingSerializer(BookingSerializer):
+
+    def validate(self, data):
+
+        ferry_quote = data.get('ferry_quote')
+
+        if len(ferry_quote) > 0:
+            raise serializers.ValidationError({'ferry_quote': 'Maximum of one ferry quote per booking'})
+
+        data['ferry_quote'] = ferry_quote
+
+        return data
+
+    home = PopulatedHomeSerializer()
+    user = UserSerializer()
+    people = PersonSerializer(many=True)
+    ferry_quote = FerrySerializer(many=True)

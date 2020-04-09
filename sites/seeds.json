@@ -1,0 +1,16 @@
+[
+{
+  "model": "sites.site",
+  "pk": 1,
+  "fields": {
+    "name": "L\u2019Oceano d\u2019Or",
+    "country": "France",
+    "short_description": "Camping L\u2019Oceano d\u2019Or is one of the prestigious group of sites, which won the \u2018Grand Prix du Tourisme\u2019 recently, and has now gained the coveted five star status.",
+    "long_description": "Camping L\u2019Oceano d\u2019Or is one of the prestigious group of sites, which won the \u2018Grand Prix du Tourisme\u2019 recently, and has now gained the coveted five star status. The large swimming pool complex has a spacious sun terrace, overlooked by the bar. There are 2 fun waterslides and a heated children\u2019s pool. Built in 2015, the addition of a large indoor pool, with roof that can be opened, is an added attraction. This site should appeal to families with children of all ages. It is lively in high season with a full programme of entertainment. Other sporting activities on offer are tennis, boules, aquagym and scuba diving. There is also a fitness suite on site. The site has 2 beaches within walking distance, Plage de Boisinet and Plage de Morpoigne, both of which have plenty of bars, cafes and restaurants.",
+    "images": "[\"https://www.questenfrance.com/wp-content/uploads/2015/12/View-of-leisure-activities1.jpg\"]",
+    "latitude": 46.4208,
+    "longitude": -1.5697,
+    "facilities": "[\"Open from mid May to mid Sept\"]"
+  }
+}
+]

@@ -1,0 +1,52 @@
+[
+{
+  "model": "jwt_auth.user",
+  "pk": 1,
+  "fields": {
+    "password": "pbkdf2_sha256$150000$qJiehPcoWJkG$aMYHstrPCXM2szACpv+m9RK3msjfQ2XWwv41DSko8PY=",
+    "last_login": "2020-04-06T16:37:05Z",
+    "is_superuser": true,
+    "username": "admin",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2020-04-06T16:36:58Z",
+    "first_name": "admin",
+    "last_name": "",
+    "date_of_birth": 10071992,
+    "email": "admin@admin.com",
+    "address_first_line": "admin",
+    "address_second_line": "admin",
+    "address_town": "admin",
+    "address_postcode": "admin",
+    "address_country": "admin",
+    "phone_number": "admin",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "jwt_auth.user",
+  "pk": 2,
+  "fields": {
+    "password": "pbkdf2_sha256$150000$LnEhqjWZ6qv6$VpazsBUHpM4LIm0aH4I4anDfRG+m+Iaa6aUxl9yoKB8=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "georgeanthony",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2020-04-06T19:13:43.203Z",
+    "first_name": "George",
+    "last_name": "",
+    "date_of_birth": 10071992,
+    "email": "george@email",
+    "address_first_line": "address",
+    "address_second_line": "address",
+    "address_town": "address",
+    "address_postcode": "address",
+    "address_country": "address",
+    "phone_number": "12345",
+    "groups": [],
+    "user_permissions": []
+  }
+}
+]

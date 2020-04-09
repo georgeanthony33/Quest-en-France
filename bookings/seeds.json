@@ -1,0 +1,16 @@
+[
+{
+  "model": "bookings.booking",
+  "pk": 1,
+  "fields": {
+    "home": 1,
+    "start_date": 10072020,
+    "end_date": 20072020,
+    "price": 500,
+    "currency": "GBP",
+    "booking_date": 7042020,
+    "user": 2,
+    "additional_comments": "Excited"
+  }
+}
+]
