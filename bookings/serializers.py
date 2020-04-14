@@ -24,6 +24,7 @@ class HomeSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 class PopulatedHomeSerializer(HomeSerializer):
+    
     site = SiteSerializer()
 
 class PersonSerializer(serializers.ModelSerializer):
@@ -40,33 +41,11 @@ class FerrySerializer(serializers.ModelSerializer):
 
 class BookingSerializer(serializers.ModelSerializer):
 
-    def validate(self, data):
-
-        ferry_quote = data.get('ferry_quote')
-
-        if len(ferry_quote) > 0:
-            raise serializers.ValidationError({'ferry_quote': 'Maximum of one ferry quote per booking'})
-
-        data['ferry_quote'] = ferry_quote
-
-        return data
-
     class Meta:
         model = Booking
         fields = '__all__'
 
 class PopulatedBookingSerializer(BookingSerializer):
-
-    def validate(self, data):
-
-        ferry_quote = data.get('ferry_quote')
-
-        if len(ferry_quote) > 0:
-            raise serializers.ValidationError({'ferry_quote': 'Maximum of one ferry quote per booking'})
-
-        data['ferry_quote'] = ferry_quote
-
-        return data
 
     home = PopulatedHomeSerializer()
     user = UserSerializer()

@@ -5,8 +5,8 @@ User = get_user_model()
 
 class Booking(models.Model):
     home = models.ForeignKey(Home, related_name='bookings', null=True, on_delete=models.SET_NULL)
-    start_date = models.IntegerField()
-    end_date = models.IntegerField()
+    start_date = models.CharField(max_length=8)
+    end_date = models.CharField(max_length=8)
     price = models.SmallIntegerField()
     currency = models.CharField(max_length=3)
     booking_date = models.IntegerField()

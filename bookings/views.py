@@ -1,8 +1,3 @@
-# Bookings: Create, Get All, Get Single, Edit, Delete
-# People: Create, Edit, Delete
-# Ferry: Create, Edit, Delete
-
-
 # pylint: disable=no-member
 from rest_framework.views import APIView
 from rest_framework.response import Response
@@ -10,6 +5,7 @@ from rest_framework.status import HTTP_404_NOT_FOUND, HTTP_201_CREATED, HTTP_422
 from rest_framework.permissions import IsAuthenticated
 from .models import Booking, Person, Ferry
 from .serializers import BookingSerializer, PopulatedBookingSerializer, PersonSerializer, FerrySerializer
+import datetime
 
 class BookingListView(APIView):
 
@@ -28,6 +24,20 @@ class BookingListView(APIView):
         booking = BookingSerializer(data=request.data)
 
         if booking.is_valid():
+
+            if len(booking.validated_data.get('start_date')) == 8:
+                start_date = datetime.datetime(int(booking.validated_data.get('start_date')[0:4]), int(booking.validated_data.get('start_date')[4:6]), int(booking.validated_data.get('start_date')[6:8]))
+            elif len(booking.validated_data.get('start_date')) == 7:
+                start_date = datetime.datetime(int(booking.validated_data.get('start_date')[0:4]), int(booking.validated_data.get('start_date')[4:5]), int(booking.validated_data.get('start_date')[5:7]))
+            
+            if len(booking.validated_data.get('end_date')) == 8:
+                end_date = datetime.datetime(int(booking.validated_data.get('end_date')[0:4]), int(booking.validated_data.get('end_date')[4:6]), int(booking.validated_data.get('end_date')[6:8]))
+            elif len(booking.validated_data.get('end_date')) == 7:
+                end_date = datetime.datetime(int(booking.validated_data.get('end_date')[0:4]), int(booking.validated_data.get('end_date')[4:5]), int(booking.validated_data.get('end_date')[5:7]))
+
+            if start_date.strftime("%a") == 'Tue' or start_date.strftime("%a") == 'Thu' or end_date.strftime("%a") == 'Tue' or end_date.strftime("%a") == 'Thu':
+                return Response({'message': 'no arrivals or departures on Tuesdays and Thursdays'}, status=HTTP_422_UNPROCESSABLE_ENTITY)
+                
             booking.save()
             return Response(booking.data, status=HTTP_201_CREATED)
 
@@ -132,8 +142,9 @@ class FerryListView(APIView):
             if len(serialized_booking.data.get('ferry_quote')) == 1:
                 return Response({'message': 'maximum of one ferry per booking'}, status=HTTP_422_UNPROCESSABLE_ENTITY)
             ferry.save()
+            serialized_updated_booking = PopulatedBookingSerializer(booking)
 
-            return Response(serialized_booking.data, status=HTTP_201_CREATED)
+            return Response(serialized_updated_booking.data, status=HTTP_201_CREATED)
 
         return Response(ferry.errors, status=HTTP_422_UNPROCESSABLE_ENTITY)
 
