@@ -25,6 +25,8 @@ class BookingListView(APIView):
 
         if booking.is_valid():
 
+            home = booking.validated_data.get('home')
+
             if len(booking.validated_data.get('start_date')) == 8:
                 start_date = datetime.datetime(int(booking.validated_data.get('start_date')[0:4]), int(booking.validated_data.get('start_date')[4:6]), int(booking.validated_data.get('start_date')[6:8]))
             elif len(booking.validated_data.get('start_date')) == 7:
@@ -37,9 +39,23 @@ class BookingListView(APIView):
 
             if start_date.strftime("%a") == 'Tue' or start_date.strftime("%a") == 'Thu' or end_date.strftime("%a") == 'Tue' or end_date.strftime("%a") == 'Thu':
                 return Response({'message': 'no arrivals or departures on Tuesdays and Thursdays'}, status=HTTP_422_UNPROCESSABLE_ENTITY)
+
+            # print(int(end_date.strftime("%w")) - int(start_date.strftime("%w")))
+            if (end_date - start_date).days < 6:
+                return Response({'message': 'minimum of 6 nights stay'}, status=HTTP_422_UNPROCESSABLE_ENTITY)
+
+        
+            Booking.objects.exclude(pub_date__year=2006)
+
+
+            filter_params = dict(end_date__lte=start_date, start_date__gte=end_date)
+            is_occupied = Booking.objects.filter(**filter_params, home=home).exists()
+            print(is_occupied)
                 
             booking.save()
             return Response(booking.data, status=HTTP_201_CREATED)
+
+
 
         return Response(booking.errors, status=HTTP_422_UNPROCESSABLE_ENTITY)
 

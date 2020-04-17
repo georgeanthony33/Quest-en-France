@@ -5,11 +5,11 @@ User = get_user_model()
 
 class Booking(models.Model):
     home = models.ForeignKey(Home, related_name='bookings', null=True, on_delete=models.SET_NULL)
-    start_date = models.CharField(max_length=8)
-    end_date = models.CharField(max_length=8)
+    start_date = models.DateField()
+    end_date = models.DateField()
     price = models.SmallIntegerField()
     currency = models.CharField(max_length=3)
-    booking_date = models.IntegerField()
+    booking_date = models.DateField()
     user = models.ForeignKey(User, related_name='bookings', null=True, on_delete=models.CASCADE)
     additional_comments = models.CharField(max_length=10000)
 
