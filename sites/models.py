@@ -3,6 +3,7 @@ from django.db import models
 from django.contrib.auth import get_user_model
 from django.contrib.postgres.fields import ArrayField
 User = get_user_model()
+from datetime import date
 
 class Site(models.Model):
     name = models.CharField(max_length=50)
@@ -21,6 +22,7 @@ class Review(models.Model):
     text = models.CharField(max_length=1000)
     site = models.ForeignKey(Site, related_name='reviews', null=True, blank=True, on_delete=models.CASCADE)
     owner = models.ForeignKey(User, related_name='reviews', null=True, on_delete=models.CASCADE)
+    date_created = models.DateField(auto_now_add=True)
 
     def __str__(self):
         return f'Comment {self.id} on {self.site}'

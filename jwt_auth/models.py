@@ -6,7 +6,7 @@ class User(AbstractUser):
 
     first_name = models.CharField(max_length=100)
     last_name = models.CharField(max_length=100)
-    date_of_birth = models.IntegerField()
+    date_of_birth = models.DateField(null=True)
     email = models.CharField(max_length=100)
     address_first_line = models.CharField(max_length=100)
     address_second_line = models.CharField(max_length=100)
@@ -16,4 +16,4 @@ class User(AbstractUser):
     phone_number = models.CharField(max_length=100)
 
     def __str__(self):
-        return f'{self.first_name} {self.last_name}'
+        return f'{self.username}'

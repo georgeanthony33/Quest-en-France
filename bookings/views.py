@@ -4,6 +4,7 @@ from rest_framework.response import Response
 from rest_framework.status import HTTP_404_NOT_FOUND, HTTP_201_CREATED, HTTP_422_UNPROCESSABLE_ENTITY, HTTP_204_NO_CONTENT, HTTP_202_ACCEPTED, HTTP_401_UNAUTHORIZED
 from rest_framework.permissions import IsAuthenticated
 from .models import Booking, Person, Ferry
+from homes.models import Home
 from .serializers import BookingSerializer, PopulatedBookingSerializer, PersonSerializer, FerrySerializer
 import datetime
 
@@ -25,37 +26,32 @@ class BookingListView(APIView):
 
         if booking.is_valid():
 
-            if len(booking.validated_data.get('start_date')) == 8:
-                start_date = datetime.datetime(int(booking.validated_data.get('start_date')[0:4]), int(booking.validated_data.get('start_date')[4:6]), int(booking.validated_data.get('start_date')[6:8]))
-            elif len(booking.validated_data.get('start_date')) == 7:
-                start_date = datetime.datetime(int(booking.validated_data.get('start_date')[0:4]), int(booking.validated_data.get('start_date')[4:5]), int(booking.validated_data.get('start_date')[5:7]))
-                print(start_date)
-            
-            if len(booking.validated_data.get('end_date')) == 8:
-                end_date = datetime.datetime(int(booking.validated_data.get('end_date')[0:4]), int(booking.validated_data.get('end_date')[4:6]), int(booking.validated_data.get('end_date')[6:8]))
-            elif len(booking.validated_data.get('end_date')) == 7:
-                end_date = datetime.datetime(int(booking.validated_data.get('end_date')[0:4]), int(booking.validated_data.get('end_date')[4:5]), int(booking.validated_data.get('end_date')[5:7]))
-                print(end_date)
+            start_date = booking.validated_data.get('start_date')
+            end_date = booking.validated_data.get('end_date')
+            home = booking.validated_data.get('home')
 
             if start_date.strftime("%a") == 'Tue' or start_date.strftime("%a") == 'Thu' or end_date.strftime("%a") == 'Tue' or end_date.strftime("%a") == 'Thu':
                 return Response({'message': 'no arrivals or departures on Tuesdays and Thursdays'}, status=HTTP_422_UNPROCESSABLE_ENTITY)
             
-            # print(int(end_date.strftime("%w")) - int(start_date.strftime("%w")))
             if (end_date - start_date).days < 6:
                 return Response({'message': 'minimum of 6 nights stay'}, status=HTTP_422_UNPROCESSABLE_ENTITY)
 
-            # Booking.objects.exclude(pub_date__year=2006)
+            is_occupied = Home.objects.filter(
+                bookings__end_date__gt=start_date,
+                bookings__start_date__lt=end_date,
+                id=home.id).exists()
 
             # filter_params = dict(end_date__lte=start_date, start_date__gte=end_date)
             # is_occupied = Booking.objects.filter(**filter_params, home=home).exists()
-            # print(is_occupied)
+
+            if is_occupied:
+                return Response({'message': 'home already booked for these dates'}, status=HTTP_422_UNPROCESSABLE_ENTITY)
 
             booking.save()
 
             return Response(booking.data, status=HTTP_201_CREATED)
 
         return Response(booking.errors, status=HTTP_422_UNPROCESSABLE_ENTITY)
-
 
 class BookingDetailView(APIView):
 
@@ -90,7 +86,6 @@ class BookingDetailView(APIView):
             return Response(status=HTTP_204_NO_CONTENT)
         except Booking.DoesNotExist:
             return  Response({'message': 'Not Found'}, status=HTTP_404_NOT_FOUND)
-
 
 class PersonListView(APIView):
 

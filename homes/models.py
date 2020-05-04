@@ -15,4 +15,4 @@ class Home(models.Model):
     site = models.ForeignKey(Site, related_name='homes', null=True, on_delete=models.CASCADE)
 
     def __str__(self):
-        return f'{self.plot} - {self.home_type}'
+        return f'{self.plot} - {self.home_type} - {self.site.name}'

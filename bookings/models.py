@@ -2,14 +2,15 @@ from django.db import models
 from homes.models import Home
 from django.contrib.auth import get_user_model
 User = get_user_model()
+from datetime import date
 
 class Booking(models.Model):
     home = models.ForeignKey(Home, related_name='bookings', null=True, on_delete=models.SET_NULL)
-    start_date = models.CharField(max_length=8)
-    end_date = models.CharField(max_length=8)
+    start_date = models.DateField()
+    end_date = models.DateField()
     price = models.SmallIntegerField()
     currency = models.CharField(max_length=3)
-    booking_date = models.IntegerField()
+    booking_date = models.DateField(auto_now_add=True)
     user = models.ForeignKey(User, related_name='bookings', null=True, on_delete=models.CASCADE)
     additional_comments = models.CharField(max_length=10000)
 
@@ -19,7 +20,7 @@ class Booking(models.Model):
 class Person(models.Model):
     first_name = models.CharField(max_length=100)
     last_name = models.CharField(max_length=100)
-    date_of_birth = models.IntegerField()
+    date_of_birth = models.DateField()
     booking = models.ForeignKey(Booking, related_name='people', null=True, on_delete=models.CASCADE)
 
     # def __str__(self):
@@ -27,9 +28,9 @@ class Person(models.Model):
 
 class Ferry(models.Model):
     outbound_route = models.CharField(max_length=100)
-    outbound_date = models.IntegerField()
+    outbound_date = models.DateField()
     inbound_route = models.CharField(max_length=100)
-    inbound_date = models.IntegerField()
+    inbound_date = models.DateField()
     number_of_adults = models.SmallIntegerField()
     number_of_children = models.SmallIntegerField()
     number_of_infants = models.SmallIntegerField()
