@@ -4,3 +4,32 @@
 .homepage-outer-container {
   background-color: $dark-grey-colour;
 }
+
+.homepage-outer-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: bottom url('../../assets/L’Oceano\ d’Or/Pool-complex.jpg');
+  background-repeat: repeat;
+  background-size: contain;
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+}
+
+.color-overlay {
+  height: 100vh;
+  width: 100vw;
+  background-color: $dark-grey-colour;
+  opacity: 0.2;
+  position: absolute;
+}
+
+.homepage-inner-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+}

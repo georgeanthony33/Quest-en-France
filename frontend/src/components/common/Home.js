@@ -7,6 +7,9 @@ class Home extends React.Component {
   render() {
     return (
       <div className="homepage-outer-container">
+
+        <div className="color-overlay"></div>
+        
         <div className="homepage-inner-container">
           <div className="title-outer-container">
             <div className="title-inner-container">
