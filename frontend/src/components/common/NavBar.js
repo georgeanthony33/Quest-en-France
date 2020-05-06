@@ -25,7 +25,12 @@ class NavBar extends React.Component {
   render() {
     const userID = Auth.getPayload().sub
     return (
-      <nav className="navbar is-dark is-size-5">
+      <nav className="navbar is-dark is-size-5 is-fixed-top">
+        {/* <div className="container">
+          <div className="navbar-brand">
+            
+          </div>
+        </div> */}
         <div className="container">
           <div className="navbar-brand">
             <Link className="navbar-item" to="/"><div className="quest-logo"></div></Link>

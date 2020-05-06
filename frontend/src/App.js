@@ -1,6 +1,7 @@
 import React from 'react'
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import 'bulma'
+import './styles/main.scss'
 // import Notifications, { notify } from 'react-notify-toast'
 
 import NavBar from './components/common/NavBar'

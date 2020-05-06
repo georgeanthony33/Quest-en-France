@@ -1,35 +1,35 @@
 @import 'base/colours';
 @import 'base/fonts';
 
-.homepage-outer-container {
-  background-color: $dark-grey-colour;
-}
-
-.homepage-outer-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: bottom url('../../assets/L’Oceano\ d’Or/Pool-complex.jpg');
-  background-repeat: repeat;
-  background-size: contain;
-  height: 100vh;
+.homepage-top-outer-container {
+  // background: center url('../../assets/L’Oceano\ d’Or/Pool-complex.jpg');
+  background: center url('../../assets/L’Oceano\ d’Or/slide.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: calc(100vh - 40px);
   width: 100vw;
   position: relative;
 }
 
-.color-overlay {
-  height: 100vh;
-  width: 100vw;
-  background-color: $dark-grey-colour;
-  opacity: 0.2;
-  position: absolute;
+// .color-overlay {
+//   height: 100%;
+//   width: 100%;
+//   background-color: $dark-grey-colour;
+//   opacity: 0;
+//   position: absolute;
+// }
+
+.homepage-top-inner-container {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  width: 100%;
 }
 
-.homepage-inner-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-  height: 100vh;
-  width: 100vw;
+.homepage-search {
+  height: 500px;
+  width: 400px;
+  background-color: whitesmoke;
+  border-radius: 10px;
+  padding: 20px
 }
