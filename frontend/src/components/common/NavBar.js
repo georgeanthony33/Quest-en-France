@@ -1,9 +1,10 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link, withRouter } from 'react-router-dom'
 // import { notify } from 'react-notify-toast'
 import Auth from '../common/Auth'
 
 class NavBar extends React.Component {
+  
   state = { navOpen: false }
 
   toggleNavbar = () => {
