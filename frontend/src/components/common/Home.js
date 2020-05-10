@@ -7,6 +7,8 @@ const Home = () => {
   const [ site, setSite ] = useState('')
   const [ checkin, setCheckin ] = useState(0)
   const [ checkout, setCheckout ] = useState(0)
+  const [ adults, setAdults ] = useState(1)
+  const [ kids, setKids ] = useState(0)
 
   useEffect(() => {
     prefillDates()
@@ -19,6 +21,10 @@ const Home = () => {
     setCheckin(tomorrow)
     setCheckout(weekToday)
   }
+
+  // const handleChange = ({ target: { name, value } }) => {
+    
+  // }
 
   return (
     <body className="has-navbar-fixed-top">
@@ -34,13 +40,15 @@ const Home = () => {
               <h2>Book your dream holiday in France or Portugal with Quest en France</h2>
               <br />
 
-              <div className="field">
-                <label class="label">Where</label>
-                <div className="control">
-                  <input className="input" type="text" name="site"
-                  value={site}
-                  // onChange={this.handleChange}
-                  placeholder="Choose site" />
+              <div className="columns">
+                <div className="field column">
+                  <label class="label">Where</label>
+                  <div className="control">
+                    <input className="input" type="text" name="site"
+                    value={site}
+                    // onChange={this.handleChange}
+                    placeholder="Choose site" />
+                  </div>
                 </div>
               </div>
 
@@ -58,7 +66,6 @@ const Home = () => {
                     />
                   </div>
                 </div>
-
                 <div className="field column is-half">
                   <label class="label">Check Out</label>
                   <div className="control">
@@ -70,6 +77,27 @@ const Home = () => {
                       name="date"
                       required={true}
                     />
+                  </div>
+                </div>
+              </div>
+
+              <div className="columns">
+                <div className="field column is-half">
+                  <label class="label">Adults</label>
+                  <div className="control">
+                    <input className="input" type="number" name="adults"
+                    value={adults}
+                    // onChange={this.handleChange}
+                    placeholder="Choose site" />
+                  </div>
+                </div>
+                <div className="field column is-half">
+                  <label class="label">Kids</label>
+                  <div className="control">
+                    <input className="input" type="number" name="kids"
+                    value={kids}
+                    // onChange={this.handleChange}
+                    placeholder="Choose site" />
                   </div>
                 </div>
               </div>
