@@ -5,12 +5,43 @@
   "fields": {
     "name": "L\u2019Oceano d\u2019Or",
     "country": "France",
-    "short_description": "Camping L\u2019Oceano d\u2019Or is one of the prestigious group of sites, which won the \u2018Grand Prix du Tourisme\u2019 recently, and has now gained the coveted five star status.",
+    "short_description": "Camping L’Oceano d’Or (France) is one of the prestigious sites, which won the ‘Grand Prix du Tourisme’ recently, and has now gained the coveted five star status.",
     "long_description": "Camping L\u2019Oceano d\u2019Or is one of the prestigious group of sites, which won the \u2018Grand Prix du Tourisme\u2019 recently, and has now gained the coveted five star status. The large swimming pool complex has a spacious sun terrace, overlooked by the bar. There are 2 fun waterslides and a heated children\u2019s pool. Built in 2015, the addition of a large indoor pool, with roof that can be opened, is an added attraction. This site should appeal to families with children of all ages. It is lively in high season with a full programme of entertainment. Other sporting activities on offer are tennis, boules, aquagym and scuba diving. There is also a fitness suite on site. The site has 2 beaches within walking distance, Plage de Boisinet and Plage de Morpoigne, both of which have plenty of bars, cafes and restaurants.",
-    "images": "[\"https://www.questenfrance.com/wp-content/uploads/2015/12/View-of-leisure-activities1.jpg\"]",
+    "main_image": "../L’Oceano d’Or/Pool-complex.jpg",
+    "gallery_images": "[\"https://www.questenfrance.com/wp-content/uploads/2015/11/les-genets1.jpg\"]",
     "latitude": 46.4208,
     "longitude": -1.5697,
-    "facilities": "[\"Open from mid May to mid Sept\"]"
+    "facilities": ["Open from mid May to mid Sept", "Our own English speaking couriers", "Reception", "Small supermarket", "Restaurant, Takeaway & Bar", "Pool complex with 3 pools & slide", "Fitness suite", "Bike hire (additional cost)", "WiFi", "Satellite TV in bar", "Linen hire available", "Multi sports play area", "Childrens play area", "Table Tennis", "Tennis court", "Games room", "Launderette", "Kids club"]
+  }
+},
+{
+  "model": "sites.site",
+  "pk": 2,
+  "fields": {
+    "name": "Les Genets",
+    "country": "France",
+    "short_description": "Les Genets is a 5 star site, 800 metres (10 minutes walk) from glorious sandy beaches ideal for sunbathing, swimming, windsurfing & sailing. The pool complex includes an indoor and outdoor pool.",
+    "long_description": "Les Genets is a 5 star site, approximately 800 metres (about 10 minutes walk) from long glorious sandy beaches. These beaches are ideal for sunbathing, swimming, windsurfing & sailing. The pool complex includes an indoor and outdoor pool, with slides and cascading water waves. Near to the site entrance is crazy golf and carrying on towards the Plage de Mouettes and Merlin Plage beaches are cafes, restaurants, a supermarket, bike hire, and shops.The area provides opportunities for walking, cycling, quad biking & pony trekking ( available at local equestrian centre). The campsite offers a relaxed, family atmosphere set in a wooden park. In high season there is organised entertainment provided during the day and night. The site is ideal for children of all ages. Also at close proximity is the Atlantic Toboggan water park. Close by is the St Jean de Monts golf course, offering an excellent 18 hole course.",
+    "main_image": "../Les Genets/les-genets-pool4.jpg",
+    "gallery_images": "[\"https://www.questenfrance.com/wp-content/uploads/2015/11/les-genets1.jpg\"]",
+    "latitude": 46.7708787,
+    "longitude": 2.0122,
+    "facilities": ["Open from mid May to mid Sept", "Our own English speaking couriers", "Reception", "Small supermarket", "Restaurant, Takeaway & Bar", "Pool complex with 3 pools & slide", "Indoor pool with jacuzzi", "Bike hire (additional cost)", "WiFi", "Satellite TV in bar", "Linen hire available", "Multi sports play area", "Childrens play area", "Table Tennis", "Tennis court", "Games room", "Launderette", "Themed Wild West water slides"]
+  }
+},
+{
+  "model": "sites.site",
+  "pk": 3,
+  "fields": {
+    "name": "Calico Park",
+    "country": "Portugal",
+    "short_description": "Calico Park (Portugal) is mainly an English site with a mix of residential and holiday homes and is open all year round. A short drive from glorious beaches and fantastic golf courses.",
+    "long_description": "Set on a south facing hill, in the Eastern Algarve. and overlooking the village of Vila Nova de Cacela, Calico Park is a 10 minutes drive from superb golden beaches, and fantastic golf courses.\nThe site is under an hour’s drive from Faro International Airport, and 11km from the town of Tavira and also 11km from Vila St Real and the Spanish border.\nThe Eastern Algarve is ideal for visitors looking for a somewhat rural, untouched and laid back appeal, whilst benefiting with some of Europe’s most beautifully kept golden sand y beaches and the picturesque hills & countryside backing them. The area is richly blessed in terms of its history, architecture and scenery.\nCalico Park, on the eastern Algarve, is a very friendly site, and is perfect if you are looking for a relaxing holiday, away from the hordes of tourists and water parks.\nCaliço Park is open all year round and offers a privileged location that is both private and secure, whilst being within one of the Algarve’s most sought-after post-codes, on the fringes of the Ria Formosa nature reserve. The pretty tree lined avenues meander and wind throughout the discreet phases of the park passing the well-tended private plots and the communal mature gardens, which help to provide a peaceful and pretty living environment all year round. Caliço Park has been sympathetically landscaped to retain its natural charm and beauty whilst ensuring that each home enjoys a large plot with views. The first thing that strikes you upon the approach to the Park is the beautiful panoramic views of the Atlantic Ocean and the peaceful tranquillity of the surrounding countryside and mountains.\nCaliço Park’s friendly-gated community has a security entry system operational 24 hours per day providing security and peace of mind to guests and residents. The reception is open from 09:00 to 18:00 7 days a week.\nThere are fantastic beaches a short drive away, and at least 6 golf courses within easy reach to satisfy the most ardent golfer!",
+    "main_image": "../Les Genets/les-genets-pool4.jpg",
+    "gallery_images": "[\"https://www.questenfrance.com/wp-content/uploads/2015/11/les-genets1.jpg\"]",
+    "latitude": 46.7708787,
+    "longitude": 2.0122,
+    "facilities": ["Open from mid May to mid Sept", "Our own English speaking couriers", "Reception", "Small supermarket", "Restaurant, Takeaway & Bar", "Pool complex with 3 pools & slide", "Indoor pool with jacuzzi", "Bike hire (additional cost)", "WiFi", "Satellite TV in bar", "Linen hire available", "Multi sports play area", "Childrens play area", "Table Tennis", "Tennis court", "Games room", "Launderette", "Themed Wild West water slides"]
   }
 }
 ]

@@ -1,19 +1,38 @@
 import React, { useState, useEffect } from 'react'
 import DatePicker from 'react-datepicker'
 import 'react-datepicker/dist/react-datepicker.css'
-// import { Link, withRouter } from 'react-router-dom'
+import axios from 'axios'
+import { Link, withRouter } from 'react-router-dom'
+import SiteCard from './SiteCard'
 
 const Home = () => {
-  const [ site, setSite ] = useState('')
+  const [ sites, setSites ] = useState('')
   const [ checkin, setCheckin ] = useState(new Date().setDate(new Date().getDate() + 1))
   const [ checkout, setCheckout ] = useState(new Date().setDate(new Date().getDate() + 7))
   const [ adults, setAdults ] = useState(1)
   const [ kids, setKids ] = useState(0)
 
+  const getSiteData = async () => {
+    const siteData = await axios.get('/api/sites/')
+    setSites(siteData.data)
+  }
+
+  useEffect(() => {
+    getSiteData()
+  }, [])
+
+  
+  if (!sites) return null
+  console.log(sites[0].main_image)
+
+
+
   return (
-    <body className="has-navbar-fixed-top">
+    
+    <div className="has-navbar-fixed-top">
+
       
-      <div className="homepage-top-outer-container">
+      <section className="homepage-top-outer-container">
         <div className="color-overlay"></div>
         <div className="homepage-top-inner-container columns">
           <div className="column is-1"></div>
@@ -21,16 +40,16 @@ const Home = () => {
 
             <form className="homepage-search">
 
-              <h2>Book your dream holiday in France or Portugal with Quest en France</h2>
+              <h2 className="has-text-weight-bold">Book your dream holiday in France or Portugal with Quest en France</h2>
               <br />
 
               <div className="columns">
                 <div className="field column">
-                  <label class="label">Where</label>
+                  <label className="label">Where</label>
                   <div className="control">
                     <input className="input" type="text" name="site"
-                    value={site}
-                    onChange={(e) => setSite(e.target.value)}
+                    value={sites}
+                    onChange={(e) => setSites(e.target.value)}
                     placeholder="Choose site" />
                   </div>
                 </div>
@@ -38,7 +57,7 @@ const Home = () => {
 
               <div className="columns">
                 <div className="field column is-half">
-                  <label class="label">Check In</label>
+                  <label className="label">Check In</label>
                   <div className="control">
                     <DatePicker
                       className="input"
@@ -51,7 +70,7 @@ const Home = () => {
                   </div>
                 </div>
                 <div className="field column is-half">
-                  <label class="label">Check Out</label>
+                  <label className="label">Check Out</label>
                   <div className="control">
                     <DatePicker
                       className="input"
@@ -67,7 +86,7 @@ const Home = () => {
 
               <div className="columns">
                 <div className="field column is-half">
-                  <label class="label">Adults</label>
+                  <label className="label">Adults</label>
                   <div className="control">
                     <input className="input" type="number" name="adults"
                     value={adults}
@@ -76,7 +95,7 @@ const Home = () => {
                   </div>
                 </div>
                 <div className="field column is-half">
-                  <label class="label">Kids</label>
+                  <label className="label">Kids</label>
                   <div className="control">
                     <input className="input" type="number" name="kids"
                     value={kids}
@@ -85,14 +104,33 @@ const Home = () => {
                   </div>
                 </div>
               </div>
+              <input className="button is-danger" type="submit" value="Search" />
 
             </form>
 
           </div>
           <div className="column is-7"></div>
         </div>
-      </div>
-    </body>
+      </section>
+
+      <section className="section has-background-light">
+        <div className="container">
+          <h1 className="title has-text-weight-bold">Explore our sites</h1>
+          <div className="columns is-mobile is-multiline">
+            {sites.map(site => ( 
+              <SiteCard key={site.id} {...site}/>
+            ))
+            }
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <p>Hello</p>
+        <img src="../LesGenets/les-genets-pool4.jpg" />
+        {/* <img src="../" */}
+      </section>
+    </div>
   )
 }
 
