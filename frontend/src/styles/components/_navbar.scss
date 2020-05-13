@@ -1,0 +1,21 @@
+@import 'base/colours';
+@import 'base/fonts';
+
+.logo {
+  background-image: url('../../assets/Logos/QeF-logo.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 260px;
+  height: 82px;
+  margin: 4px 0;
+}
+
+.logo.small {
+  height: 46px;
+  margin: 2px 0;
+}
+
+.navbar-brand, .navbar-end {
+  display: flex;
+  align-items: flex-end;
+}

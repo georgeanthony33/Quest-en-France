@@ -7,25 +7,38 @@ import SiteCard from './SiteCard'
 
 const Home = () => {
   const [ sites, setSites ] = useState('')
+  const [ chosenSite, setChosenSite ] = useState('')
   const [ checkin, setCheckin ] = useState(new Date().setDate(new Date().getDate() + 1))
   const [ checkout, setCheckout ] = useState(new Date().setDate(new Date().getDate() + 7))
   const [ adults, setAdults ] = useState(1)
   const [ kids, setKids ] = useState(0)
 
   const getSiteData = async () => {
-    const siteData = await axios.get('/api/sites/')
-    setSites(siteData.data)
+    const sites = await axios.get('/api/sites/')
+    const siteData = sites.data.sort(compare)
+    setSites(siteData)
+  }
+
+  const compare = (a, b) => {
+    const siteA = a.id
+    const siteB = b.id
+  
+    let comparison = 0
+    if (siteA > siteB) {
+      comparison = 1
+    } else if (siteA < siteB) {
+      comparison = -1
+    }
+    return comparison
   }
 
   useEffect(() => {
     getSiteData()
   }, [])
 
-  
+
   if (!sites) return null
-  console.log(sites[0].main_image)
-
-
+  console.log(chosenSite)
 
   return (
     
@@ -46,11 +59,17 @@ const Home = () => {
               <div className="columns">
                 <div className="field column">
                   <label className="label">Where</label>
-                  <div className="control">
-                    <input className="input" type="text" name="site"
-                    value={sites}
-                    onChange={(e) => setSites(e.target.value)}
-                    placeholder="Choose site" />
+                  <div className="select control">
+                    <select
+                      name="site"
+                      onChange={(e) => setChosenSite(e.target.value)}
+                      value={chosenSite}
+                    >
+                      <option disabled value="">Choose a site</option>
+                      {sites.map(site => (
+                        <option key={site.id} value={site.name}>{site.name}</option>
+                      ))}
+                    </select>
                   </div>
                 </div>
               </div>
@@ -113,7 +132,7 @@ const Home = () => {
         </div>
       </section>
 
-      <section className="section has-background-light">
+      <section className="section has-background-white">
         <div className="container">
           <h1 className="title has-text-weight-bold">Explore our sites</h1>
           <div className="columns is-mobile is-multiline">
@@ -125,11 +144,24 @@ const Home = () => {
         </div>
       </section>
 
-      <section>
-        <p>Hello</p>
-        <img src="../LesGenets/les-genets-pool4.jpg" />
-        {/* <img src="../" */}
+
+      <section className="section has-background-light">
+        <div className="container">
+          <h2 className="has-text-weight-bold">We have a selection of 2 and 3 bedroomed modern cottage style mobile homes with either open or semi-covered verandas. The 2 bedroomed homes will accommodate between 4-6 people as the lounge seating area can convert to a bed that sleeps up to 2 people. The 3 bedroomed homes will accommodate 6 people.</h2>
+          <br />
+          <div className="columns is-mobile is-multiline">
+            {sites.map(site => ( 
+              <SiteCard key={site.id} {...site}/>
+              ))
+            }
+          </div>
+          <br />
+          <div className="container columns is-centered">
+            <button className="button is-danger is-medium">Explore our homes</button>
+          </div>
+        </div>
       </section>
+
     </div>
   )
 }

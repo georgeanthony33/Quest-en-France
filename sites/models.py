@@ -8,6 +8,7 @@ from datetime import date
 class Site(models.Model):
     name = models.CharField(max_length=50)
     country = models.CharField(max_length=50)
+    area = models.CharField(max_length=50, null=True)
     short_description = models.CharField(max_length=1000)
     long_description = models.CharField(max_length=50000)
     main_image = models.CharField(max_length=500, null=True)
