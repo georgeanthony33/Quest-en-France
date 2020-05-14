@@ -15,7 +15,6 @@ class ListView(APIView):
 
         return Response(serializer.data)
 
-
 class DetailView(APIView):
 
     def get(self, _request, pk):
@@ -24,6 +23,14 @@ class DetailView(APIView):
 
         return Response(serializer.data)
 
+
+class AllReviews(APIView):
+
+    def get(self, _request):
+        reviews = Review.objects.all()
+        serialized_reviews = ReviewSerializer(reviews, many=True)
+
+        return Response(serialized_reviews.data)
 
 class ReviewListView(APIView):
 

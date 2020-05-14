@@ -21,13 +21,14 @@ class Site(models.Model):
         return f'{self.name}'
 
 class Review(models.Model):
-    text = models.CharField(max_length=1000)
+    text = models.TextField(max_length=1000)
     site = models.ForeignKey(Site, related_name='reviews', null=True, blank=True, on_delete=models.CASCADE)
-    owner = models.ForeignKey(User, related_name='reviews', null=True, on_delete=models.CASCADE)
+    owner = models.ForeignKey(User, related_name='reviews', null=True, blank=True, on_delete=models.CASCADE)
+    name = models.CharField(max_length=100, null=True)
     date_created = models.DateField(auto_now_add=True)
 
     def __str__(self):
-        return f'Comment {self.id} on {self.site}'
+        return f'{self.site} - {self.name}'
 
 class Attraction(models.Model):
     name = models.CharField(max_length=50)

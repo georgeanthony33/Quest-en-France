@@ -24,12 +24,6 @@ const NavBar = () => {
     return () => window.removeEventListener('scroll', () => setScrollY(window.scrollY))
   }, []);
 
-  useEffect(() => {
-    console.log(scrollY)
-  }, []);
-
-  console.log(scrollY)
-
   return (
     <nav className="navbar is-dark is-size-5 is-fixed-top">
       <div className="container">

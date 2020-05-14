@@ -36,6 +36,23 @@
   padding: 20px
 }
 
+.homepage-reviews {
+  padding-top: 15px;
+  border-radius: 10px;
+}
+
 .no-margin-bottom {
   margin-bottom: -40px;
+}
+
+.quotations {
+  background-image: url('../../assets/Logos/Quotations.png');
+  background-size: contain;
+  height: 50px;
+  width: 50px;
+  margin-bottom: 10px;
+}
+
+.curved-corners {
+  border-radius: 10px;
 }
