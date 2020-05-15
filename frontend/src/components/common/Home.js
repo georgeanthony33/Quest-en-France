@@ -4,6 +4,10 @@ import 'react-datepicker/dist/react-datepicker.css'
 import axios from 'axios'
 import { Link, withRouter } from 'react-router-dom'
 import SiteCard from './SiteCard'
+import AliceCarousel from 'react-alice-carousel'
+import 'react-alice-carousel/lib/alice-carousel.css'
+
+// import bulmaCarousel from 'bulma-carousel/dist/js/bulma-carousel.min.js';
 
 const Home = () => {
   const [ sites, setSites ] = useState('')
@@ -14,6 +18,29 @@ const Home = () => {
   const [ adults, setAdults ] = useState(1)
   const [ kids, setKids ] = useState(0)
   const [ isActive, setIsActive ] = useState('')
+  const [ homeImages, setHomeImages ] = useState()
+
+  useEffect(() => {
+    getSiteData()
+    getReviewData()
+    // buildCarousel()
+    setHomeImages([1, 2, 3].map((i) => <h2 key={i}>{i}</h2>))
+  }, [])
+ 
+  const responsive = {
+    0: { items: 1 },
+    1024: { items: 2 },
+  }
+
+  const onSlideChange = (e) => {
+    console.debug('Item`s position during a change: ', e.item)
+    console.debug('Slide`s position during a change: ', e.slide)
+  }
+ 
+  const onSlideChanged = (e) => {
+    console.debug('Item`s position after changes: ', e.item)
+    console.debug('Slide`s position after changes: ', e.slide)
+  }
 
   const getSiteData = async () => {
     const sites = await axios.get('/api/sites/')
@@ -40,10 +67,18 @@ const Home = () => {
     return comparison
   }
 
-  useEffect(() => {
-    getSiteData()
-    getReviewData()
-  }, [])
+  // Initialize all elements with carousel class.
+  // const buildCarousel = () => {
+  //   bulmaCarousel.attach('#carousel-demo', { slidesToScroll: 1, slidesToShow: 3 })
+  // }
+  
+  // bulmaCarousel.attach('#carousel-demo', { slidesToScroll: 1, slidesToShow: 3 })
+
+  // To access to bulmaCarousel instance of an element
+  // const element = document.querySelector('#my-element');
+  // if (element && element.bulmaCarousel) {
+  //   // bulmaCarousel instance is available as element.bulmaCarousel
+  // }
 
   if (!sites) return null
 
@@ -186,16 +221,52 @@ const Home = () => {
         <div className="container">
           <h2 className="has-text-weight-bold">We have a selection of 2 and 3 bedroomed modern cottage style mobile homes with either open or semi-covered verandas. The 2 bedroomed homes will accommodate between 4-6 people as the lounge seating area can convert to a bed that sleeps up to 2 people. The 3 bedroomed homes will accommodate 6 people.</h2>
           <br />
-          <div className="columns is-mobile is-multiline">
+          <AliceCarousel
+            items={homeImages}
+            responsive={responsive}
+            autoPlayInterval={2000}
+            autoPlayDirection="rtl"
+            autoPlay={true}
+            fadeOutAnimation={true}
+            mouseTrackingEnabled={true}
+            // playButtonEnabled={true}
+            disableAutoPlayOnAction={true}
+            onSlideChange={onSlideChange}
+            onSlideChanged={onSlideChanged}
+          />
+          {/* <div className="columns is-mobile is-multiline">
             {sites.map(site => ( 
               <SiteCard key={site.id} {...site}/>
               ))
             }
-          </div>
+          </div> */}
+          {/* <div className="carousel" id="carousel-demo">
+            <div className="item-1"></div>
+            <div className="item-1"></div>
+            <div className="item-1"></div>
+          </div> */}
           <br />
           <div className="container columns is-centered">
             <button className="button is-danger is-medium">Explore our homes</button>
           </div>
+        </div>
+      </section>
+
+      <section className="section">
+        <div className="container">
+    
+          <div id="carousel-demo" className="carousel">
+            <div className="item-1">
+              <img src="https://www.w3schools.com/w3css/img_lights.jpg"></img>
+            </div>
+            <div className="item-1">
+              <img src="https://www.w3schools.com/w3css/img_lights.jpg"></img>
+            </div>
+            <div className="item-1">
+              <img src="https://www.w3schools.com/w3css/img_lights.jpg"></img>
+            </div>
+          </div>
+    
         </div>
       </section>
 
