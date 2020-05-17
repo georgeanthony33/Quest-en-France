@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'homes',
+    'home_images',
     'sites',
     'bookings',
     'jwt_auth',

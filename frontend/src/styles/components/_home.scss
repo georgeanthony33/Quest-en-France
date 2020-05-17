@@ -63,3 +63,69 @@
   height: 200px;
   width: 200px;
 }
+
+.carousel {
+  height: 300px;
+  min-height: 300px;
+}
+
+div.alice-carousel__next-btn, div.alice-carousel__prev-btn {
+  position: relative;
+  top: -150px;
+  display: inline-block;
+  // z-index: -1;
+  width: fit-content;
+}
+
+div.alice-carousel__next-btn {
+  text-align: right;
+  left: calc(84vw);
+}
+
+div.alice-carousel__prev-btn {
+  text-align: left;
+  right: 45px;
+}
+
+.homecard-container {
+  height: 300px;
+  z-index: 2;
+}
+
+.homepage-alice-image {
+  height: 280px;
+  padding: 15px;
+}
+
+.homecard-container:hover {
+  .homecard-text-container {
+    background-color: rgba(0, 0, 0, 0.575);
+    transform: translateY(-140px);
+    margin: 15px;
+    height: 98px;
+  }
+}
+
+.homecard-text-container {
+  background-color: rgba(0, 0, 0, 0.24);
+  transform: translateY(-140px);
+  margin: 15px;
+  height: 98px;
+  .homecard-text-container {
+    background-color: rgba(0, 0, 0, 0.575);
+    transform: translateY(-140px);
+    margin: 15px;
+    height: 98px;
+  }
+}
+
+// .homecard-text-container:hover {
+//   background-color: rgba(0, 0, 0, 0.575);
+//   transform: translateY(-140px);
+//   margin: 15px;
+//   height: 98px;
+// }
+
+// .homecard-home-type {
+  
+// }

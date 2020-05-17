@@ -2,7 +2,6 @@ import React from 'react'
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import 'bulma'
 import './styles/main.scss'
-import 'bulma-carousel'
 // import Notifications, { notify } from 'react-notify-toast'
 
 import NavBar from './components/common/NavBar'

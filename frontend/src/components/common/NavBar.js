@@ -43,7 +43,7 @@ const NavBar = () => {
         </div>
         <div className={`navbar-menu ${navOpen ? 'is-active' : ''}`}>
           <div className="navbar-end">
-            <Link className="navbar-item" to={`/profile`}>👤 Bookings</Link>
+            <Link className="navbar-item" to={`/profile`}>Bookings</Link>
           </div>
         </div>
       </div>

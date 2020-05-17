@@ -1,0 +1,83 @@
+[
+{
+  "model": "home_images.homeimage",
+  "pk": 1,
+  "fields": {
+    "image_location": "../Home Images/3-bedroomed-home-dining-area.jpg",
+    "home_type": "3 Bedroomed Home",
+    "room": "Dining Area"
+  }
+},
+{
+  "model": "home_images.homeimage",
+  "pk": 2,
+  "fields": {
+    "image_location": "../Home Images/Cordelia-3-bedroomed-home-Lounge.jpg",
+    "home_type": "Cordelia 3 Bedroomed Home",
+    "room": "Lounge"
+  }
+},
+{
+  "model": "home_images.homeimage",
+  "pk": 3,
+  "fields": {
+    "image_location": "../Home Images/Cordelia-lounge-21.jpg",
+    "home_type": "Cordelia",
+    "room": "Lounge Area"
+  }
+},
+{
+  "model": "home_images.homeimage",
+  "pk": 4,
+  "fields": {
+    "image_location": "../Home Images/Cordelia-riviera-lounge.jpg",
+    "home_type": "Cordelia Riviera",
+    "room": "Lounge Area"
+  }
+},
+{
+  "model": "home_images.homeimage",
+  "pk": 5,
+  "fields": {
+    "image_location": "../Home Images/Home-with-open-veranda.jpg",
+    "home_type": "Open Veranda",
+    "room": ""
+  }
+},
+{
+  "model": "home_images.homeimage",
+  "pk": 6,
+  "fields": {
+    "image_location": "../Home Images/Home-with-semi-covered-veranda.jpg",
+    "home_type": "Semi Covered Veranda",
+    "room": ""
+  }
+},
+{
+  "model": "home_images.homeimage",
+  "pk": 7,
+  "fields": {
+    "image_location": "../Home Images/homes-inside.jpg",
+    "home_type": "2 Bedroomed Home",
+    "room": "Lounge & Kitchen Area"
+  }
+},
+{
+  "model": "home_images.homeimage",
+  "pk": 8,
+  "fields": {
+    "image_location": "../Home Images/our-homes2.jpg",
+    "home_type": "Insert Name",
+    "room": ""
+  }
+},
+{
+  "model": "home_images.homeimage",
+  "pk": 9,
+  "fields": {
+    "image_location": "../Home Images/Riviera-3-bedroomed-home-dining-area.jpg",
+    "home_type": "Riveria 3 Bedroomed Home",
+    "room": "Dining Area"
+  }
+}
+]
