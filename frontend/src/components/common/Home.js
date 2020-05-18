@@ -56,15 +56,14 @@ const Home = () => {
     
   }
 
-  if (!sites) return null
+  if (!sites || !reviews || !homeImages) return null
 
   return (
     
     <div className="has-navbar-fixed-top">
 
-      
       <section className="homepage-top-outer-container">
-        <div className="color-overlay"></div>
+        {/* <div className="color-overlay"></div> */}
         <div className="homepage-top-inner-container columns">
           <div className="column is-1"></div>
           <div className="column is-4">
@@ -167,9 +166,7 @@ const Home = () => {
           <h1 className="title has-text-weight-bold is-size-2">Explore our sites</h1>
           <div className="columns is-mobile is-multiline">
             {sites.map(site => (
-              <Link to={`/sites/${site.id}`} props={site}>
-                <SiteCard key={site.id} {...site}/>
-              </Link>
+              <SiteCard key={site.id} {...site}/>
             ))}
           </div>
         </div>

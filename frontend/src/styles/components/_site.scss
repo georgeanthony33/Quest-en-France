@@ -2,9 +2,85 @@
 @import 'base/fonts';
 
 .site-outer-container {
-  margin-top: 92px;
+  margin-top: 106px;
 }
 
-// .site-carousel {
+.site-top-banner {
+  height: 80px;
+  padding: 8px 20px;
+  border-top: $red-colour 5px solid;
+  border-bottom: $red-colour 5px solid;
+  display: flex;
+}
 
-// }
+.site-top-outer-container {
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: calc(100vh - 120px);
+  margin-top: 12px;
+  width: 100vw;
+  position: relative;
+}
+
+.sitepage-search {
+  height: 500px;
+  width: 500px;
+  background-color: whitesmoke;
+  border-radius: 10px;
+  padding: 30px
+}
+
+.L’Oceano {
+  background: center url('../../assets/Panoramics/LOceano.jpg');
+}
+
+.Les {
+  background: center url('../../assets/Panoramics/LesGenets.jpg');
+}
+
+.Calico {
+  background: right bottom url('../../assets/Panoramics/CalicoPark.jpg');
+}
+
+
+
+.site-area {
+  margin-top: 0.7rem;
+}
+
+.site-content {
+  margin-top: 12px;
+}
+
+.site-top {
+  padding: 30px 50px;
+}
+
+.site-carousel-container {
+  text-align: center;
+}
+
+.site-carousel {
+  height: 400px;
+}
+
+.site-carousel > .alice-carousel > div.alice-carousel__next-btn, .site-carousel > .alice-carousel > div.alice-carousel__prev-btn {
+  position: relative;
+  top: -240px;
+  display: inline-block;
+  width: fit-content;
+}
+
+div.alice-carousel__next-btn {
+  text-align: right;
+  left: 280px;
+}
+
+div.alice-carousel__prev-btn {
+  text-align: left;
+  right: 250px;
+}
+
+.site-alice-image {
+  height: 400px;
+}

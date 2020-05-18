@@ -28,8 +28,7 @@ const NavBar = () => {
     <nav className="navbar is-dark is-size-5 is-fixed-top">
       <div className="container">
         <div className="navbar-brand">
-          <div className={scrollY < 45 ? 'logo' : 'logo small'}></div>
-          <Link className="navbar-item" to="/"><div className="quest-logo"></div></Link>
+          <Link className="navbar-item" to="/"><div className={scrollY < 45 ? 'logo' : 'logo small'}></div></Link>
           <Link className="navbar-item" to="/sites/france">Sites France</Link>
           <Link className="navbar-item" to="/sites/portugal">Sites Portugal</Link>
           <a 

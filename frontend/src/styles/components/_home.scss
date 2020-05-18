@@ -3,7 +3,7 @@
 
 .homepage-top-outer-container {
   // background: center url('../../assets/L’Oceano\ d’Or/Pool-complex.jpg');
-  background: center url('../../assets/slide.jpg');
+  background: center url('../../assets/HomeBackground.jpg');
   background-repeat: no-repeat;
   background-size: cover;
   height: calc(100vh - 80px);
@@ -32,7 +32,7 @@
   width: 400px;
   background-color: whitesmoke;
   border-radius: 10px;
-  padding: 20px
+  padding: 25px
 }
 
 .homepage-reviews {
@@ -56,23 +56,21 @@
   border-radius: 10px;
 }
 
-.item-1 {
-  background-image: url('../../assets/slide.jpg');
-  background-size: contain;
-  height: 200px;
-  width: 200px;
-}
+// .item-1 {
+//   background-image: url('../../assets/slide.jpg');
+//   background-size: contain;
+//   height: 200px;
+//   width: 200px;
+// }
 
 .homepage-carousel {
   height: 300px;
-  min-height: 300px;
 }
 
-div.alice-carousel__next-btn, div.alice-carousel__prev-btn {
+.homepage-carousel > .alice-carousel > div.alice-carousel__next-btn, .homepage-carousel > .alice-carousel > div.alice-carousel__prev-btn {
   position: relative;
   top: -150px;
   display: inline-block;
-  // z-index: -1;
   width: fit-content;
 }
 
