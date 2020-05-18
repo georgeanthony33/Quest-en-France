@@ -6,6 +6,7 @@ import './styles/main.scss'
 
 import NavBar from './components/common/NavBar'
 import Home from './components/common/Home'
+import Site from './components/sites/Site'
 
 const App = () => (
   <BrowserRouter>
@@ -14,6 +15,7 @@ const App = () => (
       <NavBar />
       <Switch>
         <Route exact path="/" component={Home} />
+        <Route exact path="/sites/:id" component={Site} />
       </Switch>
     </>
   </BrowserRouter>

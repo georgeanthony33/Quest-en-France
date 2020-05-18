@@ -7,7 +7,6 @@
   background-repeat: no-repeat;
   background-size: cover;
   height: calc(100vh - 80px);
-  // height: 100vh;
   margin-top: 92px;
   width: 100vw;
   position: relative;
@@ -64,7 +63,7 @@
   width: 200px;
 }
 
-.carousel {
+.homepage-carousel {
   height: 300px;
   min-height: 300px;
 }
@@ -118,14 +117,3 @@ div.alice-carousel__prev-btn {
     height: 98px;
   }
 }
-
-// .homecard-text-container:hover {
-//   background-color: rgba(0, 0, 0, 0.575);
-//   transform: translateY(-140px);
-//   margin: 15px;
-//   height: 98px;
-// }
-
-// .homecard-home-type {
-  
-// }

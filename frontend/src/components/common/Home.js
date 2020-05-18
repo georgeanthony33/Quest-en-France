@@ -166,10 +166,11 @@ const Home = () => {
         <div className="container">
           <h1 className="title has-text-weight-bold is-size-2">Explore our sites</h1>
           <div className="columns is-mobile is-multiline">
-            {sites.map(site => ( 
-              <SiteCard key={site.id} {...site}/>
-            ))
-            }
+            {sites.map(site => (
+              <Link to={`/sites/${site.id}`} props={site}>
+                <SiteCard key={site.id} {...site}/>
+              </Link>
+            ))}
           </div>
         </div>
       </section>
@@ -179,11 +180,9 @@ const Home = () => {
         <div className="container">
           <h2 className="has-text-weight-bold">We have a selection of 2 and 3 bedroomed modern cottage style mobile homes with either open or semi-covered verandas. The 2 bedroomed homes will accommodate between 4-6 people as the lounge seating area can convert to a bed that sleeps up to 2 people. The 3 bedroomed homes will accommodate 6 people.</h2>
           <br />
-          <div className="carousel">
+          <div className="homepage-carousel">
             <AliceCarousel
-              className="carousel_class"
               items={homeImages.map(image => (
-                // <img key={image.id} src={image['image_location']} className="homepage-alice-image"/>
                 <HomeCard key={image.id} {...image}/>
               ))}
               responsive={{ 0: { items: 1 }, 625: { items: 3 } }}
