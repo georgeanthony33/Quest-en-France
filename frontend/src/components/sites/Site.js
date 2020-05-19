@@ -37,7 +37,7 @@ const Site = () => {
 
         <div className="site-top-banner">
           <h2 className="title has-text-weight-bold is-size-2 column is-3">{site.name}</h2>
-          <h2 className="title has-text-weight-bold is-size-4 column is-9 site-area">{site.area}, {site.country}</h2>
+          <h2 className="title has-text-weight-bold is-size-4 column is-9 site-area" id="check-availability">{site.area}, {site.country}</h2>
         </div>
 
         <section className={`site-top-outer-container ${site.name}`}>
@@ -84,6 +84,7 @@ const Site = () => {
                     <label className="label">Adults</label>
                     <div className="control">
                       <input className="input" type="number" name="adults"
+                      id="guests-input"
                       value={adults}
                       onChange={(e) => setAdults(e.target.value)}
                       placeholder="Choose site" />
@@ -93,6 +94,7 @@ const Site = () => {
                     <label className="label">Kids</label>
                     <div className="control">
                       <input className="input" type="number" name="kids"
+                      id="guests-input"
                       value={kids}
                       onChange={(e) => setKids(e.target.value)}
                       placeholder="Choose site" />
@@ -108,9 +110,37 @@ const Site = () => {
           </div>
         </section>
 
-        <section className="section has-background-white">
-          <div className="container">
-            <p>{site.long_description}</p>
+        <nav className="is-size-5 site-navbar">
+          {/* <div className="container">
+            <div className="navbar-brand"> */}
+              <a className="site-navbar-anchor" href="#check-availability">Check Availability</a>
+              <a className="site-navbar-anchor" href="#details">Details</a>
+              <a className="site-navbar-anchor" href="#gallery">Gallery</a>
+              <a className="site-navbar-anchor" href="#attractions">Attractions</a>
+              <a className="site-navbar-anchor" href="#location">Location</a>
+            {/* </div>
+          </div> */}
+        </nav>
+
+        <section className="section has-background-white" id="details">
+          <div className="columns">
+            <div className="column is-1"></div>
+            <div className="column is-6">
+              {/* <h1 className="title has-text-weight-bold is-size-2">Explore our sites</h1> */}
+              {site.long_description.map(paragraph => (
+                <>
+                  <p>{paragraph}</p>
+                  <br />
+                </>
+              ))}
+            </div>
+            <div className="column is-1"></div>
+            <div className="column is-3">
+              <h1 className="title has-text-weight-bold is-size-2">Facilities</h1>
+              {site.facilities.map(facility => (
+                <p>{facility}</p>
+              ))}
+            </div>
           </div>
         </section>
 

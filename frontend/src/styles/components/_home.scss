@@ -74,12 +74,12 @@
   width: fit-content;
 }
 
-div.alice-carousel__next-btn {
+.homepage-carousel > .alice-carousel > div.alice-carousel__next-btn {
   text-align: right;
   left: calc(84vw);
 }
 
-div.alice-carousel__prev-btn {
+.homepage-carousel > .alice-carousel > div.alice-carousel__prev-btn {
   text-align: left;
   right: 45px;
 }

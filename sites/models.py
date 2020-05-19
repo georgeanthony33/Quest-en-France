@@ -10,12 +10,12 @@ class Site(models.Model):
     country = models.CharField(max_length=50)
     area = models.CharField(max_length=50, null=True)
     short_description = models.CharField(max_length=1000)
-    long_description = models.CharField(max_length=50000)
+    long_description = ArrayField(models.CharField(max_length=5000))
     main_image = models.CharField(max_length=500, null=True)
     gallery_images = ArrayField(models.CharField(max_length=500, blank=True))
     latitude = models.FloatField()
     longitude = models.FloatField()
-    facilities = ArrayField(models.CharField(max_length=100))
+    facilities = ArrayField(models.TextField(max_length=100))
 
     def __str__(self):
         return f'{self.name}'

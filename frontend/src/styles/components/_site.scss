@@ -8,7 +8,7 @@
 .site-top-banner {
   height: 80px;
   padding: 8px 20px;
-  border-top: $red-colour 5px solid;
+  border-top: $red-colour 4px solid;
   border-bottom: $red-colour 5px solid;
   display: flex;
 }
@@ -41,8 +41,6 @@
 .Calico {
   background: right bottom url('../../assets/Panoramics/CalicoPark.jpg');
 }
-
-
 
 .site-area {
   margin-top: 0.7rem;
@@ -83,4 +81,35 @@ div.alice-carousel__prev-btn {
 
 .site-alice-image {
   height: 400px;
+}
+
+#guests-input {
+  width: 167px;
+}
+
+.site-navbar {
+  position: absolute;
+  z-index: 1;
+  color: white;
+  top: 65px;
+  position: -webkit-sticky;
+  position: sticky;
+  background-color: hsl(0, 0%, 96%);
+  opacity: 0.95;
+  color: #4a4a4a;
+  font-size: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  // border-bottom: solid red 1px;
+  // margin-bottom: 30px;
+}
+
+a.site-navbar-anchor {
+  margin: 0 3vw;
+  padding-top: 5px;
+  text-decoration: none;
+  font-weight: 700;
+  color: #4a4a4a;
 }
