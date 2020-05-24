@@ -39,24 +39,6 @@
   "model": "home_images.homeimage",
   "pk": 5,
   "fields": {
-    "image_location": "../Home Images/Home-with-open-veranda.jpg",
-    "home_type": "Open Veranda",
-    "room": ""
-  }
-},
-{
-  "model": "home_images.homeimage",
-  "pk": 6,
-  "fields": {
-    "image_location": "../Home Images/Home-with-semi-covered-veranda.jpg",
-    "home_type": "Semi Covered Veranda",
-    "room": ""
-  }
-},
-{
-  "model": "home_images.homeimage",
-  "pk": 7,
-  "fields": {
     "image_location": "../Home Images/homes-inside.jpg",
     "home_type": "2 Bedroomed Home",
     "room": "Lounge & Kitchen Area"
@@ -64,20 +46,38 @@
 },
 {
   "model": "home_images.homeimage",
+  "pk": 6,
+  "fields": {
+    "image_location": "../Home Images/Riviera-3-bedroomed-home-dining-area.jpg",
+    "home_type": "Riveria 3 Bedroomed Home",
+    "room": "Dining Area"
+  }
+},
+{
+  "model": "home_images.homeimage",
+  "pk": 7,
+  "fields": {
+    "image_location": "../Home Images/Home-with-open-veranda.jpg",
+    "home_type": "",
+    "room": "Open Veranda"
+  }
+},
+{
+  "model": "home_images.homeimage",
   "pk": 8,
   "fields": {
-    "image_location": "../Home Images/our-homes2.jpg",
-    "home_type": "Insert Name",
-    "room": ""
+    "image_location": "../Home Images/Home-with-semi-covered-veranda.jpg",
+    "home_type": "",
+    "room": "Semi Covered Veranda"
   }
 },
 {
   "model": "home_images.homeimage",
   "pk": 9,
   "fields": {
-    "image_location": "../Home Images/Riviera-3-bedroomed-home-dining-area.jpg",
-    "home_type": "Riveria 3 Bedroomed Home",
-    "room": "Dining Area"
+    "image_location": "../Home Images/our-homes2.jpg",
+    "home_type": "",
+    "room": "Calico Park"
   }
 }
 ]

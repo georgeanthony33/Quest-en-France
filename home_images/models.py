@@ -2,7 +2,7 @@ from django.db import models
 
 class HomeImage(models.Model):
     image_location = models.CharField(max_length=100)
-    home_type = models.CharField(max_length=100)
+    home_type = models.CharField(max_length=100, blank=True)
     room = models.CharField(max_length=100, blank=True)
 
     def __str__(self):

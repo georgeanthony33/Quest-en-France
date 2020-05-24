@@ -1,11 +1,9 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import DatePicker from 'react-datepicker'
 import 'react-datepicker/dist/react-datepicker.css'
 import axios from 'axios'
 import { Link, withRouter } from 'react-router-dom'
 import SiteCard from '../sites/SiteCard'
-// import AliceCarousel from 'react-alice-carousel'
-// import 'react-alice-carousel/lib/alice-carousel.css'
 import Carousel from './Carousel'
 import HomeCard from '../homes/HomeCard'
 
@@ -20,13 +18,14 @@ const Home = () => {
   const [ isActive, setIsActive ] = useState('')
   const [ homeImages, setHomeImages ] = useState()
 
+  const dropdownNode = useRef()
+
   useEffect(() => {
     getSiteData()
     getReviewData()
     getHomeImages()
-    window.addEventListener('click', removeActiveDropdown)
   }, [])
-  
+
   const getSiteData = async () => {
     const sites = await axios.get('/api/sites/')
     const siteData = sites.data.sort(compare)
@@ -57,12 +56,16 @@ const Home = () => {
     setHomeImages(homeImagesData.data)
   }
 
-  const removeActiveDropdown = () => {
-    // if (isActive) {
-    //   console.log('yes')
-    //   // setIsActive("")
-    // }
-    console.log(isActive)
+  useEffect(() => {
+    document.addEventListener('click', handleClickAway);
+    return () => {
+      document.removeEventListener('click', handleClickAway);
+    };
+  }, [])
+
+  const handleClickAway = e => {
+    if (dropdownNode.current.contains(e.target)) return
+    setIsActive('')
   }
 
   if (!sites || !reviews || !homeImages) return null
@@ -82,12 +85,13 @@ const Home = () => {
               <h2 className="has-text-weight-bold">Book your dream holiday in France or Portugal with Quest en France</h2>
               <br />
 
-              <div className="columns">
+              <div className="columns where">
                 <div className="field column">
                   <label className="label">Where</label>
 
                   <div
                     className={`dropdown ${isActive}`}
+                    ref={dropdownNode}
                     onClick={ (e) => {
                       e.preventDefault()
                       !isActive ? setIsActive("is-active") : setIsActive("")
@@ -141,7 +145,7 @@ const Home = () => {
                 </div>
               </div>
 
-              <div className="columns">
+              <div className="columns guest-numbers">
                 <div className="field column is-half">
                   <label className="label">Adults</label>
                   <div className="control">
@@ -161,8 +165,9 @@ const Home = () => {
                   </div>
                 </div>
               </div>
-              <input className="button is-danger" type="submit" value="Search" />
-
+              <div className="home-submit">
+                <input className="button is-danger" type="submit" value="Search" />
+              </div>
             </form>
 
           </div>
@@ -180,7 +185,6 @@ const Home = () => {
           </div>
         </div>
       </section>
-
 
       <section className="section has-background-light">
         <div className="container">

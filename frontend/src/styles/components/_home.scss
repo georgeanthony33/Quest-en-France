@@ -28,11 +28,48 @@
 }
 
 .homepage-search {
-  height: 500px;
+  height: 485px;
   width: 400px;
   background-color: whitesmoke;
   border-radius: 10px;
-  padding: 25px
+  padding: 30px 35px 0 35px;
+  margin-top: 35px;
+}
+
+.where {
+  margin-top: -20px;
+}
+
+.dropdown {
+  width: 100%;
+  display: inline-flex;
+  position: relative;
+  vertical-align: top;
+  .dropdown-trigger {
+    width: 100%;
+    button.button {
+      width: 100%;
+      justify-content: start;
+      display: flex;
+      justify-content: space-between;
+      span {
+        text-align: left;
+        font-size: 19px;
+      }
+    }
+  }
+}
+
+.dropdown-item {
+  font-size: 17px;
+}
+
+.guest-numbers {
+  margin-top: -25px;
+}
+
+.home-submit {
+  text-align: right;
 }
 
 .homepage-reviews {
