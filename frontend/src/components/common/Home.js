@@ -4,8 +4,9 @@ import 'react-datepicker/dist/react-datepicker.css'
 import axios from 'axios'
 import { Link, withRouter } from 'react-router-dom'
 import SiteCard from '../sites/SiteCard'
-import AliceCarousel from 'react-alice-carousel'
-import 'react-alice-carousel/lib/alice-carousel.css'
+// import AliceCarousel from 'react-alice-carousel'
+// import 'react-alice-carousel/lib/alice-carousel.css'
+import Carousel from './Carousel'
 import HomeCard from '../homes/HomeCard'
 
 const Home = () => {
@@ -23,6 +24,7 @@ const Home = () => {
     getSiteData()
     getReviewData()
     getHomeImages()
+    window.addEventListener('click', removeActiveDropdown)
   }, [])
   
   const getSiteData = async () => {
@@ -53,7 +55,14 @@ const Home = () => {
   const getHomeImages = async () => {
     const homeImagesData = await axios.get('/api/home_images/')
     setHomeImages(homeImagesData.data)
-    
+  }
+
+  const removeActiveDropdown = () => {
+    // if (isActive) {
+    //   console.log('yes')
+    //   // setIsActive("")
+    // }
+    console.log(isActive)
   }
 
   if (!sites || !reviews || !homeImages) return null
@@ -81,7 +90,7 @@ const Home = () => {
                     className={`dropdown ${isActive}`}
                     onClick={ (e) => {
                       e.preventDefault()
-                      isActive === '' ? setIsActive("is-active") : setIsActive("")
+                      !isActive ? setIsActive("is-active") : setIsActive("")
                     }}
                   >
                     <div className="dropdown-trigger">
@@ -178,18 +187,11 @@ const Home = () => {
           <h2 className="has-text-weight-bold">We have a selection of 2 and 3 bedroomed modern cottage style mobile homes with either open or semi-covered verandas. The 2 bedroomed homes will accommodate between 4-6 people as the lounge seating area can convert to a bed that sleeps up to 2 people. The 3 bedroomed homes will accommodate 6 people.</h2>
           <br />
           <div className="homepage-carousel">
-            <AliceCarousel
+            <Carousel
               items={homeImages.map(image => (
                 <HomeCard key={image.id} {...image}/>
               ))}
               responsive={{ 0: { items: 1 }, 625: { items: 3 } }}
-              autoPlayInterval={2000}
-              autoPlayDirection="rtl"
-              autoPlay={true}
-              fadeOutAnimation={true}
-              mouseTrackingEnabled={true}
-              disableAutoPlayOnAction={true}
-              dotsDisabled={true}
             />
           </div>
           <br />

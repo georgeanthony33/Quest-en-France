@@ -56,37 +56,36 @@
   border-radius: 10px;
 }
 
-// .item-1 {
-//   background-image: url('../../assets/slide.jpg');
-//   background-size: contain;
-//   height: 200px;
-//   width: 200px;
-// }
-
 .homepage-carousel {
   height: 300px;
 }
 
-.homepage-carousel > .alice-carousel > div.alice-carousel__next-btn, .homepage-carousel > .alice-carousel > div.alice-carousel__prev-btn {
+div.carousel-button {
+  height: 50px;
+  width: 50px;
   position: relative;
-  top: -150px;
+  top: -185px;
   display: inline-block;
-  width: fit-content;
 }
 
-.homepage-carousel > .alice-carousel > div.alice-carousel__next-btn {
-  text-align: right;
-  left: calc(84vw);
-}
-
-.homepage-carousel > .alice-carousel > div.alice-carousel__prev-btn {
+div.carousel-button.prev {
   text-align: left;
-  right: 45px;
+  right: 46px;
 }
 
-// .alice-carousel__next-btn [data-area]::after {
-//   content: 'Another text';
-// }
+div.carousel-button.next {
+  text-align: right;
+  left: calc(85.8vw);
+}
+
+.carousel-button {
+  transition: 0.5s;
+  opacity: 0.5;
+}
+
+.carousel-button:hover {
+  opacity: 1;
+}
 
 .homecard-container {
   height: 300px;
@@ -96,6 +95,7 @@
 .homepage-alice-image {
   height: 280px;
   padding: 15px;
+  border-radius: 30px;
 }
 
 .homecard-container:hover {
@@ -112,10 +112,6 @@
   transform: translateY(-140px);
   margin: 15px;
   height: 98px;
-  .homecard-text-container {
-    background-color: rgba(0, 0, 0, 0.575);
-    transform: translateY(-140px);
-    margin: 15px;
-    height: 98px;
-  }
+  transition: 0.5s;
+  border-radius: 0 0 15px 15px;
 }

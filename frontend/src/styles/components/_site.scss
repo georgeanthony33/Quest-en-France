@@ -6,18 +6,19 @@
 }
 
 .site-top-banner {
-  height: 80px;
+  height: 75px;
   padding: 8px 20px;
-  border-top: $red-colour 4px solid;
-  border-bottom: $red-colour 5px solid;
+  background-color: rgba(245, 245, 245, 0.97);
   display: flex;
 }
 
 .site-top-outer-container {
   background-repeat: no-repeat;
-  background-size: cover;
-  height: calc(100vh - 120px);
-  margin-top: 12px;
+  background-size: contain;
+  padding-top: 100px;
+  height: calc(95vh);
+  margin-top: -85px;
+  z-index: -1;
   width: 100vw;
   position: relative;
 }

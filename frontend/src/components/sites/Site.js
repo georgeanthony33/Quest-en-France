@@ -101,7 +101,7 @@ const Site = () => {
                     </div>
                   </div>
                 </div>
-                <input className="button is-danger" type="submit" value="Check Availability" />
+                <input className="button is-danger" type="submit" value="Check Availability" id="details"/>
 
               </form>
 
@@ -122,7 +122,7 @@ const Site = () => {
           </div> */}
         </nav>
 
-        <section className="section has-background-white" id="details">
+        <section className="section has-background-white">
           <div className="columns">
             <div className="column is-1"></div>
             <div className="column is-6">
