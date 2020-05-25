@@ -5,6 +5,7 @@ import axios from 'axios'
 import { Link, withRouter } from 'react-router-dom'
 import AliceCarousel from 'react-alice-carousel'
 import 'react-alice-carousel/lib/alice-carousel.css'
+import Carousel from './../common/Carousel'
 
 const Site = () => {
   const [ site, setSite ] = useState('')
@@ -50,7 +51,7 @@ const Site = () => {
                 <h3 className="has-text-weight-bold is-size-5">{site.short_description}</h3>
                 <br />
 
-                <div className="columns">
+                <div className="columns reduce-margin-top">
                   <div className="field column is-half">
                     <label className="label">Check In</label>
                     <div className="control">
@@ -79,7 +80,7 @@ const Site = () => {
                   </div>
                 </div>
 
-                <div className="columns">
+                <div className="columns reduce-margin-top">
                   <div className="field column is-half">
                     <label className="label">Adults</label>
                     <div className="control">
@@ -101,8 +102,10 @@ const Site = () => {
                     </div>
                   </div>
                 </div>
-                <input className="button is-danger" type="submit" value="Check Availability" id="details"/>
-
+                <div className="site-check-availability">
+                  <input className="button is-danger" type="submit" value="Check Availability" id="details"/>
+                </div>
+ 
               </form>
 
             </div>
@@ -111,70 +114,62 @@ const Site = () => {
         </section>
 
         <nav className="is-size-5 site-navbar">
-          {/* <div className="container">
-            <div className="navbar-brand"> */}
-              <a className="site-navbar-anchor" href="#check-availability">Check Availability</a>
-              <a className="site-navbar-anchor" href="#details">Details</a>
-              <a className="site-navbar-anchor" href="#gallery">Gallery</a>
-              <a className="site-navbar-anchor" href="#attractions">Attractions</a>
-              <a className="site-navbar-anchor" href="#location">Location</a>
-            {/* </div>
-          </div> */}
+          <a className="site-navbar-anchor" href="#check-availability">Check Availability</a>
+          <a className="site-navbar-anchor" href="#details">Details</a>
+          <a className="site-navbar-anchor" href="#gallery">Gallery</a>
+          <a className="site-navbar-anchor" href="#attractions">Attractions</a>
+          <a className="site-navbar-anchor" href="#location">Location</a>
         </nav>
+
+        {/* <div class="tabs is-centered has-background-light">
+          <ul>
+            <li class="is-active"><a>Details</a></li>
+            <li><a>Facilities</a></li>
+            <li><a>Gallery</a></li>
+            <li><a>Attractions</a></li>
+            <li><a>Location</a></li>
+          </ul>
+        </div> */}
 
         <section className="section has-background-white">
           <div className="columns">
             <div className="column is-1"></div>
             <div className="column is-6">
-              {/* <h1 className="title has-text-weight-bold is-size-2">Explore our sites</h1> */}
-              {site.long_description.map(paragraph => (
+              <p className="has-text-weight-bold">{site.long_description[0]}</p>
+              <br />
+              {site.long_description.slice(1).map(paragraph => (
                 <>
                   <p>{paragraph}</p>
                   <br />
                 </>
               ))}
             </div>
-            <div className="column is-1"></div>
-            <div className="column is-3">
-              <h1 className="title has-text-weight-bold is-size-2">Facilities</h1>
-              {site.facilities.map(facility => (
-                <p>{facility}</p>
-              ))}
+            <div className="column is-5">
+              <div className="facilities card has-background-light">
+                <h1 className="title has-text-weight-bold is-size-2">Facilities</h1>
+                {site.facilities.map(facility => (
+                  <div className="columns">
+                    <span class="icon has-text-danger tick">
+                      <i class="fas fa-check-square"></i>
+                    </span>
+                    <p>{facility}</p>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </section>
 
-
-
-
-
-
-        {/* <div className="site-content">
-
-          <div className="columns has-background-light site-top">
-            <div className="column is-third">
-              <h2 className="has-text-weight-bold">{site.short_description}</h2>
-            </div>
-            <div className="column is-two-thirds site-carousel-container">
-              <div className="site-carousel">
-                <AliceCarousel
-                  items={site.gallery_images.map(image => (
-                    <img key={image} src={`../${site.name}/Gallery/${image}.jpg`}className="site-alice-image"/>
-                  ))}
-                  responsive={{ 0: { items: 1 }, 625: { items: 1 } }}
-                  autoPlayInterval={2000}
-                  autoPlayDirection="rtl"
-                  autoPlay={true}
-                  fadeOutAnimation={true}
-                  mouseTrackingEnabled={true}
-                  disableAutoPlayOnAction={true}
-                  dotsDisabled={true}
-                />
-              </div>
-            </div>
+        <section className="section has-background-light">
+          <div className="site-page-carousel">
+            <Carousel
+              items={site.gallery_images.map(image => (
+                <img key={image} src={`../${site.name}/Gallery/${image}.jpg`}></img>
+              ))}
+              responsive={{ 0: { items: 1 }, 625: { items: 1 } }}
+            />
           </div>
-
-        </div> */}
+        </section>
 
       </div>
 

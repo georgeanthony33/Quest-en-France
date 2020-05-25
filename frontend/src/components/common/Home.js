@@ -85,7 +85,7 @@ const Home = () => {
               <h2 className="has-text-weight-bold">Book your dream holiday in France or Portugal with Quest en France</h2>
               <br />
 
-              <div className="columns where">
+              <div className="columns reduce-margin-top">
                 <div className="field column">
                   <label className="label">Where</label>
 

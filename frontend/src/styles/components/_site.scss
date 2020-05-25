@@ -24,11 +24,11 @@
 }
 
 .sitepage-search {
-  height: 500px;
+  height: 460px;
   width: 500px;
   background-color: whitesmoke;
   border-radius: 10px;
-  padding: 30px
+  padding: 30px 35px 0 35px;
 }
 
 .L’Oceano {
@@ -85,7 +85,7 @@ div.alice-carousel__prev-btn {
 }
 
 #guests-input {
-  width: 167px;
+  width: 94%;
 }
 
 .site-navbar {
@@ -111,4 +111,43 @@ a.site-navbar-anchor {
   text-decoration: none;
   font-weight: 700;
   color: #4a4a4a;
+}
+
+span.tick {
+  margin-right: 7px;
+}
+
+.facilities {
+  margin: 0 50px;
+  padding: 20px;
+}
+
+.site-page-carousel > li > {
+  width: 650px;
+}
+
+.site-page-carousel {
+  height: 400px;
+  width: 100vw;
+  padding-right: 50px;
+  text-align: center;
+  img {
+    height: 450px;
+  }
+  div.carousel-button {
+    top: -450px;
+  }
+  div.carousel-button.prev {
+    text-align: left;
+    right: 350px;
+  }
+  div.carousel-button.next {
+    text-align: right;
+    left: 350px;
+  }
+}
+
+.site-check-availability {
+  text-align: right;
+  margin-right: 3%;
 }
