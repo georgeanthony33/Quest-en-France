@@ -15,7 +15,8 @@ Including another URLconf
 """
 
 from django.contrib import admin
-from django.urls import path, include
+from django.urls import path, include, re_path
+from .views import index
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -24,4 +25,5 @@ urlpatterns = [
     path('api/sites/', include('sites.urls')),
     path('api/bookings/', include('bookings.urls')),
     path('api/', include('jwt_auth.urls')),
+    re_path(r'^.*$', index),
 ]
