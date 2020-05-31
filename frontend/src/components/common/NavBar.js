@@ -22,7 +22,7 @@ const NavBar = () => {
   useEffect(() => {
     window.addEventListener('scroll', () => setScrollY(window.scrollY))
     return () => window.removeEventListener('scroll', () => setScrollY(window.scrollY))
-  }, []);
+  }, [])
 
   return (
     <>
@@ -31,13 +31,13 @@ const NavBar = () => {
           <div className={`navbar-menu ${navOpen ? 'is-active' : ''}`}>
             <div className="navbar-brand">
               <a href="mailto:georgeanthony33@gmail.com">
-                <div class="contact-links">
-                  <i class="fas fa-envelope"></i>
+                <div className="contact-links">
+                  <i className="fas fa-envelope"></i>
                   <p>sales@questenfrance.com</p>
                 </div>
               </a>
-              <div class="contact-links">
-                <i class="fas fa-phone"></i>
+              <div className="contact-links">
+                <i className="fas fa-phone"></i>
                 <p>01204 415425 or 07985 093397</p>
               </div>
             </div>

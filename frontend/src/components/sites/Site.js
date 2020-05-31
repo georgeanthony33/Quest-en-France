@@ -21,14 +21,15 @@ const Site = () => {
   }, [])
 
   const getSiteData = async (id) => {
-    const siteData = await axios.get(`/api/sites/${id}`)
+    const siteData = await axios.get(`/api/sites/${id}/`)
     setSite(siteData.data)
   }
     
   if (!site) return null
 
-  console.log(site.gallery_images.map(image => (
-    `../${site.name}/Gallery/${image}.jpg`)))
+  // console.log(site.gallery_images.map(image => (
+  //   `../${site.name}/Gallery/${image}.jpg`)))
+
 
   return (
     

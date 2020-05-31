@@ -8,6 +8,9 @@ import NavBar from './components/common/NavBar'
 import Home from './components/common/Home'
 import Site from './components/sites/Site'
 
+require('dotenv').config()
+const PUBLIC_URL = process.env.PUBLIC_URL || `http://localhost:${process.env.PORT}`;
+
 const App = () => (
   <BrowserRouter>
     <>
