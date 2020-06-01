@@ -7,12 +7,12 @@
     "country": "France",
     "area": "Southern Vendee Region",
     "short_description": "Camping L\u2019Oceano d\u2019Or is one of the prestigious sites, which won the \u2018Grand Prix du Tourisme\u2019 recently, and has now gained the coveted five star status.",
-    "long_description": "[\"Camping LOceano d'Or is one of the prestigious group of sites, which won the \\u2018Grand Prix du Tourisme\\u2019 recently, and has now gained the coveted five star status.\", \"The large swimming pool complex has a spacious sun terrace, overlooked by the bar. There are 2 fun waterslides and a heated children\\u2019s pool. Built in 2015, the addition of a large indoor pool, with roof that can be opened, is an added attraction.\", \"This site should appeal to families with children of all ages. It is lively in high season with a full programme of entertainment. Other sporting activities on offer are tennis, boules, aquagym and scuba diving. There is also a fitness suite on site.\", \"The site has 2 beaches within walking distance, Plage de Boisinet and Plage de Morpoigne, both of which have plenty of bars, cafes and restaurants.\"]",
-    "main_image": "../L\u2019Oceano d\u2019Or/Gallery/Pool-complex.jpg",
+    "long_description": "[\"Camping LOceano d'Or is one of the prestigious group of sites\", \"which won the \\u2018Grand Prix du Tourisme\\u2019 recently\", \"and has now gained the coveted five star status.\", \"The large swimming pool complex has a spacious sun terrace\", \"overlooked by the bar. There are 2 fun waterslides and a heated children\\u2019s pool. Built in 2015\", \"the addition of a large indoor pool\", \"with roof that can be opened\", \"is an added attraction.\", \"This site should appeal to families with children of all ages. It is lively in high season with a full programme of entertainment. Other sporting activities on offer are tennis\", \"boules\", \"aquagym and scuba diving. There is also a fitness suite on site.\", \"The site has 2 beaches within walking distance\", \"Plage de Boisinet and Plage de Morpoigne\", \"both of which have plenty of bars\", \"cafes and restaurants.\"]",
+    "main_image": "/L\u2019Oceano d\u2019Or/Gallery/Pool-complex.jpg",
     "gallery_images": "[\"Boules-area\", \"Campsite-entrance\", \"Games-room\", \"Indoor-pool\", \"Kids-activity\", \"Kids-play-area\", \"Main-pool-area\", \"Pool-complex\", \"Pool-entertainment\", \"Pool-overhead\", \"Slide\"]",
     "latitude": 46.4208,
     "longitude": -1.5697,
-    "facilities": "[\"Open from mid May to mid Sept\", \"Our own English speaking couriers\", \"Reception\", \"Small supermarket\", \"Restaurant, Takeaway & Bar\", \"Pool complex with 3 pools & slide\", \"Fitness suite\", \"Bike hire (additional cost)\", \"WiFi\", \"Satellite TV in bar\", \"Linen hire available\", \"Multi sports play area\", \"Childrens play area\", \"Table Tennis\", \"Tennis court\", \"Games room\", \"Launderette\", \"Kids club\"]"
+    "facilities": "[\"Open from mid May to mid Sept\", \"Our own English speaking couriers\", \"Reception\", \"Small supermarket\", \"Restaurant\", \"Takeaway & Bar\", \"Pool complex with 3 pools & slide\", \"Fitness suite\", \"Bike hire (additional cost)\", \"WiFi\", \"Satellite TV in bar\", \"Linen hire available\", \"Multi sports play area\", \"Childrens play area\", \"Table Tennis\", \"Tennis court\", \"Games room\", \"Launderette\", \"Kids club\"]"
   }
 },
 {
@@ -24,7 +24,7 @@
     "area": "Vendee Region",
     "short_description": "Les Genets is a 5 star site and 10 minutes walk from glorious sandy beaches ideal for sunbathing, swimming, windsurfing & sailing. The pool complex includes an indoor and outdoor pool.",
     "long_description": "[\"Les Genets is a 5 star site\", \"approximately 800 metres (about 10 minutes walk) from long glorious sandy beaches. These beaches are ideal for sunbathing\", \"swimming\", \"windsurfing & sailing.\", \"The pool complex includes an indoor and outdoor pool\", \"with slides and cascading water waves. Near to the site entrance is crazy golf and carrying on towards the Plage de Mouettes and Merlin Plage beaches are cafes\", \"restaurants\", \"a supermarket\", \"bike hire\", \"and shops.\", \"The area provides opportunities for walking\", \"cycling\", \"quad biking & pony trekking ( available at local equestrian centre). The campsite offers a relaxed\", \"family atmosphere set in a wooden park.\", \"In high season there is organised entertainment provided during the day and night. The site is ideal for children of all ages. Also at close proximity is the Atlantic Toboggan water park. Close by is the St Jean de Monts golf course\", \"offering an excellent 18 hole course.\"]",
-    "main_image": "../Les Genets/Gallery/Pool1.jpg",
+    "main_image": "/Les Genets/Gallery/Pool1.jpg",
     "gallery_images": "[\"Pool1\"]",
     "latitude": 46.7708787,
     "longitude": 2.0122,

@@ -11,7 +11,7 @@ const SiteCard = ({ name, id, main_image, short_description }) => {
           </div>
           <div className="card-image">
             <figure className="image">
-              {/* <img src={require(`../../assets${main_image}`)} alt={name} /> */}
+              <img src={process.env.PUBLIC_URL + '/logo192.png'} alt={name} />
             </figure>
           </div>
           <div className="card-content">
