@@ -2,7 +2,6 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 const SiteCard = ({ name, id, main_image, short_description }) => {
-  console.log(process.env.PUBLIC_URL)
   return (
     <div key={id} className="column is-one-third-desktop is-one-third-tablet is-half-mobile">
       <Link to={`/sites/${id}`} className="focus-border-is-dark">
@@ -12,8 +11,7 @@ const SiteCard = ({ name, id, main_image, short_description }) => {
           </div>
           <div className="card-image">
             <figure className="image">
-              <img src={process.env.PUBLIC_URL + '/logo192.png'} alt={name} />
-              <img src={process.env.staging.PUBLIC_URL + '/logo192.png'} alt={name} />
+              {/* <img src={require(`../../assets${main_image}`)} alt={name} /> */}
             </figure>
           </div>
           <div className="card-content">

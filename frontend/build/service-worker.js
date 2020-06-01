@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "https://quest-en-france.herokuapp.com/precache-manifest.4ef2ccfe696fa02fd8219dda63b69842.js"
+  "https://quest-en-france.herokuapp.com/precache-manifest.fd2011db965bccbd002ffcd5258afdf4.js"
 );
 
 self.addEventListener('message', (event) => {

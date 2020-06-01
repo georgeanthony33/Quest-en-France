@@ -2,7 +2,6 @@
   "name": "frontend",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://quest-en-france.herokuapp.com",
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
@@ -10,8 +9,6 @@
     "axios": "^0.19.2",
     "bulma": "^0.8.2",
     "bulma-carousel": "^4.0.4",
-    "dotenv": "^8.2.0",
-    "env-cmd": "^10.1.0",
     "http-proxy-middleware": "^1.0.3",
     "js-cookie": "^2.2.1",
     "node-sass": "^4.14.0",
@@ -27,8 +24,7 @@
     "start": "PORT=3001 react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "build:staging": "env-cmd -f .env.staging npm run build"
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": "react-app",

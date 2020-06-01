@@ -127,8 +127,6 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
-# STATIC_URL = '/static/'
-
 REST_FRAMEWORK = {
     'DEFAULT_RENDERER_CLASSES': [
         'rest_framework.renderers.JSONRenderer',
@@ -147,8 +145,14 @@ CORS_ORIGIN_ALLOW_ALL = True
 
 STATIC_URL = '/static/'
 
+# STATIC_ROOT = '/static/build/'
+
 STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'frontend', "build", "static"), 
+    os.path.join(BASE_DIR, 'frontend', 'build', 'static'), 
 )
+
+# STATIC_ROOT = os.path.join(BASE_DIR, 'build', 'static')
+
+# STATICFILES_DIRS = []
 
 django_heroku.settings(locals())
