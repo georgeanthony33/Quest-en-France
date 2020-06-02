@@ -52,11 +52,11 @@ class carousel extends React.Component {
           dotsDisabled={true}
           buttonsDisabled={true}
         />
-        <div onClick={this.slidePrevPage} class="carousel-button prev">
-          <img onClick={this.slidePrevPage} src="../previous.svg" class="carousel-button"></img>
+        <div onClick={this.slidePrevPage} className="carousel-button prev">
+          <img onClick={this.slidePrevPage} src="https://res.cloudinary.com/drjzlxwhz/image/upload/v1591125826/Icons/previous_q7zsve.svg" className="carousel-button"></img>
         </div>
-        <div onClick={this.slideNextPage} class="carousel-button next">
-          <img onClick={this.slideNextPage} src="../next.svg" class="carousel-button"></img>
+        <div onClick={this.slideNextPage} className="carousel-button next">
+          <img onClick={this.slideNextPage} src="https://res.cloudinary.com/drjzlxwhz/image/upload/v1591125826/Icons/next_j7fydq.svg" className="carousel-button"></img>
         </div>  
       </div>
     )

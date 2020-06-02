@@ -51,21 +51,21 @@ const NavBar = () => {
             <Link className="navbar-item" to="/"><div className={scrollY < 45 ? 'logo' : 'logo small'}></div></Link>
             <Link className="navbar-item" to="/sites/france">Sites France</Link>
             <Link className="navbar-item" to="/sites/portugal">Sites Portugal</Link>
-            <a 
+            {/* <a 
               className={`navbar-burger ${navOpen ? 'is-active' : ''}`}
               onClick={toggleNavbar}
             >
               <span aria-hidden="true"></span>
               <span aria-hidden="true"></span>
               <span aria-hidden="true"></span>
-            </a>
+            </a> */}
           </div>
-          <div className={`navbar-menu ${navOpen ? 'is-active' : ''}`}>
+          {/* <div className={`navbar-menu ${navOpen ? 'is-active' : ''}`}> */}
             <div className="navbar-end">
               <Link className="navbar-item" to={`/profile`}>Bookings</Link>
             </div>
           </div>
-        </div>
+        {/* </div> */}
       </nav>
     </>
   )

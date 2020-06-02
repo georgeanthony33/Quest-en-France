@@ -3,7 +3,7 @@
   "model": "home_images.homeimage",
   "pk": 1,
   "fields": {
-    "image_location": "../Home Images/3-bedroomed-home-dining-area.jpg",
+    "image_location": "3-bedroomed-home-dining-area_rhbdok.jpg",
     "home_type": "3 Bedroomed Home",
     "room": "Dining Area"
   }
@@ -12,7 +12,7 @@
   "model": "home_images.homeimage",
   "pk": 2,
   "fields": {
-    "image_location": "../Home Images/Cordelia-3-bedroomed-home-Lounge.jpg",
+    "image_location": "Cordelia-3-bedroomed-home-Lounge_psxirv.jpg",
     "home_type": "Cordelia 3 Bedroomed Home",
     "room": "Lounge"
   }
@@ -21,7 +21,7 @@
   "model": "home_images.homeimage",
   "pk": 3,
   "fields": {
-    "image_location": "../Home Images/Cordelia-lounge-21.jpg",
+    "image_location": "Cordelia-lounge-21_q9xqnb.jpg",
     "home_type": "Cordelia",
     "room": "Lounge Area"
   }
@@ -30,7 +30,7 @@
   "model": "home_images.homeimage",
   "pk": 4,
   "fields": {
-    "image_location": "../Home Images/Cordelia-riviera-lounge.jpg",
+    "image_location": "Cordelia-riviera-lounge_vvv0ei.jpg",
     "home_type": "Cordelia Riviera",
     "room": "Lounge Area"
   }
@@ -39,7 +39,7 @@
   "model": "home_images.homeimage",
   "pk": 5,
   "fields": {
-    "image_location": "../Home Images/homes-inside.jpg",
+    "image_location": "homes-inside_srg0g3.jpg",
     "home_type": "2 Bedroomed Home",
     "room": "Lounge & Kitchen Area"
   }
@@ -48,7 +48,7 @@
   "model": "home_images.homeimage",
   "pk": 6,
   "fields": {
-    "image_location": "../Home Images/Riviera-3-bedroomed-home-dining-area.jpg",
+    "image_location": "Riviera-3-bedroomed-home-dining-area_wau8oj.jpg",
     "home_type": "Riveria 3 Bedroomed Home",
     "room": "Dining Area"
   }
@@ -57,7 +57,7 @@
   "model": "home_images.homeimage",
   "pk": 7,
   "fields": {
-    "image_location": "../Home Images/Home-with-open-veranda.jpg",
+    "image_location": "Home-with-open-veranda_krfv6h.jpg",
     "home_type": "",
     "room": "Open Veranda"
   }
@@ -66,7 +66,7 @@
   "model": "home_images.homeimage",
   "pk": 8,
   "fields": {
-    "image_location": "../Home Images/Home-with-semi-covered-veranda.jpg",
+    "image_location": "Home-with-semi-covered-veranda_zfeqki.jpg",
     "home_type": "",
     "room": "Semi Covered Veranda"
   }
@@ -75,7 +75,7 @@
   "model": "home_images.homeimage",
   "pk": 9,
   "fields": {
-    "image_location": "../Home Images/our-homes2.jpg",
+    "image_location": "our-homes2_ioblie.jpg",
     "home_type": "",
     "room": "Calico Park"
   }

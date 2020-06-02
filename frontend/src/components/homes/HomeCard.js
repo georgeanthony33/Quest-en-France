@@ -3,7 +3,7 @@ import React from 'react'
 const HomeCard = ({ image_location, home_type, room }) => {
   return (
     <div className="homecard-container">
-      <img src={image_location} className="homepage-alice-image"/>
+      <img src={`https://res.cloudinary.com/drjzlxwhz/image/upload/v1591121129/Home%20Images/${image_location}`} className="homepage-alice-image"/>
       <div
         className={`homecard-text-container columns is-vcentered`}
       >

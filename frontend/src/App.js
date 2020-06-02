@@ -8,7 +8,7 @@ import NavBar from './components/common/NavBar'
 import Home from './components/common/Home'
 import Site from './components/sites/Site'
 
-require('dotenv').config()
+// require('dotenv').config()
 
 const App = () => (
   <BrowserRouter>

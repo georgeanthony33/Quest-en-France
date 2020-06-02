@@ -122,9 +122,9 @@ const Site = () => {
           <a className="site-navbar-anchor" href="#location">Location</a>
         </nav>
 
-        {/* <div class="tabs is-centered has-background-light">
+        {/* <div className="tabs is-centered has-background-light">
           <ul>
-            <li class="is-active"><a>Details</a></li>
+            <li className="is-active"><a>Details</a></li>
             <li><a>Facilities</a></li>
             <li><a>Gallery</a></li>
             <li><a>Attractions</a></li>
@@ -150,8 +150,8 @@ const Site = () => {
                 <h1 className="title has-text-weight-bold is-size-2">Facilities</h1>
                 {site.facilities.map(facility => (
                   <div className="columns">
-                    <span class="icon has-text-danger tick">
-                      <i class="fas fa-check-square"></i>
+                    <span className="icon has-text-danger tick">
+                      <i className="fas fa-check-square"></i>
                     </span>
                     <p>{facility}</p>
                   </div>
