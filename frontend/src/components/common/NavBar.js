@@ -26,7 +26,7 @@ const NavBar = () => {
 
   return (
     <>
-      <nav className={scrollY < 45 ? 'navbar is-dark is-size-5 contacts-nav' : 'closed'}>
+      <nav className={scrollY < 45 ? 'navbar is-size-5 contacts-nav is-transparent' : 'closed'}>
         <div className="container">
           <div className={`navbar-menu ${navOpen ? 'is-active' : ''}`}>
             <div className="navbar-brand">
@@ -45,27 +45,14 @@ const NavBar = () => {
         </div>
       </nav>
 
-      <nav className="navbar is-dark is-size-5 is-fixed-top">
-        <div className="container">
-          <div className="navbar-brand">
-            <Link className="navbar-item" to="/"><div className={scrollY < 45 ? 'logo' : 'logo small'}></div></Link>
-            <Link className="navbar-item" to="/sites/france">Sites France</Link>
-            <Link className="navbar-item" to="/sites/portugal">Sites Portugal</Link>
-            {/* <a 
-              className={`navbar-burger ${navOpen ? 'is-active' : ''}`}
-              onClick={toggleNavbar}
-            >
-              <span aria-hidden="true"></span>
-              <span aria-hidden="true"></span>
-              <span aria-hidden="true"></span>
-            </a> */}
-          </div>
-          {/* <div className={`navbar-menu ${navOpen ? 'is-active' : ''}`}> */}
-            <div className="navbar-end">
-              <Link className="navbar-item" to={`/profile`}>Bookings</Link>
-            </div>
-          </div>
-        {/* </div> */}
+      <nav className={scrollY < 45 ? 'navbar is-size-5 is-fixed-top is-transparent main' : 'navbar is-size-5 is-fixed-top is-transparent main scroll'}>
+        <Link className="navbar-item" to="/"><div className={scrollY < 45 ? 'logo' : 'logo small'}></div></Link>
+        <Link className="navbar-item" to="/sites/france">Sites France</Link>
+        <Link className="navbar-item" to="/sites/portugal">Sites Portugal</Link>
+        <Link className="navbar-item" to="/">Our Homes</Link>
+        <Link className="navbar-item" to="/">FAQ</Link>
+        <Link className="navbar-item" to="/">Contact Us</Link>
+        <Link className="navbar-item" to={`/profile`}>Bookings</Link>
       </nav>
     </>
   )

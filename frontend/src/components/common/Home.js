@@ -77,7 +77,7 @@ const Home = () => {
       <section className="homepage-top-outer-container">
         {/* <div className="color-overlay"></div> */}
         <div className="homepage-top-inner-container columns">
-          <div className="column is-1"></div>
+          <div className="column is-1" id="mobile-removed"></div>
           <div className="column is-4">
 
             <form className="homepage-search">
@@ -171,7 +171,7 @@ const Home = () => {
             </form>
 
           </div>
-          <div className="column is-7"></div>
+          <div className="column is-7" id="mobile-removed"></div>
         </div>
       </section>
 
@@ -199,7 +199,7 @@ const Home = () => {
             />
           </div>
           <br />
-          <div className="container columns is-centered">
+          <div className="container columns is-centered explore-homes-btn-wrapper">
             <button className="button is-danger is-medium">Explore our homes</button>
           </div>
         </div>
@@ -210,7 +210,7 @@ const Home = () => {
           <h1 className="title has-text-weight-bold is-size-2">What others say...</h1>
           <div className="columns is-mobile is-multiline">
             {reviews.map(review => ( 
-              <div key={review.id} className="column is-one-third-desktop is-one-third-tablet is-half-mobile">         
+              <div key={review.id} className="column is-one-third-desktop is-one-half-tablet is-full-mobile">         
                 <div className="card card-border has-background-light curved-corners">
                   <div className="card-content homepage-reviews">
                     <div className="quotations"></div>

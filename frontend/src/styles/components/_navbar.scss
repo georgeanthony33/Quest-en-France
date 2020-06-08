@@ -1,6 +1,27 @@
 @import 'base/colours';
 @import 'base/fonts';
 
+nav.navbar {
+  background-color: hsl(0, 3%, 12%);
+  a.navbar-item, p, div.contact-links {
+    color: white;
+  }
+  a.navbar-item {
+    text-transform: uppercase;
+  }
+}
+
+nav.main {
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+  align-items: flex-end;
+}
+
+nav.main.scroll {
+  align-items: center;
+}
+
 .logo {
   background-image: url('../../assets/Logos/QeF.png');
   background-size: contain;
@@ -18,14 +39,6 @@
 .navbar-brand, .navbar-end {
   display: flex;
   align-items: flex-end;
-}
-
-.navbar.is-dark .navbar-brand > a.navbar-item:hover {
-  background-color: hsl(0, 0%, 21%);
-}
-
-.navbar.is-dark .navbar-end > a.navbar-item:hover {
-  background-color: hsl(0, 0%, 21%);
 }
 
 .contacts-nav {
