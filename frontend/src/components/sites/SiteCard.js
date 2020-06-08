@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 const SiteCard = ({ name, id, main_image, short_description }) => {
   return (
-    <div key={id} className="column is-one-third-desktop is-one-half-tablet is-full-mobile">
+    <div key={id} className="column is-one-third-desktop is-full-mobile">
       <Link to={`/sites/${id}`} className="focus-border-is-dark">
         <div className="card card-border">
           <div className="card-header">
