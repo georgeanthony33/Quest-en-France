@@ -8,18 +8,16 @@ import Carousel from './Carousel'
 import HomeCard from '../homes/HomeCard'
 
 const Home = () => {
-  const [ sites, setSites ] = useState('')
-  const [ reviews, setReviews ] = useState('')
+  
   const [ chosenSite, setChosenSite ] = useState('Choose a site')
   const [ checkin, setCheckin ] = useState(new Date().setDate(new Date().getDate() + 1))
   const [ checkout, setCheckout ] = useState(new Date().setDate(new Date().getDate() + 7))
   const [ adults, setAdults ] = useState(1)
   const [ kids, setKids ] = useState(0)
-  const [ isActive, setIsActive ] = useState('')
+
+  const [ sites, setSites ] = useState('')
+  const [ reviews, setReviews ] = useState('')
   const [ homeImages, setHomeImages ] = useState()
-
-  const dropdownNode = useRef()
-
   useEffect(() => {
     getSiteData()
     getReviewData()
@@ -56,17 +54,31 @@ const Home = () => {
     setHomeImages(homeImagesData.data)
   }
 
+  const [ windowWidth, setWindowWidth ] = useState(window.innerWidth)
+  useEffect(() => {
+    window.addEventListener('resize', () => setWindowWidth(window.innerWidth));
+    return () => {
+      window.removeEventListener('resize', () => setWindowWidth(window.innerWidth));
+    };
+  }, [])
+  
+  useEffect(() => {
+    console.log(window.innerWidth)
+  }, [])
+
+  const [ isActive, setIsActive ] = useState('')
   useEffect(() => {
     document.addEventListener('click', handleClickAway);
     return () => {
       document.removeEventListener('click', handleClickAway);
     };
   }, [])
-
   const handleClickAway = e => {
     if (dropdownNode.current.contains(e.target)) return
     setIsActive('')
   }
+
+  const dropdownNode = useRef()
 
   if (!sites || !reviews || !homeImages) return null
 
@@ -195,7 +207,7 @@ const Home = () => {
               items={homeImages.map(image => (
                 <HomeCard key={image.id} {...image}/>
               ))}
-              responsive={{ 0: { items: 1 }, 625: { items: 3 } }}
+              responsive={{ 0: { items: 1 }, 768: { items: 2 }, 992: { items: 3 } } }
             />
           </div>
           <br />

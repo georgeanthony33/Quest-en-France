@@ -45,7 +45,7 @@ class carousel extends React.Component {
           onResized={this.handleOnSlideChange}
           autoPlayInterval={2000}
           autoPlayDirection="rtl"
-          autoPlay={true}
+          autoPlay={false}
           fadeOutAnimation={true}
           mouseTrackingEnabled={true}
           disableAutoPlayOnAction={true}
