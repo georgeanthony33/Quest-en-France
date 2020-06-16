@@ -61,10 +61,6 @@ const Home = () => {
       window.removeEventListener('resize', () => setWindowWidth(window.innerWidth));
     };
   }, [])
-  
-  useEffect(() => {
-    console.log(window.innerWidth)
-  }, [])
 
   const [ isActive, setIsActive ] = useState('')
   useEffect(() => {
@@ -128,7 +124,7 @@ const Home = () => {
                 </div>
               </div>
 
-              <div className="columns">
+              <div className="columns search-dates">
                 <div className="field column is-half">
                   <label className="label">Check In</label>
                   <div className="control">
@@ -207,7 +203,7 @@ const Home = () => {
               items={homeImages.map(image => (
                 <HomeCard key={image.id} {...image}/>
               ))}
-              responsive={{ 0: { items: 1 }, 768: { items: 2 }, 992: { items: 3 } } }
+              responsive={{ 0: { items: 1 }, 768: { items: 2 }, 992: { items: 3 } }}
             />
           </div>
           <br />

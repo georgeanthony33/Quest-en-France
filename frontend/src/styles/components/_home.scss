@@ -35,7 +35,7 @@
 }
 
 .homepage-search {
-  height: 485px;
+  height: 475px;
   width: 400px;
   background-color: whitesmoke;
   border-radius: 10px;
@@ -44,15 +44,18 @@
     width: 100%;
     max-width: 400px;
     min-width: 320px;
-    height: 650px;
+    height: 640px;
     margin: 0 auto;
   }
   .columns > .field.column.is-half {
     padding-top: 5px;
     padding-bottom: 5px;
   }
+  .search-dates {
+    margin-top: 0;
+  }
   .guest-numbers {
-    margin-top: 12px;
+    // margin-top: 12px;
   }
 }
 

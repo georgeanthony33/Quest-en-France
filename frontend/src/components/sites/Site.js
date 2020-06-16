@@ -24,30 +24,34 @@ const Site = () => {
     const siteData = await axios.get(`/api/sites/${id}/`)
     setSite(siteData.data)
   }
+
+  const [ windowWidth, setWindowWidth ] = useState(window.innerWidth)
+  useEffect(() => {
+    window.addEventListener('resize', () => setWindowWidth(window.innerWidth));
+    return () => {
+      window.removeEventListener('resize', () => setWindowWidth(window.innerWidth));
+    };
+  }, [])
     
   if (!site) return null
-
-  // console.log(site.gallery_images.map(image => (
-  //   `../${site.name}/Gallery/${image}.jpg`)))
-
 
   return (
     
     <div className="has-navbar-fixed-top">
 
-      <div className="site-outer-container">
+    <div className="site-top-banner">
+      <h2 className={`title has-text-weight-bold is-size-2 column is-${windowWidth >= 1145 ? 3 : 5}`} id="site-title">{site.name}</h2>
+      <h2 className={`title has-text-weight-bold is-size-4 column is-${windowWidth >= 1145 ? 9 : 7} site-area`} id="check-availability">{site.area}, {site.country}</h2>
+    </div>
 
-        <div className="site-top-banner">
-          <h2 className="title has-text-weight-bold is-size-2 column is-3">{site.name}</h2>
-          <h2 className="title has-text-weight-bold is-size-4 column is-9 site-area" id="check-availability">{site.area}, {site.country}</h2>
-        </div>
+      <div className="site-outer-container">
 
         <section className={`site-top-outer-container ${site.name}`}>
           <div className="homepage-top-inner-container columns">
-            <div className="column is-1"></div>
+            <div className="column is-1" id="mobile-removed"></div>
             <div className="column is-8">
 
-              <form className="sitepage-search">
+              <form className="sitepage-search" id={site.name.slice(0,3)}>
 
                 <h3 className="has-text-weight-bold is-size-5">{site.short_description}</h3>
                 <br />
@@ -57,7 +61,7 @@ const Site = () => {
                     <label className="label">Check In</label>
                     <div className="control">
                       <DatePicker
-                        className="input"
+                        className="input site-date-input"
                         selected={checkin}
                         onChange={(checkin) => setCheckin(checkin)}
                         dateFormat="d MMMM yyyy"
@@ -70,7 +74,7 @@ const Site = () => {
                     <label className="label">Check Out</label>
                     <div className="control">
                       <DatePicker
-                        className="input"
+                        className="input site-date-input"
                         selected={checkout}
                         onChange={(checkout) => setCheckout(checkout)}
                         dateFormat="d MMMM yyyy"
@@ -110,7 +114,7 @@ const Site = () => {
               </form>
 
             </div>
-            <div className="column is-3"></div>
+            <div className="column is-3" id="mobile-removed"></div>
           </div>
         </section>
 
