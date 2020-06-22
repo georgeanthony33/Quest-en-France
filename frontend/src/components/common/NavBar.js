@@ -8,7 +8,7 @@ const NavBar = () => {
   const [ scrollY, setScrollY ] = useState(0)
 
   const toggleNavbar = () => {
-    setNavOpen(true)
+    setNavOpen(!navOpen)
   }
 
   const handleLogout = () => {
