@@ -40,6 +40,10 @@ const NavBar = () => {
                 <i className="fas fa-phone"></i>
                 <p>01204 415425 or 07985 093397</p>
               </div>
+              <div className="contact-links">
+                <i className="fas fa-phone"></i>
+                <p>Ireland/Europe: 0044 1204 415425 or 0044 7985 093397</p>
+              </div>
             </div>
           </div>
         </div>
@@ -48,7 +52,7 @@ const NavBar = () => {
       <nav className={scrollY < 45 ? 'navbar is-size-5 is-fixed-top is-transparent main' : 'navbar is-size-5 is-fixed-top is-transparent main scroll'}>
         <Link className="navbar-item" to="/"><div className={scrollY < 45 ? 'logo' : 'logo small'}></div></Link>
         <Link className="navbar-item" to="/sites/france">Sites France</Link>
-        <Link className="navbar-item" to="/sites/portugal">Sites Portugal</Link>
+        <Link className="navbar-item" to="/sites/3">Sites Portugal</Link>
         <Link className="navbar-item" to="/">Our Homes</Link>
         <Link className="navbar-item" to="/">FAQ</Link>
         <Link className="navbar-item" to="/">Contact Us</Link>
