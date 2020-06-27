@@ -3,9 +3,10 @@ import DatePicker from 'react-datepicker'
 import 'react-datepicker/dist/react-datepicker.css'
 import axios from 'axios'
 import { Link, withRouter } from 'react-router-dom'
-import SiteCard from '../sites/SiteCard'
-import Carousel from './Carousel'
-import HomeCard from '../homes/HomeCard'
+import SiteCard from './SiteCard'
+import Carousel from '../Carousel/Carousel'
+import HomeCard from './HomeCard'
+import './home.scss'
 
 const Home = () => {
   
@@ -54,13 +55,13 @@ const Home = () => {
     setHomeImages(homeImagesData.data)
   }
 
-  const [ windowWidth, setWindowWidth ] = useState(window.innerWidth)
-  useEffect(() => {
-    window.addEventListener('resize', () => setWindowWidth(window.innerWidth));
-    return () => {
-      window.removeEventListener('resize', () => setWindowWidth(window.innerWidth));
-    };
-  }, [])
+  // const [ windowWidth, setWindowWidth ] = useState(window.innerWidth)
+  // useEffect(() => {
+  //   window.addEventListener('resize', () => setWindowWidth(window.innerWidth));
+  //   return () => {
+  //     window.removeEventListener('resize', () => setWindowWidth(window.innerWidth));
+  //   };
+  // }, [])
 
   const [ isActive, setIsActive ] = useState('')
   useEffect(() => {
@@ -229,8 +230,7 @@ const Home = () => {
                   </div>
                 </div>
               </div>
-            ))
-            }
+            ))}
           </div>
         </div>
       </section>

@@ -1,0 +1,200 @@
+@import './../../styles/main.scss';
+
+.homes-homecard-container {
+  width: 100vw;
+  height: auto;
+}
+
+.homes-alice-image {
+  width: 100%;
+  height: fit-content;
+}
+
+// .site-outer-container {
+//   margin-top: 53px;
+// }
+
+.homes-top-banner {
+  width: 100vw;
+  margin-top: 55px;
+  // height: 75px;
+  padding: 8px 0px 1px 0px;
+  background-color: rgba(245, 245, 245, 0.97);
+  font-weight: 700;
+  // display: flex;
+  // @media (max-width: 768px) {
+  //   flex-direction: column;
+  //   height: 120px;
+  // }
+}
+
+.tabs li.is-active a#homes-tabs{
+  border-bottom-color: var(--grey-text-colour);
+  color: var(--grey-text-colour);
+}
+
+// h2#site-title {
+//   @media (max-width: 768px) {
+//     margin-bottom: -20px;
+//   }
+// }
+
+// .site-top-outer-container {
+//   background-repeat: no-repeat;
+//   background-size: contain;
+//   margin-top: -50px;
+//   width: 100vw;
+//   position: relative;
+//   height: 80vh;
+//   @media (max-width: 768px) {
+//     height: calc(95vh + 160px);
+//   }
+// }
+
+// .sitepage-search {
+//   height: 460px;
+//   width: 520px;
+//   background-color: whitesmoke;
+//   border-radius: 10px;
+//   padding: 30px 35px 0 35px;
+//   @media (max-width: 768px) {
+//     width: 100%;
+//     max-width: 400px;
+//     min-width: 320px;
+//     height: fit-content;
+//     margin: 0 auto;
+//     margin-top: -50px;
+//     padding-bottom: 30px;
+//   }
+// }
+
+// .sitepage-search#Les {
+//   @media (max-width: 768px) {
+//     margin-top: -20px;
+//   }
+// }
+
+// .L’Oceano {
+//   background: center url('../../assets/Panoramics/LOceano.jpg');
+// }
+
+// .Les {
+//   background: center url('../../assets/Panoramics/LesGenets.jpg');
+// }
+
+// .Calico {
+//   background: right bottom url('../../assets/Panoramics/CalicoPark.jpg');
+// }
+
+// .site-area {
+//   margin-top: 0.7rem;
+// }
+
+// .site-content {
+//   margin-top: 12px;
+// }
+
+// .site-top {
+//   padding: 30px 50px;
+// }
+
+// .site-carousel-container {
+//   text-align: center;
+// }
+
+// .site-carousel {
+//   height: 400px;
+// }
+
+// .site-carousel > .alice-carousel > div.alice-carousel__next-btn, .site-carousel > .alice-carousel > div.alice-carousel__prev-btn {
+//   position: relative;
+//   top: -240px;
+//   display: inline-block;
+//   width: fit-content;
+// }
+
+// div.alice-carousel__next-btn {
+//   text-align: right;
+//   left: 280px;
+// }
+
+// div.alice-carousel__prev-btn {
+//   text-align: left;
+//   right: 250px;
+// }
+
+// .site-alice-image {
+//   height: 400px;
+// }
+
+// .site-date-input {
+//   width: 94%;
+// }
+
+// #guests-input {
+//   width: 94%;
+// }
+
+// .site-navbar {
+//   position: absolute;
+//   z-index: 1;
+//   color: white;
+//   top: 65px;
+//   position: -webkit-sticky;
+//   position: sticky;
+//   background-color: hsl(0, 0%, 96%);
+//   opacity: 0.95;
+//   color: #4a4a4a;
+//   font-size: 24px;
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   height: 50px;
+// }
+
+// a.site-navbar-anchor {
+//   margin: 0 3vw;
+//   padding-top: 5px;
+//   text-decoration: none;
+//   font-weight: 700;
+//   color: #4a4a4a;
+// }
+
+// span.tick {
+//   margin-right: 7px;
+// }
+
+// .facilities {
+//   margin: 0 50px;
+//   padding: 20px;
+// }
+
+// .site-page-carousel > li > {
+//   width: 650px;
+// }
+
+// .site-page-carousel {
+//   height: 400px;
+//   width: 100vw;
+//   padding-right: 50px;
+//   text-align: center;
+//   img {
+//     height: 450px;
+//   }
+//   div.carousel-button {
+//     top: -450px;
+//   }
+//   div.carousel-button.prev {
+//     text-align: left;
+//     right: 350px;
+//   }
+//   div.carousel-button.next {
+//     text-align: right;
+//     left: 350px;
+//   }
+// }
+
+// .site-check-availability {
+//   text-align: right;
+//   margin-right: 3%;
+// }

@@ -1,8 +1,7 @@
-@import 'base/colours';
-@import 'base/fonts';
+@import './../../styles/main.scss';
 
 nav.navbar {
-  background-color: hsl(0, 3%, 12%);
+  background-color: (hsl(0, 3%, 12%));
   a.navbar-item, p, div.contact-links {
     color: white;
   }

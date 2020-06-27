@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import { Link, withRouter } from 'react-router-dom'
 // import { notify } from 'react-notify-toast'
-import Auth from '../common/Auth'
+import Auth from '../Common/Auth'
+import './navbar.scss'
 
 const NavBar = () => {
   const [ navOpen, setNavOpen ] = useState(false)
@@ -53,7 +54,7 @@ const NavBar = () => {
         <Link className="navbar-item" to="/"><div className={scrollY < 45 ? 'logo' : 'logo small'}></div></Link>
         <Link className="navbar-item" to="/sites/france">Sites France</Link>
         <Link className="navbar-item" to="/sites/3">Sites Portugal</Link>
-        <Link className="navbar-item" to="/">Our Homes</Link>
+        <Link className="navbar-item" to="/homes">Our Homes</Link>
         <Link className="navbar-item" to="/">FAQ</Link>
         <Link className="navbar-item" to="/">Contact Us</Link>
         <Link className="navbar-item" to={`/profile`}>Bookings</Link>

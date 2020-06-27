@@ -3,27 +3,32 @@ import DatePicker from 'react-datepicker'
 import 'react-datepicker/dist/react-datepicker.css'
 import axios from 'axios'
 import { Link, withRouter } from 'react-router-dom'
-import AliceCarousel from 'react-alice-carousel'
 import 'react-alice-carousel/lib/alice-carousel.css'
-import Carousel from './../common/Carousel'
+import HomesFrance from './HomesFrance'
+import HomePortugal from './HomePortugal'
+
+import './homes.scss'
 
 const Site = () => {
-  const [ site, setSite ] = useState('')
-  const [ checkin, setCheckin ] = useState(new Date().setDate(new Date().getDate() + 1))
-  const [ checkout, setCheckout ] = useState(new Date().setDate(new Date().getDate() + 7))
-  const [ adults, setAdults ] = useState(1)
-  const [ kids, setKids ] = useState(0)
-  const [ isActive, setIsActive ] = useState('')
+  const [ homeImagesFrance, setHomeImagesFrance ] = useState()
 
   useEffect(() => {
-    const sitePK = window.location.pathname.replace(/\D/g,'')
-    getSiteData(sitePK)
+    getHomeImagesFrance()
+    getHomeImagesPortugal()
   }, [])
 
-  const getSiteData = async (id) => {
-    const siteData = await axios.get(`/api/sites/${id}/`)
-    setSite(siteData.data)
+  const getHomeImagesFrance = async () => {
+    const homeImagesFranceData = await axios.get('/api/home_images/')
+    setHomeImagesFrance(homeImagesFranceData.data)
   }
+
+  const getHomeImagesPortugal = async () => {
+    const homeImagesPortugalData = await axios.get('/api/home_images/')
+    setHomeImagesFrance(homeImagesPortugalData.data)
+  }
+
+  const [ selectedTab, setSelectedTab ] = useState('France')
+  useEffect(() => console.log(selectedTab))
 
   const [ windowWidth, setWindowWidth ] = useState(window.innerWidth)
   useEffect(() => {
@@ -32,19 +37,30 @@ const Site = () => {
       window.removeEventListener('resize', () => setWindowWidth(window.innerWidth));
     };
   }, [])
-    
-  if (!site) return null
+
+  if (!homeImagesFrance) return null
 
   return (
     
     <div className="has-navbar-fixed-top">
 
-    <div className="site-top-banner">
-      <h2 className={`title has-text-weight-bold is-size-2 column is-${windowWidth >= 1145 ? 3 : 5}`} id="site-title">{site.name}</h2>
-      <h2 className={`title has-text-weight-bold is-size-4 column is-${windowWidth >= 1145 ? 9 : 7} site-area`} id="check-availability">{site.area}, {site.country}</h2>
-    </div>
+      <div class="tabs is-fullwidth homes-top-banner is-large">
+          <li class={selectedTab === 'France' && 'is-active'} onClick={() => setSelectedTab('France')}>
+            <a id="homes-tabs">
+              <span>Our homes in France</span>
+            </a>
+          </li>
+          <li class={selectedTab === 'Portugal' && 'is-active'} onClick={() => setSelectedTab('Portugal')}>
+            <a id="homes-tabs">
+              <span>Our home in Portugal</span>
+            </a>
+          </li>
+      </div>
 
-      <div className="site-outer-container">
+      {selectedTab === 'France' && <HomesFrance />}
+      {selectedTab === 'Portugal' && <HomePortugal />}
+
+      {/* <div className="site-outer-container">
 
         <section className={`site-top-outer-container ${site.name}`}>
           <div className="homepage-top-inner-container columns">
@@ -136,7 +152,7 @@ const Site = () => {
           </ul>
         </div> */}
 
-        <section className="section has-background-white">
+        {/* <section className="section has-background-white">
           <div className="columns">
             <div className="column is-1"></div>
             <div className="column is-6">
@@ -176,7 +192,7 @@ const Site = () => {
           </div>
         </section>
 
-      </div>
+      </div> */}
 
     </div>
 
