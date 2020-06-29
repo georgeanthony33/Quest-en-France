@@ -12,6 +12,8 @@ import Homes from './components/Homes/Homes'
 // require('dotenv').config()
 
 const App = () => (
+  <>
+  <script type="text/javascript" src="http://free-website-translation.com/scripts/fwt.js"></script>
   <BrowserRouter>
     <>
       {/* <Notifications /> */}
@@ -24,6 +26,7 @@ const App = () => (
       <a href="http://free-website-translation.com/" id="ftwtranslation_button" hreflang="en" title=""><img src="http://free-website-translation.com/img/fwt_button_en.gif" id="ftwtranslation_image" alt="website translator plugin"/></a>
     </>
   </BrowserRouter>
+  </>
 )
 
 export default App
