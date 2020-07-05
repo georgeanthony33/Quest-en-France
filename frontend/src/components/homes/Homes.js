@@ -11,7 +11,7 @@ import './homes.scss'
 
 const Site = () => {
   const [ homeImagesFrance, setHomeImagesFrance ] = useState()
-
+  const [ homeImagesPortugal, setHomeImagesPortugal ] = useState()
   useEffect(() => {
     getHomeImagesFrance()
     getHomeImagesPortugal()
@@ -23,12 +23,11 @@ const Site = () => {
   }
 
   const getHomeImagesPortugal = async () => {
-    const homeImagesPortugalData = await axios.get('/api/home_images/')
-    setHomeImagesFrance(homeImagesPortugalData.data)
+    const homeImagesPortugalData = await axios.get('/api/homes_portugal/')
+    setHomeImagesPortugal(homeImagesPortugalData.data)
   }
 
   const [ selectedTab, setSelectedTab ] = useState('France')
-  useEffect(() => console.log(selectedTab))
 
   const [ windowWidth, setWindowWidth ] = useState(window.innerWidth)
   useEffect(() => {
@@ -44,21 +43,21 @@ const Site = () => {
     
     <div className="has-navbar-fixed-top">
 
-      <div class="tabs is-fullwidth homes-top-banner is-large">
-          <li class={selectedTab === 'France' && 'is-active'} onClick={() => setSelectedTab('France')}>
+      <div className="tabs is-fullwidth homes-top-banner is-large">
+          <li className={selectedTab === 'France' && 'is-active'} onClick={() => setSelectedTab('France')}>
             <a id="homes-tabs">
               <span>Our homes in France</span>
             </a>
           </li>
-          <li class={selectedTab === 'Portugal' && 'is-active'} onClick={() => setSelectedTab('Portugal')}>
+          <li className={selectedTab === 'Portugal' && 'is-active'} onClick={() => setSelectedTab('Portugal')}>
             <a id="homes-tabs">
               <span>Our home in Portugal</span>
             </a>
           </li>
       </div>
 
-      {selectedTab === 'France' && <HomesFrance />}
-      {selectedTab === 'Portugal' && <HomePortugal />}
+      {selectedTab === 'France' && <HomesFrance images={homeImagesFrance} />}
+      {selectedTab === 'Portugal' && <HomePortugal images={homeImagesPortugal} />}
 
       {/* <div className="site-outer-container">
 

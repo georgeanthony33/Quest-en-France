@@ -13,7 +13,7 @@ import Homes from './components/Homes/Homes'
 
 const App = () => (
   <>
-  <script type="text/javascript" src="http://free-website-translation.com/scripts/fwt.js"></script>
+  {/* <script type="text/javascript" src="http://free-website-translation.com/scripts/fwt.js"></script> */}
   <BrowserRouter>
     <>
       {/* <Notifications /> */}
@@ -23,7 +23,7 @@ const App = () => (
         <Route exact path="/sites/:id" component={SitePage} />
         <Route exact path="/homes" component={Homes} />
       </Switch>
-      <a href="http://free-website-translation.com/" id="ftwtranslation_button" hreflang="en" title=""><img src="http://free-website-translation.com/img/fwt_button_en.gif" id="ftwtranslation_image" alt="website translator plugin"/></a>
+      {/* <a href="http://free-website-translation.com/" id="ftwtranslation_button" hreflang="en" title=""><img src="http://free-website-translation.com/img/fwt_button_en.gif" id="ftwtranslation_image" alt="website translator plugin"/></a> */}
     </>
   </BrowserRouter>
   </>

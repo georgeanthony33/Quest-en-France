@@ -1,0 +1,56 @@
+[
+{
+  "model": "homes_portugal.homesportugal",
+  "pk": 1,
+  "fields": {
+    "image_location": "kitchen1_ovc11m",
+    "home_type": "",
+    "room": "Kitchen"
+  }
+},
+{
+  "model": "homes_portugal.homesportugal",
+  "pk": 2,
+  "fields": {
+    "image_location": "lounge2_eaoi15",
+    "home_type": "",
+    "room": "Lounge Area"
+  }
+},
+{
+  "model": "homes_portugal.homesportugal",
+  "pk": 3,
+  "fields": {
+    "image_location": "lounge1_mbmhbw",
+    "home_type": "",
+    "room": "Lounge Area"
+  }
+},
+{
+  "model": "homes_portugal.homesportugal",
+  "pk": 4,
+  "fields": {
+    "image_location": "kitchen2_w3vlka",
+    "home_type": "",
+    "room": "Kitchen"
+  }
+},
+{
+  "model": "homes_portugal.homesportugal",
+  "pk": 5,
+  "fields": {
+    "image_location": "bedroom_cxbuqt",
+    "home_type": "",
+    "room": "Bedroom"
+  }
+},
+{
+  "model": "homes_portugal.homesportugal",
+  "pk": 6,
+  "fields": {
+    "image_location": "our-homes_ks9a3a",
+    "home_type": "",
+    "room": "Our Home"
+  }
+}
+]

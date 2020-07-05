@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'homes',
     'home_images',
+    'homes_portugal',
     'sites',
     'bookings',
     'jwt_auth',
