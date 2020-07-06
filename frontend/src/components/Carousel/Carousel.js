@@ -8,6 +8,7 @@ class carousel extends React.Component {
     itemsInSlide: 1,
     responsive: this.props.responsive,
     galleryItems: this.props.items,
+    autoPlay: this.props.autoPlay
   }
 
   slidePrevPage = () => {
@@ -32,7 +33,7 @@ class carousel extends React.Component {
   }
 
   render() {
-    const { currentIndex, galleryItems, responsive } = this.state
+    const { currentIndex, galleryItems, responsive, autoPlay } = this.state
 
     return (
       <div>
@@ -45,7 +46,7 @@ class carousel extends React.Component {
           onResized={this.handleOnSlideChange}
           autoPlayInterval={2000}
           autoPlayDirection="rtl"
-          autoPlay={false}
+          autoPlay
           fadeOutAnimation={true}
           mouseTrackingEnabled={true}
           disableAutoPlayOnAction={true}

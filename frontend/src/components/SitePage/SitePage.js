@@ -5,6 +5,10 @@ import axios from 'axios'
 import { Link, withRouter } from 'react-router-dom'
 import AliceCarousel from 'react-alice-carousel'
 import 'react-alice-carousel/lib/alice-carousel.css'
+import Details from './Details'
+import Gallery from './Gallery'
+import Location from './Location'
+import Attractions from './Attractions'
 import Carousel from '../Carousel/Carousel'
 
 import './site.scss'
@@ -15,7 +19,7 @@ const Site = () => {
   const [ checkout, setCheckout ] = useState(new Date().setDate(new Date().getDate() + 7))
   const [ adults, setAdults ] = useState(1)
   const [ kids, setKids ] = useState(0)
-  const [ isActive, setIsActive ] = useState('')
+  const [ selectedTab, setSelectedTab ] = useState('details')
 
   useEffect(() => {
     const sitePK = window.location.pathname.replace(/\D/g,'')
@@ -122,60 +126,17 @@ const Site = () => {
 
         <nav className="is-size-5 site-navbar">
           <a className="site-navbar-anchor" href="#check-availability">Check Availability</a>
-          <a className="site-navbar-anchor" href="#details">Details</a>
-          <a className="site-navbar-anchor" href="#gallery">Gallery</a>
-          <a className="site-navbar-anchor" href="#attractions">Attractions</a>
-          <a className="site-navbar-anchor" href="#location">Location</a>
+          <a className={`site-navbar-anchor ${selectedTab === 'details' && 'tab-open'}`} id='details' onClick={e => setSelectedTab(e.target.id)}>Details</a>
+          <a className={`site-navbar-anchor ${selectedTab === 'gallery' && 'tab-open'}`} id='gallery' onClick={e => setSelectedTab(e.target.id)}>Gallery</a>
+          <a className={`site-navbar-anchor ${selectedTab === 'attractions' && 'tab-open'}`} id='attractions' onClick={e => setSelectedTab(e.target.id)}>Attractions</a>
+          <a className={`site-navbar-anchor ${selectedTab === 'location' && 'tab-open'}`} id='location' onClick={e => setSelectedTab(e.target.id)}>Location</a>
         </nav>
 
-        {/* <div className="tabs is-centered has-background-light">
-          <ul>
-            <li className="is-active"><a>Details</a></li>
-            <li><a>Facilities</a></li>
-            <li><a>Gallery</a></li>
-            <li><a>Attractions</a></li>
-            <li><a>Location</a></li>
-          </ul>
-        </div> */}
-
         <section className="section has-background-white">
-          <div className="columns">
-            <div className="column is-1"></div>
-            <div className="column is-6">
-              <p className="has-text-weight-bold">{site.long_description[0]}</p>
-              <br />
-              {site.long_description.slice(1).map(paragraph => (
-                <>
-                  <p>{paragraph}</p>
-                  <br />
-                </>
-              ))}
-            </div>
-            <div className="column is-5">
-              <div className="facilities card has-background-light">
-                <h1 className="title has-text-weight-bold is-size-2">Facilities</h1>
-                {site.facilities.map(facility => (
-                  <div className="columns">
-                    <span className="icon has-text-danger tick">
-                      <i className="fas fa-check-square"></i>
-                    </span>
-                    <p>{facility}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section className="section has-background-light">
-          <div className="site-page-carousel">
-            <Carousel
-              items={site.gallery_images.map(image => (
-                <img key={image} src={`../${site.name}/Gallery/${image}.jpg`}></img>
-              ))}
-              responsive={{ 0: { items: 1 }, 625: { items: 1 } }}
-            />
-          </div>
+          {selectedTab === 'details' && <Details site={site} />}
+          {selectedTab === 'gallery' && <Gallery site={site} />}
+          {selectedTab === 'attractions' && <Attractions site={site} />}
+          {selectedTab === 'location' && <Location site={site} />}
         </section>
 
       </div>

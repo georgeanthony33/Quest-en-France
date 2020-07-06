@@ -20,6 +20,13 @@ class Site(models.Model):
     def __str__(self):
         return f'{self.name}'
 
+class LongDescriptionParagraph(models.Model):
+    text = models.TextField(max_length=5000)
+    site = models.ForeignKey(Site, related_name='long_description_paragraphs', null=True, blank=True, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return f'{self.site} - {self.id}'
+    
 class Review(models.Model):
     text = models.TextField(max_length=1000)
     site = models.ForeignKey(Site, related_name='reviews', null=True, blank=True, on_delete=models.CASCADE)
