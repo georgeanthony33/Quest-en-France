@@ -39,12 +39,52 @@
     "country": "Portugal",
     "area": "Eastern Algarve",
     "short_description": "Calico Park is mainly an English site with a mix of residential and holiday homes and is open all year round. A short drive from glorious beaches and fantastic golf courses.",
-    "long_description": "[\"Set on a south facing hill, in the Eastern Algarve. and overlooking the village of Vila Nova de Cacela, Calico Park is a 10 minutes drive from superb golden beaches, and fantastic golf courses. The site is under an hour\\u2019s drive from Faro International Airport, and 11km from the town of Tavira and also 11km from Vila St Real and the Spanish border.\", \"The Eastern Algarve is ideal for visitors looking for a somewhat rural, untouched and laid back appeal, whilst benefiting with some of Europe\\u2019s most beautifully kept golden sandy beaches and the picturesque hills & countryside backing them. The area is richly blessed in terms of its history, architecture and scenery.\", \"Calico Park, on the eastern Algarve, is a very friendly site, and is perfect if you are looking for a relaxing holiday, away from the hordes of tourists and water parks.\", \"Open all year round, the site offers a privileged location that is both private and secure, whilst being within one of the Algarve\\u2019s most sought-after post-codes, on the fringes of the Ria Formosa nature reserve. The pretty tree lined avenues meander and wind throughout the discreet phases of the park passing the well-tended private plots and the communal mature gardens, which help to provide a peaceful and pretty living environment all year round.\", \"Calico Park has been sympathetically landscaped to retain its natural charm and beauty whilst ensuring that each home enjoys a large plot with views. The first thing that strikes you upon the approach to the Park is the beautiful panoramic views of the Atlantic Ocean and the peaceful tranquillity of the surrounding countryside and mountains.\", \"This friendly-gated community has a security entry system operational 24 hours per day providing security and peace of mind to guests and residents. The reception is open from 09:00 to 18:00, 7 days a week. There are fantastic beaches a short drive away, and at least 6 golf courses within easy reach to satisfy the most ardent golfer!\"]",
+    "long_description": "[\"Set on a south facing hill\", \"in the Eastern Algarve. and overlooking the village of Vila Nova de Cacela\", \"Calico Park is a 10 minutes drive from superb golden beaches\", \"and fantastic golf courses. The site is under an hour\\u2019s drive from Faro International Airport\", \"and 11km from the town of Tavira and also 11km from Vila St Real and the Spanish border.\", \"The Eastern Algarve is ideal for visitors looking for a somewhat rural\", \"untouched and laid back appeal\", \"whilst benefiting with some of Europe\\u2019s most beautifully kept golden sandy beaches and the picturesque hills & countryside backing them. The area is richly blessed in terms of its history\", \"architecture and scenery.\", \"Calico Park\", \"on the eastern Algarve\", \"is a very friendly site\", \"and is perfect if you are looking for a relaxing holiday\", \"away from the hordes of tourists and water parks.\", \"Open all year round\", \"the site offers a privileged location that is both private and secure\", \"whilst being within one of the Algarve\\u2019s most sought-after post-codes\", \"on the fringes of the Ria Formosa nature reserve. The pretty tree lined avenues meander and wind throughout the discreet phases of the park passing the well-tended private plots and the communal mature gardens\", \"which help to provide a peaceful and pretty living environment all year round.\", \"Calico Park has been sympathetically landscaped to retain its natural charm and beauty whilst ensuring that each home enjoys a large plot with views. The first thing that strikes you upon the approach to the Park is the beautiful panoramic views of the Atlantic Ocean and the peaceful tranquillity of the surrounding countryside and mountains.\", \"This friendly-gated community has a security entry system operational 24 hours per day providing security and peace of mind to guests and residents. The reception is open from 09:00 to 18:00\", \"7 days a week. There are fantastic beaches a short drive away\", \"and at least 6 golf courses within easy reach to satisfy the most ardent golfer!\"]",
     "main_image": "Calico%20Park/Gallery/Pool_zds3hg.jpg",
-    "gallery_images": "[\"Bedroom\", \"Cafe\", \"Pool\", \"Restaurant\", \"Kitchen New\", \"Kitchen\", \"Lounge New\", \"Lounge\"]",
+    "gallery_images": "[\"Pool_zds3hg\", \"Restaurant_xppha0\", \"Lounge_ve8uc2\", \"Home-outside_yxjviu\", \"Cafe_cfwx5i\", \"Bedroom_ssi59n\", \"Kitchen_uljr9x\", \"Kitchen-new_f71th5\", \"Lounge-new_pohjah\"]",
     "latitude": 37.1862628,
     "longitude": -7.549807,
     "facilities": "[\"Mini Market\", \"Bar & Restaurant\", \"Large Swimming Pool\", \"Laundry\", \"Daytime Reception\", \"Free Internet Access in Reception\", \"English Speaking Staff\", \"24 Hour Security\"]"
+  }
+},
+{
+  "model": "sites.longdescriptionparagraph",
+  "pk": 1,
+  "fields": {
+    "text": "Set on a south facing hill in the Eastern Algarve, and overlooking the village of Vila Nova de Cacela, Calico Park is a 10 minutes drive from superb golden beaches, and fantastic golf courses. The site is under an hour\u2019s drive from Faro International Airport, and 11km from the town of Tavira and also 11km from Vila St Real and the Spanish border.",
+    "site": 3
+  }
+},
+{
+  "model": "sites.longdescriptionparagraph",
+  "pk": 2,
+  "fields": {
+    "text": "The Eastern Algarve is ideal for visitors looking for a somewhat rural, untouched and laid back appeal, whilst benefiting with some of Europe\u2019s most beautifully kept golden sandy beaches and the picturesque hills & countryside backing them. The area is richly blessed in terms of its history, architecture and scenery. The site has a very friendly atmosphere and is perfect if you are looking for a relaxing holiday, away from the hordes of tourists and water parks.",
+    "site": 3
+  }
+},
+{
+  "model": "sites.longdescriptionparagraph",
+  "pk": 3,
+  "fields": {
+    "text": "Cali\u00e7o Park is open all year round and offers a privileged location that is both private and secure, whilst being within one of the Algarve\u2019s most sought-after post-codes, on the fringes of the Ria Formosa nature reserve. The pretty tree lined avenues meander and wind throughout the discreet phases of the park passing the well-tended private plots and the communal mature gardens, which help to provide a peaceful and pretty living environment all year round.",
+    "site": 3
+  }
+},
+{
+  "model": "sites.longdescriptionparagraph",
+  "pk": 4,
+  "fields": {
+    "text": "The site has been sympathetically landscaped to retain its natural charm and beauty whilst ensuring that each home enjoys a large plot with views. The first thing that strikes you upon the approach to the Park is the beautiful panoramic views of the Atlantic Ocean and the peaceful tranquillity of the surrounding countryside and mountains.",
+    "site": 3
+  }
+},
+{
+  "model": "sites.longdescriptionparagraph",
+  "pk": 5,
+  "fields": {
+    "text": "Cali\u00e7o Park\u2019s friendly-gated community has a security entry system operational 24 hours per day providing security and peace of mind to guests and residents. The reception is open from 09:00 to 18:00 7 days a week. There are fantastic beaches a short drive away, and at least 6 golf courses within easy reach to satisfy the most ardent golfer!",
+    "site": 3
   }
 },
 {
@@ -78,6 +118,66 @@
     "owner": null,
     "name": "Mrs B.H.",
     "date_created": "2020-05-14"
+  }
+},
+{
+  "model": "sites.attraction",
+  "pk": 1,
+  "fields": {
+    "name": "Praia da Manta Rota Beach",
+    "image": "attraction6_jmgqbj",
+    "description": "A deep, long and popular beach. You can drive straight to the beach as it is here that the lagoon of the Ria Formosa finally comes to an end. Consequently, access to the car park gets very busy in peak season. From Calico Park this beach is no more than 15 minutes drive.",
+    "site": 3
+  }
+},
+{
+  "model": "sites.attraction",
+  "pk": 2,
+  "fields": {
+    "name": "Praia da Verde Beach",
+    "image": "attraction1_pa0kkw",
+    "description": "You can find it just to the west of Monte Gordo and stretching to the West towards Tavira. This beach takes its name from its surrounding greenery, composed by a line of trees and bushes that line the land side of the broad endless beach. Ideally suitable for most families with their children.",
+    "site": 3
+  }
+},
+{
+  "model": "sites.attraction",
+  "pk": 3,
+  "fields": {
+    "name": "Zoomarine",
+    "image": "attraction2_g8j915",
+    "description": "Located in Guia, just a few kilometers from Albufeira, you can watch presentations with dolphins, seals and sea lions, with tropical birds and birds of prey. Zoomarine theme park is open all year round from 10am to 6pm, for more precise information and prices see official website.",
+    "site": 3
+  }
+},
+{
+  "model": "sites.attraction",
+  "pk": 4,
+  "fields": {
+    "name": "Vila Real de Santo Ant\u00f3nio",
+    "image": "attraction3_qipywh",
+    "description": "Situated on the Rio Guadiana, which is the river that divides the Algarve from Spain. If you stand on the far eastern edge of Vila Real you can easily see the Spanish coastline and the bridge over the river that connects the town to Ayamonte in Spain. Vila Real has a large town square edged with orange trees and populated with low white buildings, shops, cafes and restaurants.",
+    "site": 3
+  }
+},
+{
+  "model": "sites.attraction",
+  "pk": 5,
+  "fields": {
+    "name": "Tavira",
+    "image": "attraction4_cshmht",
+    "description": "A really attractive town with some lovely, quite grand, buildings reflecting it\u2019s wealthy past particularly around the Pra\u00e7a da Rep\u00fablica area and then typical rows of portuguese \u2018town\u2019 houses with tiled fronts along narrow cobbled streets; shops to browse in; pretty gardens and squares to sit in and, of course, plenty of restaurants and cafes for refreshments!",
+    "site": 3
+  }
+},
+{
+  "model": "sites.attraction",
+  "pk": 6,
+  "fields": {
+    "name": "Monte Gordo",
+    "image": "attraction5_abzodf",
+    "description": "The main attraction of Monte Gordo is its long wide golden beach, which is rated amongst the longest and the best in the Algarve. The sea is a little warmer here, being in the east of the Algarve. Away from the hotels, behind the beach you\u2019ll find sand dunes and pine forests. The main attraction during the day is the beach and watersports. In many ways it is a perfect place for families.",
+    "site": 3
   }
 }
 ]
