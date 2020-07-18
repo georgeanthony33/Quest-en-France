@@ -7,7 +7,7 @@
     "country": "France",
     "area": "Southern Vendee Region",
     "short_description": "Camping L\u2019Oceano d\u2019Or is one of the prestigious sites, which won the \u2018Grand Prix du Tourisme\u2019 recently, and has now gained the coveted five star status.",
-    "long_description": "[\"Camping LOceano d'Or is one of the prestigious group of sites, which won the \\u2018Grand Prix du Tourisme\\u2019 recently, and has now gained the coveted five star status.\", \"The large swimming pool complex has a spacious sun terrace, overlooked by the bar. There are 2 fun waterslides and a heated children\\u2019s pool. Built in 2015, the addition of a large indoor pool, with roof that can be opened, is an added attraction.\", \"This site should appeal to families with children of all ages. It is lively in high season with a full programme of entertainment. Other sporting activities on offer are tennis, boules, aquagym and scuba diving. There is also a fitness suite on site.\", \"The site has 2 beaches within walking distance, Plage de Boisinet and Plage de Morpoigne, both of which have plenty of bars, cafes and restaurants.\"]",
+    "long_description": "[\"-\"]",
     "main_image": "L%27Oceano%20d%27Or/Gallery/Pool-complex_tfz781.jpg",
     "gallery_images": "[\"Boules-area\", \"Campsite-entrance\", \"Games-room\", \"Indoor-pool\", \"Kids-activity\", \"Kids-play-area\", \"Main-pool-area\", \"Pool-complex\", \"Pool-entertainment\", \"Pool-overhead\", \"Slide\"]",
     "latitude": 46.4208,
@@ -23,7 +23,7 @@
     "country": "France",
     "area": "Vendee Region",
     "short_description": "Les Genets is a 5 star site and 10 minutes walk from glorious sandy beaches ideal for sunbathing, swimming, windsurfing & sailing. The pool complex includes an indoor and outdoor pool.",
-    "long_description": "[\"Les Genets is a 5 star site, approximately 800 metres (about 10 minutes walk) from long glorious sandy beaches. These beaches are ideal for sunbathing, swimming, windsurfing & sailing.\", \"The pool complex includes an indoor and outdoor pool, with slides and cascading water waves. Near to the site entrance is crazy golf and carrying on towards the Plage de Mouettes and Merlin Plage beaches are cafes, restaurants, a supermarket, bike hire, and shops.\", \"The area provides opportunities for walking, cycling, quad biking & pony trekking ( available at local equestrian centre). The campsite offers a relaxed, family atmosphere set in a wooden park.\", \"In high season there is organised entertainment provided during the day and night. The site is ideal for children of all ages. Also at close proximity is the Atlantic Toboggan water park. Close by is the St Jean de Monts golf course, offering an excellent 18 hole course.\"]",
+    "long_description": "[\"-\"]",
     "main_image": "Les%20Genets/Gallery/Pool1_ikmhup.jpg",
     "gallery_images": "[\"Pool1\"]",
     "latitude": 46.7708787,
@@ -85,6 +85,78 @@
   "fields": {
     "text": "Cali\u00e7o Park\u2019s friendly-gated community has a security entry system operational 24 hours per day providing security and peace of mind to guests and residents. The reception is open from 09:00 to 18:00 7 days a week. There are fantastic beaches a short drive away, and at least 6 golf courses within easy reach to satisfy the most ardent golfer!",
     "site": 3
+  }
+},
+{
+  "model": "sites.longdescriptionparagraph",
+  "pk": 6,
+  "fields": {
+    "text": "Les Genets is a 5 star site, approximately 800 metres (about 10 minutes walk) from long glorious sandy beaches. These beaches are ideal for sunbathing, swimming, windsurfing & sailing.",
+    "site": 2
+  }
+},
+{
+  "model": "sites.longdescriptionparagraph",
+  "pk": 7,
+  "fields": {
+    "text": "The pool complex includes an indoor and outdoor pool, with slides and cascading water waves. Near to the site entrance is crazy golf and carrying on towards the Plage de Mouettes and Merlin Plage beaches are cafes, restaurants, a supermarket, bike hire, and shops.",
+    "site": 2
+  }
+},
+{
+  "model": "sites.longdescriptionparagraph",
+  "pk": 8,
+  "fields": {
+    "text": "The area provides opportunities for walking, cycling, quad biking & pony trekking (available at local equestrian centre). The campsite offers a relaxed, family atmosphere set in a wooden park.",
+    "site": 2
+  }
+},
+{
+  "model": "sites.longdescriptionparagraph",
+  "pk": 9,
+  "fields": {
+    "text": "In high season there is organised entertainment provided during the day and night. The site is ideal for children of all ages. Also at close proximity is the Atlantic Toboggan water park. Close by is the St Jean de Monts golf course, offering an excellent 18 hole course.",
+    "site": 2
+  }
+},
+{
+  "model": "sites.longdescriptionparagraph",
+  "pk": 10,
+  "fields": {
+    "text": "Camping L'Oceano d'Or is one of the prestigious group of sites, which won the \u2018Grand Prix du Tourisme\u2019 recently, and has now gained the coveted five star status.",
+    "site": 1
+  }
+},
+{
+  "model": "sites.longdescriptionparagraph",
+  "pk": 11,
+  "fields": {
+    "text": "The large swimming pool complex has a spacious sun terrace, overlooked by the bar. There are 2 fun waterslides and a heated children\u2019s pool. Built in 2015, the addition of a large indoor pool, with roof that can be opened, is an added attraction.",
+    "site": 1
+  }
+},
+{
+  "model": "sites.longdescriptionparagraph",
+  "pk": 12,
+  "fields": {
+    "text": "This site should appeal to families with children of all ages. It is lively in high season with a full programme of entertainment.",
+    "site": 1
+  }
+},
+{
+  "model": "sites.longdescriptionparagraph",
+  "pk": 13,
+  "fields": {
+    "text": "Other sporting activities on offer are tennis, boules, aquagym and scuba diving. There is also a fitness suite on site.",
+    "site": 1
+  }
+},
+{
+  "model": "sites.longdescriptionparagraph",
+  "pk": 14,
+  "fields": {
+    "text": "The site has 2 beaches within walking distance, Plage de Boisinet and Plage de Morpoigne, both of which have plenty of bars, cafes and restaurants.",
+    "site": 1
   }
 },
 {
@@ -178,6 +250,66 @@
     "image": "attraction5_abzodf",
     "description": "The main attraction of Monte Gordo is its long wide golden beach, which is rated amongst the longest and the best in the Algarve. The sea is a little warmer here, being in the east of the Algarve. Away from the hotels, behind the beach you\u2019ll find sand dunes and pine forests. The main attraction during the day is the beach and watersports. In many ways it is a perfect place for families.",
     "site": 3
+  }
+},
+{
+  "model": "sites.attraction",
+  "pk": 7,
+  "fields": {
+    "name": "St Jean De Monts",
+    "image": "Attraction2_lholsb",
+    "description": "A busy and attractive seasidetown with many attractions, sea front bars, shops, cafes and restaurants including an excellent beachand twice weekly market. Only a short drive from Le Genets site.",
+    "site": 1
+  }
+},
+{
+  "model": "sites.attraction",
+  "pk": 8,
+  "fields": {
+    "name": "St Gilles Croix De Vie",
+    "image": "Attraction1_ohwad9",
+    "description": "A beautiful small town with a thriving marina and fishing port.",
+    "site": 1
+  }
+},
+{
+  "model": "sites.attraction",
+  "pk": 9,
+  "fields": {
+    "name": "Les Sables D'Ollone",
+    "image": "Attraction6_s3q76j",
+    "description": "A large and bustling town-resort with beautiful beach and promenade with a varied nightlife including many excellent cafe bars, bistros and welcoming restaurants.",
+    "site": 1
+  }
+},
+{
+  "model": "sites.attraction",
+  "pk": 10,
+  "fields": {
+    "name": "Island of Noirmoutier",
+    "image": "Attraction5_nkmowm",
+    "description": "Situated to the north of St Jean De Monts and offers lovely remote beaches and has a lovely island feel. It can be reached either by a bridge or at certain times of low tide by a causeway.",
+    "site": 1
+  }
+},
+{
+  "model": "sites.attraction",
+  "pk": 11,
+  "fields": {
+    "name": "Apremont",
+    "image": "Attraction3_vox6cq",
+    "description": "Situated a few miles inland from St Jean De Monts and provides a nice day away from the beach, with a lake and chateau on offer.",
+    "site": 1
+  }
+},
+{
+  "model": "sites.attraction",
+  "pk": 12,
+  "fields": {
+    "name": "Challans",
+    "image": "Attraction4_ptgxdx",
+    "description": "A large town that holds a large medieval all day market with lots of stalls, arts, crafts, musicians and singers where every one from children to adults are dressed in period custome. Not to be missed, these markets are held on 2 Thursdays in July and 2 Thursdays in August.",
+    "site": 1
   }
 }
 ]

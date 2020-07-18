@@ -4,8 +4,6 @@ const Details = (props) => {
 
   const site = props.site
 
-  console.log(site)
-
   return (  
     <div className="columns">
       <div className="column is-1"></div>
