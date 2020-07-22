@@ -125,7 +125,6 @@ const Site = () => {
         </section>
 
         <nav className="is-size-5 site-navbar">
-          <a className="site-navbar-anchor" href="#check-availability">Check Availability</a>
           <a className={`site-navbar-anchor ${selectedTab === 'details' && 'tab-open'}`} id='details' onClick={e => setSelectedTab(e.target.id)}>Details</a>
           <a className={`site-navbar-anchor ${selectedTab === 'gallery' && 'tab-open'}`} id='gallery' onClick={e => setSelectedTab(e.target.id)}>Gallery</a>
           <a className={`site-navbar-anchor ${selectedTab === 'attractions' && 'tab-open'}`} id='attractions' onClick={e => setSelectedTab(e.target.id)}>Attractions</a>

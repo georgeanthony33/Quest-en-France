@@ -3,13 +3,12 @@ import React from 'react'
 const Attractions = (props) => {
 
   const cloudinaryURL = {
-    "L’Oceano d’Or": 'https://res.cloudinary.com/drjzlxwhz/image/upload/v1591123042/Les%20Genets',
-    'Calico Park': 'https://res.cloudinary.com/drjzlxwhz/image/upload/v1594058094/Calico%20Park',
-    'Les Genets': ''
+    "L’Oceano d’Or": 'https://res.cloudinary.com/drjzlxwhz/image/upload/v1595071860/L%27Oceano%20d%27Or',
+    'Les Genets': 'https://res.cloudinary.com/drjzlxwhz/image/upload/v1591123042/Les%20Genets',
+    'Calico Park': 'https://res.cloudinary.com/drjzlxwhz/image/upload/v1594058094/Calico%20Park'
   }
 
   const site = props.site
-  console.log(site)
 
   return (  
     <div className="columns">

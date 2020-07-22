@@ -311,5 +311,65 @@
     "description": "A large town that holds a large medieval all day market with lots of stalls, arts, crafts, musicians and singers where every one from children to adults are dressed in period custome. Not to be missed, these markets are held on 2 Thursdays in July and 2 Thursdays in August.",
     "site": 1
   }
+},
+{
+  "model": "sites.attraction",
+  "pk": 13,
+  "fields": {
+    "name": "St Jean De Monts",
+    "image": "Attraction2_lholsb",
+    "description": "A busy and attractive seasidetown with many attractions, sea front bars, shops, cafes and restaurants including an excellent beachand twice weekly market. Only a short drive from Le Genets site.",
+    "site": 2
+  }
+},
+{
+  "model": "sites.attraction",
+  "pk": 14,
+  "fields": {
+    "name": "St Gilles Croix De Vie",
+    "image": "Attraction1_ohwad9",
+    "description": "A beautiful small town with a thriving marina and fishing port.",
+    "site": 2
+  }
+},
+{
+  "model": "sites.attraction",
+  "pk": 15,
+  "fields": {
+    "name": "Les Sables D'Ollone",
+    "image": "Attraction6_s3q76j",
+    "description": "A large and bustling town-resort with beautiful beach and promenade with a varied nightlife including many excellent cafe bars, bistros and welcoming restaurants.",
+    "site": 2
+  }
+},
+{
+  "model": "sites.attraction",
+  "pk": 16,
+  "fields": {
+    "name": "Island of Noirmoutier",
+    "image": "Attraction5_nkmowm",
+    "description": "Situated to the north of St Jean De Monts and offers lovely remote beaches and has a lovely island feel. It can be reached either by a bridge or at certain times of low tide by a causeway.",
+    "site": 2
+  }
+},
+{
+  "model": "sites.attraction",
+  "pk": 17,
+  "fields": {
+    "name": "Apremont",
+    "image": "Attraction3_vox6cq",
+    "description": "Situated a few miles inland from St Jean De Monts and provides a nice day away from the beach, with a lake and chateau on offer.",
+    "site": 2
+  }
+},
+{
+  "model": "sites.attraction",
+  "pk": 18,
+  "fields": {
+    "name": "Challans",
+    "image": "Attraction4_ptgxdx",
+    "description": "A large town that holds a large medieval all day market with lots of stalls, arts, crafts, musicians and singers where every one from children to adults are dressed in period custome. Not to be missed, these markets are held on 2 Thursdays in July and 2 Thursdays in August.",
+    "site": 2
+  }
 }
 ]

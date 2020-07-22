@@ -210,7 +210,7 @@ const Home = () => {
           </div>
           <br />
           <div className="container columns is-centered explore-homes-btn-wrapper">
-            <button className="button is-danger is-medium">Explore our homes</button>
+            <a href="/homes"><button className="button is-danger is-medium">Explore our homes</button></a>
           </div>
         </div>
       </section>
