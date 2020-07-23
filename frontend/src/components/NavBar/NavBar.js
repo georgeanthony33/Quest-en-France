@@ -55,7 +55,7 @@ const NavBar = () => {
         <Link className="navbar-item" to="/sites/france">Sites France</Link>
         <Link className="navbar-item" to="/sites/3">Sites Portugal</Link>
         <Link className="navbar-item" to="/homes">Our Homes</Link>
-        <Link className="navbar-item" to="/">FAQ</Link>
+        <Link className="navbar-item" to="/faqs">FAQs</Link>
         <Link className="navbar-item" to="/">Contact Us</Link>
         <Link className="navbar-item" to={`/profile`}>Bookings</Link>
       </nav>
