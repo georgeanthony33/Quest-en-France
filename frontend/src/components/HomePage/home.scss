@@ -52,14 +52,19 @@
   }
   .search-dates {
     margin-top: 0;
+    margin-bottom: 20px;
+    @media (max-width: 768px) {
+      margin-bottom: 40px;
+    }
   }
   .guest-numbers {
     // margin-top: 12px;
   }
 }
 
-.reduce-margin-top {
+#homepage-site-picker-wrapper {
   margin-top: -20px;
+  margin-bottom: 0;
 }
 
 .dropdown {
@@ -219,4 +224,12 @@ div.carousel-button.next {
     margin: 10px 20px 0px 20px;
     border-radius: 0 0 10px 10px;
   }
+}
+
+.homepage-site-picker {
+  padding-top: 10px;
+}
+
+#red-button {
+  background-color: #d70105d2;
 }

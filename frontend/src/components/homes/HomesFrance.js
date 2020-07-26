@@ -235,7 +235,7 @@ const HomesFrance = (props) => {
         <div className="container">
 
           <article className="panel is-danger has-background-light">
-            <p className="panel-heading">
+            <p className="panel-heading" id="faqs-heading">
               <h3 className="title has-text-weight-bold is-size-3 has-text-white">Inventory</h3>
             </p>
             {windowWidth > 730 &&

@@ -94,7 +94,7 @@ const Home = () => {
               <h2 className="has-text-weight-bold">Book your dream holiday in France or Portugal with Quest en France</h2>
               <br />
 
-              <div className="columns reduce-margin-top">
+              <div className="columns" id="homepage-site-picker-wrapper">
                 <div className="field column">
                   <label className="label">Where</label>
 
@@ -107,7 +107,7 @@ const Home = () => {
                     }}
                   >
                     <div className="dropdown-trigger">
-                      <button className="button" aria-haspopup="true" aria-controls="dropdown-menu">
+                      <button className="button homepage-site-picker" aria-haspopup="true" aria-controls="dropdown-menu">
                         <span>{chosenSite}</span>
                         <span className="icon is-small">
                           <i className="fas fa-angle-down" aria-hidden="true"></i>
@@ -210,7 +210,7 @@ const Home = () => {
           </div>
           <br />
           <div className="container columns is-centered explore-homes-btn-wrapper">
-            <a href="/homes"><button className="button is-danger is-medium">Explore our homes</button></a>
+            <a href="/homes"><button className="button is-danger is-medium" id="red-button">Explore our homes</button></a>
           </div>
         </div>
       </section>

@@ -1,6 +1,5 @@
 @import './../../styles/main.scss';
 
-
 .homes-top-banner {
   width: 100vw;
   margin-top: 55px;
@@ -45,11 +44,11 @@ svg.svg-inline--fa.fa-check-square.fa-w-14 {
 }
 
 .homes-homecard-container#portugal {
-  height: 31vw;
+  height: 32.2vw;
   @media (max-width: 1023px) {
-    height: 65vw;
+    height: 70.5vw;
     @media (max-width: 768px) {
-      height: 72vw;
+      height: 69vw;
     }
   }
 }

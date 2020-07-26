@@ -114,7 +114,7 @@ const Site = () => {
                   </div>
                 </div>
                 <div className="site-check-availability">
-                  <input className="button is-danger" type="submit" value="Check Availability" id="details"/>
+                  <input className="button is-danger red-button" type="submit" value="Check Availability" id="details red-button"/>
                 </div>
  
               </form>

@@ -13,19 +13,18 @@ const FAQs = () => {
 
   const [ faqIndex, setFaqIndex ] = useState('')
   const handleClick = (index) => {
-    setFaqIndex(index)
+    index === faqIndex ? setFaqIndex('') : setFaqIndex(index)
   }
 
   const questionsAnswers = [
     { 'What are your arrival times?': 'Arrival times are strictly from 4pm onwards.'},
-    { 'What are your arrival times?': 'Arrival times are strictly from 4pm onwards.'},
-    { 'What are your arrival times?': 'Arrival times are strictly from 4pm onwards.'},
-    { 'What are your arrival times?': 'Arrival times are strictly from 4pm onwards.'},
-    { 'What are your arrival times?': 'Arrival times are strictly from 4pm onwards.'},
-    { 'What are your arrival times?': 'Arrival times are strictly from 4pm onwards.'},
-    { 'What are your arrival times?': 'Arrival times are strictly from 4pm onwards.'},
-    { 'What are your arrival times?': 'Arrival times are strictly from 4pm onwards.'},
-    { 'What are your arrival times?': 'Arrival times are strictly from 4pm onwards.'},
+    { 'What are your departure times?': 'Clients must leave the home before 10am.'},
+    { 'Should I book linen in advance?': 'Linen must be booked at least 6 weeks before the start of your holiday. Please see Prices Page for details and prices.'},
+    { 'Are pets allowed?': 'We do allow a well behaved pet in designated homes. Your dog must be kept on a lead at all times within the campsite, and must not be left unattended in the home. This is a strict campsite policy.'},
+    { 'Is Satellite TV available?': 'We do have a limited number of homes where you can hire Satellite TV with English channels. Please ask at time of booking.'},
+    { 'Are deposits refundable?': 'Your deposit is non-refundable should you cancel your holiday.'},
+    { 'When is balance due?': 'The balance of your holiday payment is due 10 weeks before the holiday start date. We accept all major credit and debit card payments. You can also arrange to pay for your holiday in instalments.'},
+    { 'What is your cancellation policy?': 'In the event of a cancellation, refunds of amounts paid (less the deposit) will be made if Quest en France Holidays are able to re-let the \"Mobile Home\", and any expenses or losses incurred in so doing will be deducted from the refundable amount. The Client is strongly recommended to arrange a comprehensive travel insurance policy (including cancellation cover) and to have full cover for the party’s personal belongings, public liability etc, since these are not covered by the Owner\'s insurance.'}
   ]
 
   return (
@@ -40,24 +39,22 @@ const FAQs = () => {
         <div className="container">
 
           <article className="panel is-danger has-background-light">
-            <p className="panel-heading">
+            <p className="panel-heading" id="faqs-heading">
               <h3 className="title has-text-weight-bold is-size-3 has-text-white">Frequently Asked Questions (FAQs)</h3>
             </p>
 
             {questionsAnswers.map((item, index) => (
-              <>
-                <a className="faq" key={index} onClick={() => handleClick(index)}>
+              <div className="faq-outer-wrapper">
+                <a className="faq-inner-wrapper" key={index} onClick={() => handleClick(index)}>
                   <div class="faqs-question">
                     {Object.keys(item)}
                   </div>
-                  <span className="panel-icon">
-                    <i className="fas fa-check-square" aria-hidden="true"></i>
-                  </span>
+                  {index === faqIndex ? <i class="icon-minus"></i> : <i class="icon-plus"></i>}
                 </a>
                 <div className={index === faqIndex ? 'faqs-answer-visible' : 'faqs-answer-invisible'}>
-                  {Object.values(item)}
+                  <p className="faq-answer-text">{Object.values(item)}</p>
                 </div>
-              </>
+              </div>
             ))}
             
           </article>
