@@ -1,10 +1,15 @@
 import React from 'react'
+import {Elements} from '@stripe/react-stripe-js'
+import {loadStripe} from '@stripe/stripe-js'
 
 const Details = (props) => {
 
   const site = props.site
 
+  const stripePromise = loadStripe('pk_test_51HP8LdIjBNRGWKqwOJajjmBz9HbQVm1MjhtoE2DwSsiWBhFDwTKalh3XiZoRcscZgCxCDc6MBZ1TFjLXwWQfLsrt00fcgmfPkx');
+
   return (  
+    <>
     <div className="columns">
       <div className="column is-1"></div>
       <div className="column is-6">
@@ -31,6 +36,11 @@ const Details = (props) => {
         </div>
       </div>
     </div>
+
+    <Elements stripe={stripePromise}>
+      {/* <MyCheckoutForm /> */}
+    </Elements>
+    </>
   )
 }
 
