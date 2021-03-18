@@ -1,17 +1,42 @@
-@import './base/colours';
-@import './base/fonts';
+@import url('https://fonts.googleapis.com/css?family=Khula&display=swap');
 @import 'font-awesome/scss/font-awesome.scss';
 
+:root {
+  //* Colours
+  --redColour: #D70103;
+  --darkGreyColour: #201e1e;
+  --greyTextColour: #4a4a4a;
+  --lightGreyTextColour: hsl(0, 0%, 71%);
+  --whiteSmokeColour: rgba(245, 245, 245, 0.97);
+
+  //* Screen Widths
+}
+
 * {
-  // margin: 0;
-  // padding: 0;
   font-size: 20px;
   box-sizing: border-box;
   font-family: 'Khula', sans-serif;
 }
 
-#mobile-removed {
-  @media (max-width: 768px) {
-    display: none;
-  }
+.navbar-adjuster {
+  margin-top: 76px;
 }
+
+.anchor-button {
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  border: none;
+  margin: 0;
+  cursor: pointer;
+}
+
+.anchor-button:focus {
+  outline: none;
+}
+
+p#heading {
+  padding: 22px 20px 15px 20px;
+  background-color: var(--redColour)
+}
+
+@custom-media --maxMobileWidth (min-width: 768px);

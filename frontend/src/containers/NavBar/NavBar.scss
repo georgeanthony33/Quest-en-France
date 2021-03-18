@@ -1,0 +1,111 @@
+@import './../../styles/main.scss';
+
+// .NavBar {
+//   height: 60px;
+// }
+
+// nav.navbar {
+//   background-color: (hsl(0, 3%, 12%));
+//   a.navbar-item, p, div.contact-links {
+//     color: white;
+//   }
+//   a.navbar-item {
+//     text-transform: uppercase;
+//   }
+// }
+
+// nav.main {
+//   display: flex;
+//   // justify-content: space-evenly;
+//   width: 100%;
+//   align-items: flex-end;
+//   // height: 30px;
+// }
+
+// nav.main.scroll {
+//   align-items: center;
+// }
+
+#NavBar {
+  
+.logo {
+  background-image: url('../../assets/Logos/QeF.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 180px;
+  height: 60px;
+  // margin: 4px 0;
+}
+
+.anchor-button {
+  text-size-adjust: 100%;
+  line-height: 1.5;
+  font-size: 20px;
+  text-decoration: none;
+  display: block;
+  position: relative;
+  width: 3.25rem;
+  margin-left: auto;
+  background-color: rgba(0, 0, 0, 0.05);
+  color: white;
+  height: 72px;
+
+  @media (min-width: 1024px) {
+    display: none;
+  }
+}
+
+}
+
+.logo.small {
+  // height: 46px;
+  // width: 60px;
+  // margin: 2px 0;
+}
+
+// .navbar-brand, .navbar-end {
+//   display: flex;
+//   align-items: flex-end;
+// }
+
+// .contacts-nav {
+//   z-index: 31;
+//   height: 30px;
+//   transform: translateX(300px);
+//   position: absolute;
+//   position: -webkit-sticky;
+//   position: sticky;
+//   top: 0px;
+//   p {
+//     font-size: 12px;
+//   }
+// }
+
+// .contacts-nav > .container > .navbar-menu > .navbar-brand {
+//   display: flex;
+//   justify-content: flex-start;
+//   width: 100%;
+//   align-items: flex-end;
+//   a {
+//     color: white;
+//     text-decoration: none;
+//     margin-right: 6px;
+//   }
+// }
+
+// .contact-links {
+//   display: flex;
+//   align-items: center;
+//   margin-right: 6px;
+//   i, p {
+//     margin: 0 10px;
+//     font-size: 12px;
+//   }
+//   svg {
+//     font-size: 12px;
+//   }
+// }
+
+// #closed {
+//   visibility: none;
+// }

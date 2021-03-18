@@ -1,0 +1,74 @@
+@import './../../styles/main.scss';
+
+#FAQs {
+
+.top-banner {
+  margin-top: 55px;
+  height: 250px;
+  padding: 8px 0px;
+  background-color: var(--whiteSmokeColour);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  @media (max-width: 768px) {
+    flex-direction: column;
+    height: 120px;
+  }
+  #site-title {
+    margin-top: 0px;
+  }
+  #check-availability {
+    max-width: 600px;
+    text-align: center;
+    letter-spacing: 0.2px;
+    word-spacing: 0.2px;
+  }
+}
+
+.outer-wrapper {
+  padding: 10px;
+  border-bottom: 1px solid #36363677;
+}
+
+.question {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+}
+
+.answer-invisible {
+  display: none;
+}
+
+.answer-visible {
+  padding: 7px 0 2px 10px;
+  display: block;
+  color: var(--darkGreyColour);
+}
+
+i.icon-plus, i.icon-minus {
+  margin-right: 10px;
+}
+
+.answer-text {
+  font-size: 19px;
+}
+
+.anchor-button {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 7px 0 2px 10px;
+  color: var(--darkGreyColour);
+  text-size-adjust: 100%;
+  font-weight: 400;
+  line-height: 1.5;
+  font-size: 20px;
+  text-decoration: none;
+  width: 100%;
+  background-color: whitesmoke;
+}
+
+}

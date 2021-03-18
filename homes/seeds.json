@@ -3,17 +3,406 @@
   "model": "homes.home",
   "pk": 1,
   "fields": {
-    "plot": 35,
-    "home_type": "2012 CORDELIA 8.52M X 4M",
+    "plot": "H35",
+    "home_type": "CORDELIA",
+    "year": 2012,
     "bedrooms": 3,
-    "image": "",
     "veranda": "Semi-covered",
-    "fridge": "Fridge / Freezer",
-    "gas_tails": "",
-    "tow_bars": "",
-    "pull_out_bed": "",
-    "tv": "",
+    "pull_out_bed": 0,
+    "tv": 0,
     "site": 1
+  }
+},
+{
+  "model": "homes.home",
+  "pk": 2,
+  "fields": {
+    "plot": "V80",
+    "home_type": "IRM TITANIA",
+    "year": 2007,
+    "bedrooms": 2,
+    "veranda": "Semi-covered",
+    "pull_out_bed": 0,
+    "tv": 1,
+    "site": 1
+  }
+},
+{
+  "model": "homes.home",
+  "pk": 3,
+  "fields": {
+    "plot": "V81",
+    "home_type": "IRM TITANIA",
+    "year": 2007,
+    "bedrooms": 2,
+    "veranda": "Fully-covered",
+    "pull_out_bed": 0,
+    "tv": 1,
+    "site": 1
+  }
+},
+{
+  "model": "homes.home",
+  "pk": 4,
+  "fields": {
+    "plot": "H10",
+    "home_type": "CORDELIA",
+    "year": 2016,
+    "bedrooms": 3,
+    "veranda": "Semi-covered",
+    "pull_out_bed": 1,
+    "tv": 0,
+    "site": 1
+  }
+},
+{
+  "model": "homes.home",
+  "pk": 5,
+  "fields": {
+    "plot": "P56",
+    "home_type": "CORDELIA",
+    "year": 2013,
+    "bedrooms": 3,
+    "veranda": "Semi-covered",
+    "pull_out_bed": 0,
+    "tv": 0,
+    "site": 1
+  }
+},
+{
+  "model": "homes.home",
+  "pk": 6,
+  "fields": {
+    "plot": "H32",
+    "home_type": "IRM TITANIA",
+    "year": 2006,
+    "bedrooms": 2,
+    "veranda": "Semi-covered",
+    "pull_out_bed": 0,
+    "tv": 0,
+    "site": 1
+  }
+},
+{
+  "model": "homes.home",
+  "pk": 7,
+  "fields": {
+    "plot": "V37",
+    "home_type": "CORDELIA",
+    "year": 2012,
+    "bedrooms": 3,
+    "veranda": "Semi-covered",
+    "pull_out_bed": 0,
+    "tv": 1,
+    "site": 1
+  }
+},
+{
+  "model": "homes.home",
+  "pk": 8,
+  "fields": {
+    "plot": "V36",
+    "home_type": "CORDELIA",
+    "year": 2012,
+    "bedrooms": 3,
+    "veranda": "Semi-covered",
+    "pull_out_bed": 0,
+    "tv": 1,
+    "site": 1
+  }
+},
+{
+  "model": "homes.home",
+  "pk": 9,
+  "fields": {
+    "plot": "V35",
+    "home_type": "CORDELIA",
+    "year": 2012,
+    "bedrooms": 3,
+    "veranda": "Fully-covered",
+    "pull_out_bed": 0,
+    "tv": 1,
+    "site": 1
+  }
+},
+{
+  "model": "homes.home",
+  "pk": 10,
+  "fields": {
+    "plot": "V38",
+    "home_type": "CORDELIA",
+    "year": 2012,
+    "bedrooms": 3,
+    "veranda": "Semi-covered",
+    "pull_out_bed": 0,
+    "tv": 1,
+    "site": 1
+  }
+},
+{
+  "model": "homes.home",
+  "pk": 11,
+  "fields": {
+    "plot": "V39",
+    "home_type": "CORDELIA",
+    "year": 2012,
+    "bedrooms": 3,
+    "veranda": "Semi-covered",
+    "pull_out_bed": 0,
+    "tv": 1,
+    "site": 1
+  }
+},
+{
+  "model": "homes.home",
+  "pk": 12,
+  "fields": {
+    "plot": "V41",
+    "home_type": "CORDELIA",
+    "year": 2012,
+    "bedrooms": 3,
+    "veranda": "Semi-covered",
+    "pull_out_bed": 0,
+    "tv": 1,
+    "site": 1
+  }
+},
+{
+  "model": "homes.home",
+  "pk": 13,
+  "fields": {
+    "plot": "V42",
+    "home_type": "IRM TITANIA",
+    "year": 2007,
+    "bedrooms": 2,
+    "veranda": "Semi-covered",
+    "pull_out_bed": 0,
+    "tv": 1,
+    "site": 1
+  }
+},
+{
+  "model": "homes.home",
+  "pk": 14,
+  "fields": {
+    "plot": "221 COTTAGE",
+    "home_type": "CORDELIA",
+    "year": 2015,
+    "bedrooms": 3,
+    "veranda": "Semi-covered",
+    "pull_out_bed": 1,
+    "tv": 0,
+    "site": 2
+  }
+},
+{
+  "model": "homes.home",
+  "pk": 15,
+  "fields": {
+    "plot": "222 COTTAGE",
+    "home_type": "CORDELIA",
+    "year": 2015,
+    "bedrooms": 3,
+    "veranda": "Semi-covered",
+    "pull_out_bed": 1,
+    "tv": 0,
+    "site": 2
+  }
+},
+{
+  "model": "homes.home",
+  "pk": 16,
+  "fields": {
+    "plot": "235 COTTAGE",
+    "home_type": "CORDELIA RIVIERA",
+    "year": 2017,
+    "bedrooms": 3,
+    "veranda": "Semi-covered",
+    "pull_out_bed": 1,
+    "tv": 0,
+    "site": 2
+  }
+},
+{
+  "model": "homes.home",
+  "pk": 17,
+  "fields": {
+    "plot": "236 COTTAGE",
+    "home_type": "IRM CORDELIA",
+    "year": 2016,
+    "bedrooms": 3,
+    "veranda": "Semi-covered",
+    "pull_out_bed": 1,
+    "tv": 0,
+    "site": 2
+  }
+},
+{
+  "model": "homes.home",
+  "pk": 18,
+  "fields": {
+    "plot": "249 COTTAGE",
+    "home_type": "CORDELIA",
+    "year": 2010,
+    "bedrooms": 3,
+    "veranda": "Semi-covered",
+    "pull_out_bed": 0,
+    "tv": 0,
+    "site": 2
+  }
+},
+{
+  "model": "homes.home",
+  "pk": 19,
+  "fields": {
+    "plot": "264 COTTAGE",
+    "home_type": "IRM TITANIA",
+    "year": 2006,
+    "bedrooms": 2,
+    "veranda": "Fully-covered",
+    "pull_out_bed": 0,
+    "tv": 0,
+    "site": 2
+  }
+},
+{
+  "model": "homes.home",
+  "pk": 20,
+  "fields": {
+    "plot": "265 COTTAGE",
+    "home_type": "CORDELIA",
+    "year": 2014,
+    "bedrooms": 3,
+    "veranda": "Semi-covered",
+    "pull_out_bed": 0,
+    "tv": 0,
+    "site": 2
+  }
+},
+{
+  "model": "homes.home",
+  "pk": 21,
+  "fields": {
+    "plot": "268 COTTAGE",
+    "home_type": "CORDELIA",
+    "year": 2014,
+    "bedrooms": 3,
+    "veranda": "Semi-covered",
+    "pull_out_bed": 0,
+    "tv": 0,
+    "site": 2
+  }
+},
+{
+  "model": "homes.home",
+  "pk": 22,
+  "fields": {
+    "plot": "269 COTTAGE",
+    "home_type": "CORDELIA RIVIERA",
+    "year": 2015,
+    "bedrooms": 3,
+    "veranda": "Semi-covered",
+    "pull_out_bed": 1,
+    "tv": 0,
+    "site": 2
+  }
+},
+{
+  "model": "homes.home",
+  "pk": 23,
+  "fields": {
+    "plot": "270 COTTAGE",
+    "home_type": "RIVIERA",
+    "year": 2014,
+    "bedrooms": 3,
+    "veranda": "Semi-covered",
+    "pull_out_bed": 1,
+    "tv": 0,
+    "site": 2
+  }
+},
+{
+  "model": "homes.home",
+  "pk": 24,
+  "fields": {
+    "plot": "271 COTTAGE",
+    "home_type": "CORDELIA",
+    "year": 2014,
+    "bedrooms": 3,
+    "veranda": "Semi-covered",
+    "pull_out_bed": 0,
+    "tv": 0,
+    "site": 2
+  }
+},
+{
+  "model": "homes.home",
+  "pk": 25,
+  "fields": {
+    "plot": "276 COTTAGE",
+    "home_type": "CORDELIA",
+    "year": 2008,
+    "bedrooms": 3,
+    "veranda": "Semi-covered",
+    "pull_out_bed": 0,
+    "tv": 0,
+    "site": 2
+  }
+},
+{
+  "model": "homes.home",
+  "pk": 26,
+  "fields": {
+    "plot": "277 COTTAGE",
+    "home_type": "CORDELIA",
+    "year": 2007,
+    "bedrooms": 3,
+    "veranda": "Semi-covered",
+    "pull_out_bed": 0,
+    "tv": 0,
+    "site": 2
+  }
+},
+{
+  "model": "homes.home",
+  "pk": 27,
+  "fields": {
+    "plot": "278 COTTAGE",
+    "home_type": "TITANIA",
+    "year": 2007,
+    "bedrooms": 2,
+    "veranda": "Semi-covered",
+    "pull_out_bed": 0,
+    "tv": 0,
+    "site": 2
+  }
+},
+{
+  "model": "homes.home",
+  "pk": 28,
+  "fields": {
+    "plot": "279 COTTAGE",
+    "home_type": "CORDELIA",
+    "year": 2008,
+    "bedrooms": 3,
+    "veranda": "Semi-covered",
+    "pull_out_bed": 0,
+    "tv": 0,
+    "site": 2
+  }
+},
+{
+  "model": "homes.home",
+  "pk": 29,
+  "fields": {
+    "plot": "280 COTTAGE",
+    "home_type": "SUPER TITANIA",
+    "year": 2008,
+    "bedrooms": 2,
+    "veranda": "Semi-covered",
+    "pull_out_bed": 0,
+    "tv": 0,
+    "site": 2
   }
 }
 ]

@@ -15,7 +15,7 @@ class SiteSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Site
-        fields = ('name', 'country', 'short_description', 'images', 'latitude', 'longitude')
+        fields = ('name', 'country', 'short_description', 'main_image', 'gallery_images', 'latitude', 'longitude')
 
 class HomeSerializer(serializers.ModelSerializer):
 

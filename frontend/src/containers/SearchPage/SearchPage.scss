@@ -1,0 +1,79 @@
+@import './../../styles/main.scss';
+
+#SearchPage {
+
+.top-banner {
+  margin-top: 76px;
+  padding: 0 50px 23px 50px;
+  height: -moz-fit-content;
+  height: fit-content;
+  background-color: var(--whiteSmokeColour);
+  display: flex;
+  align-items: flex-end;
+  min-height: 100px;
+}
+
+.banner-subtitle {
+  margin-bottom: 5px;
+  margin-left: 50px;
+}
+
+.search {
+  padding: 5px 40px 50px;
+}
+
+.search-sidebar {
+  width: 30vw;
+  background-color: whitesmoke;
+  border-right: 1px var(--lightGreyTextColour) solid;
+}
+
+.search-results {
+  width: 70vw;
+  background-color: whitesmoke;
+  overflow: scroll;
+}
+
+.main-body {
+  display: flex;
+  background: center url("../../assets/HomeBackground.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 720px;
+}
+
+.search-dates {
+  flex-direction: column;
+}
+
+.guest-numbers {
+  flex-direction: column;
+}
+
+.is-full {
+  width: 208px;
+}
+
+.search-header {
+  display: none;
+}
+
+#SearchCard.container {
+  width: 100%;
+  height: 200px;
+  border-bottom: var(--lightGreyTextColour) 1px solid;
+  display: flex;
+  padding: 20px;
+
+  .image-container {
+    height: 100%;
+  }
+
+  img {
+    height: 100%;
+    object-fit: contain;
+    border-radius: 10px;
+  }
+}
+
+}
