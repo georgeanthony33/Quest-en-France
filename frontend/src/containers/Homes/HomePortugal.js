@@ -19,7 +19,7 @@ const HomePortugal = (props) => {
             <div className="column is-half-desktop is-full-tablet is-full-mobile">
               <div className="homes-homecard-container" id="portugal">
                 <img
-                  src={`https://res.cloudinary.com/drjzlxwhz/image/upload/v1593963508/Portugal%20Home%20Images/${homeImageLarge.image_location}.jpg`}
+                  src={homeImageLarge.image}
                   className="homes-alice-image"
                   alt="Portugal Home"
                 />
@@ -51,7 +51,7 @@ const HomePortugal = (props) => {
               >
                 <div className="homes-homecard-container-small">
                   <img
-                    src={`https://res.cloudinary.com/drjzlxwhz/image/upload/v1593963508/Portugal%20Home%20Images/${image.image_location}.jpg`}
+                    src={image.image}
                     className="homes-alice-image"
                     id="portugal"
                     alt="Portugal Home"

@@ -23,7 +23,7 @@ const HomesFrance = (props) => {
               >
                 <div className="homes-homecard-container">
                   <img
-                    src={`https://res.cloudinary.com/drjzlxwhz/image/upload/v1591121129/Home%20Images/${image.image_location}`}
+                    src={image.image}
                     className="homes-alice-image"
                     alt="Homes France"
                   />
@@ -55,7 +55,7 @@ const HomesFrance = (props) => {
               >
                 <div className="homes-homecard-container-small">
                   <img
-                    src={`https://res.cloudinary.com/drjzlxwhz/image/upload/v1591121129/Home%20Images/${image.image_location}`}
+                    src={image.image}
                     className="homes-alice-image"
                     alt="Homes France"
                   />

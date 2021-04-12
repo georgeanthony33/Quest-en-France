@@ -28,13 +28,23 @@ const SearchPage = (props) => {
       // setHomesData(homesData.data);
       const filteredHomesData =
         homesData.data &&
-        homesData.data.filter((home) => home.site.name === chosenSite);
+        homesData.data
+          .filter((home) => home.site.name === chosenSite)
+          .filter(
+            (home) =>
+              !home.bookings
+                .map(
+                  (booking) =>
+                    new Date(checkin) < new Date(booking.end_date) &&
+                    new Date(checkout) > new Date(booking.start_date),
+                )
+                .includes(true),
+          );
+      console.log(filteredHomesData);
       setFilteredHomesData(filteredHomesData);
     };
     getHomesData();
-  }, [chosenSite]);
-
-  console.log({ filteredHomesData });
+  }, [chosenSite, checkin, checkout]);
 
   if (!filteredHomesData) return null;
 
@@ -65,7 +75,15 @@ const SearchPage = (props) => {
         </div>
         <div className="search-results">
           {filteredHomesData.map((home, index) => (
-            <SearchCard key={index} />
+            <SearchCard
+              key={index}
+              home={home}
+              checkin={checkin}
+              checkout={checkout}
+              adults={adults}
+              kids={kids}
+              chosenSite={chosenSite}
+            />
           ))}
         </div>
         {/* <h1 className="title has-text-weight-bold is-size-2">Hello</h1>

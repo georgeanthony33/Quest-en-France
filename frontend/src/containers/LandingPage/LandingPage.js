@@ -7,6 +7,7 @@ import HomeCard from "../../components/HomeCard/HomeCard";
 import "./LandingPage.scss";
 import helperFunctions from "../../util/HelperFunctions";
 import SearchForm from "../../components/SearchForm/SearchForm";
+import config from "../../util/Config";
 
 const LandingPage = () => {
   const [chosenSite, setChosenSite] = useState("Choose a site");
@@ -46,7 +47,6 @@ const LandingPage = () => {
     getHomeImages();
   }, []);
 
-  console.log(chosenSite, checkin, checkout, adults, kids);
   if (!sites || !reviews || !homeImages) return null;
 
   return (
@@ -92,8 +92,8 @@ const LandingPage = () => {
           <br />
           <div className="carousel">
             <Carousel
-              items={homeImages.map((image) => (
-                <HomeCard key={image.id} {...image} />
+              items={config.homesImages.map((image, index) => (
+                <HomeCard key={index} {...image} />
               ))}
               responsive={{
                 0: { items: 1 },

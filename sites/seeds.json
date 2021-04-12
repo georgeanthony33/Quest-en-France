@@ -197,7 +197,7 @@
   "pk": 1,
   "fields": {
     "name": "Praia da Manta Rota Beach",
-    "image": "attraction6_jmgqbj",
+    "image": "attraction6",
     "description": "A deep, long and popular beach. You can drive straight to the beach as it is here that the lagoon of the Ria Formosa finally comes to an end. Consequently, access to the car park gets very busy in peak season. From Calico Park this beach is no more than 15 minutes drive.",
     "site": 3
   }
@@ -207,7 +207,7 @@
   "pk": 2,
   "fields": {
     "name": "Praia da Verde Beach",
-    "image": "attraction1_pa0kkw",
+    "image": "attraction1",
     "description": "You can find it just to the west of Monte Gordo and stretching to the West towards Tavira. This beach takes its name from its surrounding greenery, composed by a line of trees and bushes that line the land side of the broad endless beach. Ideally suitable for most families with their children.",
     "site": 3
   }
@@ -217,7 +217,7 @@
   "pk": 3,
   "fields": {
     "name": "Zoomarine",
-    "image": "attraction2_g8j915",
+    "image": "attraction2",
     "description": "Located in Guia, just a few kilometers from Albufeira, you can watch presentations with dolphins, seals and sea lions, with tropical birds and birds of prey. Zoomarine theme park is open all year round from 10am to 6pm, for more precise information and prices see official website.",
     "site": 3
   }
@@ -227,7 +227,7 @@
   "pk": 4,
   "fields": {
     "name": "Vila Real de Santo Ant\u00f3nio",
-    "image": "attraction3_qipywh",
+    "image": "attraction3",
     "description": "Situated on the Rio Guadiana, which is the river that divides the Algarve from Spain. If you stand on the far eastern edge of Vila Real you can easily see the Spanish coastline and the bridge over the river that connects the town to Ayamonte in Spain. Vila Real has a large town square edged with orange trees and populated with low white buildings, shops, cafes and restaurants.",
     "site": 3
   }
@@ -237,7 +237,7 @@
   "pk": 5,
   "fields": {
     "name": "Tavira",
-    "image": "attraction4_cshmht",
+    "image": "attraction4",
     "description": "A really attractive town with some lovely, quite grand, buildings reflecting it\u2019s wealthy past particularly around the Pra\u00e7a da Rep\u00fablica area and then typical rows of portuguese \u2018town\u2019 houses with tiled fronts along narrow cobbled streets; shops to browse in; pretty gardens and squares to sit in and, of course, plenty of restaurants and cafes for refreshments!",
     "site": 3
   }
@@ -247,7 +247,7 @@
   "pk": 6,
   "fields": {
     "name": "Monte Gordo",
-    "image": "attraction5_abzodf",
+    "image": "attraction5",
     "description": "The main attraction of Monte Gordo is its long wide golden beach, which is rated amongst the longest and the best in the Algarve. The sea is a little warmer here, being in the east of the Algarve. Away from the hotels, behind the beach you\u2019ll find sand dunes and pine forests. The main attraction during the day is the beach and watersports. In many ways it is a perfect place for families.",
     "site": 3
   }
@@ -257,7 +257,7 @@
   "pk": 7,
   "fields": {
     "name": "St Jean De Monts",
-    "image": "Attraction2_lholsb",
+    "image": "attraction2",
     "description": "A busy and attractive seasidetown with many attractions, sea front bars, shops, cafes and restaurants including an excellent beachand twice weekly market. Only a short drive from Le Genets site.",
     "site": 1
   }
@@ -267,7 +267,7 @@
   "pk": 8,
   "fields": {
     "name": "St Gilles Croix De Vie",
-    "image": "Attraction1_ohwad9",
+    "image": "attraction1",
     "description": "A beautiful small town with a thriving marina and fishing port.",
     "site": 1
   }
@@ -277,7 +277,7 @@
   "pk": 9,
   "fields": {
     "name": "Les Sables D'Ollone",
-    "image": "Attraction6_s3q76j",
+    "image": "attraction6",
     "description": "A large and bustling town-resort with beautiful beach and promenade with a varied nightlife including many excellent cafe bars, bistros and welcoming restaurants.",
     "site": 1
   }
@@ -287,7 +287,7 @@
   "pk": 10,
   "fields": {
     "name": "Island of Noirmoutier",
-    "image": "Attraction5_nkmowm",
+    "image": "attraction5",
     "description": "Situated to the north of St Jean De Monts and offers lovely remote beaches and has a lovely island feel. It can be reached either by a bridge or at certain times of low tide by a causeway.",
     "site": 1
   }
@@ -297,7 +297,7 @@
   "pk": 11,
   "fields": {
     "name": "Apremont",
-    "image": "Attraction3_vox6cq",
+    "image": "attraction3",
     "description": "Situated a few miles inland from St Jean De Monts and provides a nice day away from the beach, with a lake and chateau on offer.",
     "site": 1
   }
@@ -307,7 +307,7 @@
   "pk": 12,
   "fields": {
     "name": "Challans",
-    "image": "Attraction4_ptgxdx",
+    "image": "attraction4",
     "description": "A large town that holds a large medieval all day market with lots of stalls, arts, crafts, musicians and singers where every one from children to adults are dressed in period custome. Not to be missed, these markets are held on 2 Thursdays in July and 2 Thursdays in August.",
     "site": 1
   }
@@ -317,7 +317,7 @@
   "pk": 13,
   "fields": {
     "name": "St Jean De Monts",
-    "image": "Attraction2_lholsb",
+    "image": "attraction2",
     "description": "A busy and attractive seasidetown with many attractions, sea front bars, shops, cafes and restaurants including an excellent beachand twice weekly market. Only a short drive from Le Genets site.",
     "site": 2
   }
@@ -327,7 +327,7 @@
   "pk": 14,
   "fields": {
     "name": "St Gilles Croix De Vie",
-    "image": "Attraction1_ohwad9",
+    "image": "attraction1",
     "description": "A beautiful small town with a thriving marina and fishing port.",
     "site": 2
   }
@@ -337,7 +337,7 @@
   "pk": 15,
   "fields": {
     "name": "Les Sables D'Ollone",
-    "image": "Attraction6_s3q76j",
+    "image": "attraction6",
     "description": "A large and bustling town-resort with beautiful beach and promenade with a varied nightlife including many excellent cafe bars, bistros and welcoming restaurants.",
     "site": 2
   }
@@ -347,7 +347,7 @@
   "pk": 16,
   "fields": {
     "name": "Island of Noirmoutier",
-    "image": "Attraction5_nkmowm",
+    "image": "attraction5",
     "description": "Situated to the north of St Jean De Monts and offers lovely remote beaches and has a lovely island feel. It can be reached either by a bridge or at certain times of low tide by a causeway.",
     "site": 2
   }
@@ -357,7 +357,7 @@
   "pk": 17,
   "fields": {
     "name": "Apremont",
-    "image": "Attraction3_vox6cq",
+    "image": "attraction3",
     "description": "Situated a few miles inland from St Jean De Monts and provides a nice day away from the beach, with a lake and chateau on offer.",
     "site": 2
   }
@@ -367,7 +367,7 @@
   "pk": 18,
   "fields": {
     "name": "Challans",
-    "image": "Attraction4_ptgxdx",
+    "image": "attraction4",
     "description": "A large town that holds a large medieval all day market with lots of stalls, arts, crafts, musicians and singers where every one from children to adults are dressed in period custome. Not to be missed, these markets are held on 2 Thursdays in July and 2 Thursdays in August.",
     "site": 2
   }

@@ -43,6 +43,8 @@ const SearchForm = (props) => {
 
   const dropdownNode = useRef();
 
+  // const twoBedPrice
+
   if (!sites) return null;
 
   return (

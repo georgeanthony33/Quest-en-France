@@ -1,3 +1,19 @@
+import HomesImage0 from "../assets/HomesImages/HomesImage0.jpg";
+import HomesImage1 from "../assets/HomesImages/HomesImage1.jpg";
+import HomesImage2 from "../assets/HomesImages/HomesImage2.jpg";
+import HomesImage3 from "../assets/HomesImages/HomesImage3.jpg";
+import HomesImage4 from "../assets/HomesImages/HomesImage4.jpg";
+import HomesImage5 from "../assets/HomesImages/HomesImage5.jpg";
+import HomesImage6 from "../assets/HomesImages/HomesImage6.jpg";
+import HomesImage7 from "../assets/HomesImages/HomesImage7.jpg";
+import HomesImage8 from "../assets/HomesImages/HomesImage8.jpg";
+
+import bedroom from "../assets/PortugalHome/bedroom.jpg";
+import kitchen1 from "../assets/PortugalHome/kitchen1.jpg";
+import kitchen2 from "../assets/PortugalHome/kitchen2.jpg";
+import lounge1 from "../assets/PortugalHome/lounge1.jpg";
+import lounge2 from "../assets/PortugalHome/lounge2.jpg";
+
 const sites = [
   { id: 1, label: "L’Oceano d’Or" },
   { id: 2, label: "Les Genets" },
@@ -252,8 +268,139 @@ const faqQuestionsAnswers = [
   },
   {
     "What is your cancellation policy?":
-      "In the event of a cancellation, refunds of amounts paid (less the deposit) will be made if Quest en France Holidays are able to re-let the \"Mobile Home\", and any expenses or losses incurred in so doing will be deducted from the refundable amount. The Client is strongly recommended to arrange a comprehensive travel insurance policy (including cancellation cover) and to have full cover for the party’s personal belongings, public liability etc, since these are not covered by the Owner's insurance.",
+      'In the event of a cancellation, refunds of amounts paid (less the deposit) will be made if Quest en France Holidays are able to re-let the "Mobile Home", and any expenses or losses incurred in so doing will be deducted from the refundable amount. The Client is strongly recommended to arrange a comprehensive travel insurance policy (including cancellation cover) and to have full cover for the party’s personal belongings, public liability etc, since these are not covered by the Owner\'s insurance.',
   },
+];
+
+const prices = {
+  "05-02": { 2: 190, 3: 210 },
+  "05-09": { 2: 190, 3: 210 },
+  "05-16": { 2: 190, 3: 210 },
+  "05-23": { 2: 270, 3: 300 },
+  "05-30": { 2: 240, 3: 265 },
+  "06-06": { 2: 240, 3: 265 },
+  "06-13": { 2: 360, 3: 400 },
+  "06-20": { 2: 460, 3: 500 },
+  "06-27": { 2: 585, 3: 640 },
+  "07-04": { 2: 615, 3: 675 },
+  "07-11": { 2: 640, 3: 700 },
+  "07-18": { 2: 750, 3: 795 },
+  "07-25": { 2: 750, 3: 795 },
+  "08-01": { 2: 750, 3: 795 },
+  "08-08": { 2: 750, 3: 795 },
+  "08-15": { 2: 750, 3: 795 },
+  "08-22": { 2: 595, 3: 625 },
+  "08-29": { 2: 240, 3: 265 },
+  "09-05": { 2: 240, 3: 265 },
+};
+
+const homesImages = [
+  {
+    image: HomesImage0,
+    homeType: "3 Bedroomed Home",
+    room: "Dining Area",
+  },
+  {
+    image: HomesImage1,
+    homeType: "Cordelia 3 Bedroomed Home",
+    room: "Lounge",
+  },
+  {
+    image: HomesImage2,
+    homeType: "Cordelia",
+    room: "Lounge Area",
+  },
+  {
+    image: HomesImage3,
+    homeType: "Cordelia Riviera",
+    room: "Lounge Area",
+  },
+  {
+    image: HomesImage4,
+    homeType: "2 Bedroomed Home",
+    room: "Lounge & Kitchen Area",
+  },
+  {
+    image: HomesImage5,
+    homeType: "Riveria 3 Bedroomed Home",
+    room: "Dining Area",
+  },
+  {
+    image: HomesImage6,
+    homeType: "",
+    room: "Open Veranda",
+  },
+  {
+    image: HomesImage7,
+    homeType: "",
+    room: "Semi Covered Veranda",
+  },
+  {
+    image: HomesImage8,
+    homeType: "",
+    room: "Calico Park",
+  },
+];
+
+const homesPortugal = [
+  {
+    image: kitchen1,
+    home_type: "",
+    room: "Kitchen",
+  },
+  {
+    image: lounge2,
+    home_type: "",
+    room: "Lounge Area",
+  },
+  {
+    image: lounge1,
+    home_type: "",
+    room: "Lounge Area",
+  },
+  {
+    image: kitchen2,
+    home_type: "",
+    room: "Kitchen",
+  },
+  {
+    image: bedroom,
+    home_type: "",
+    room: "Bedroom",
+  },
+  {
+    image: HomesImage8,
+    home_type: "",
+    room: "Our Home",
+  },
+];
+
+const siteCodes = [
+  { key: "LODO", name: "L’Oceano d’Or", url: "loceanodor" },
+  { key: "LG", name: "Les Genets", url: "lesgenets" },
+  { key: "CP", name: "Calico Park", url: "calicopark" },
+];
+
+const pricesTwo = [
+  { weekCommencing: "2-May", 2: 190, 3: 210 },
+  { weekCommencing: "9-May", 2: 190, 3: 210 },
+  { weekCommencing: "16-May", 2: 190, 3: 210 },
+  { weekCommencing: "23-May", 2: 270, 3: 300 },
+  { weekCommencing: "30-May", 2: 240, 3: 265 },
+  { weekCommencing: "6-Jun", 2: 240, 3: 265 },
+  { weekCommencing: "13-Jun", 2: 360, 3: 400 },
+  { weekCommencing: "20-Jun", 2: 460, 3: 500 },
+  { weekCommencing: "27-Jun", 2: 585, 3: 640 },
+  { weekCommencing: "4-Jul", 2: 615, 3: 675 },
+  { weekCommencing: "11-Jul", 2: 640, 3: 700 },
+  { weekCommencing: "18-Jul", 2: 750, 3: 795 },
+  { weekCommencing: "25-Jul", 2: 750, 3: 795 },
+  { weekCommencing: "1-Aug", 2: 750, 3: 795 },
+  { weekCommencing: "8-Aug", 2: 750, 3: 795 },
+  { weekCommencing: "15-Aug", 2: 750, 3: 795 },
+  { weekCommencing: "22-Aug", 2: 595, 3: 625 },
+  { weekCommencing: "29-Aug", 2: 240, 3: 265 },
+  { weekCommencing: "5-Sep", 2: 240, 3: 265 },
 ];
 
 const config = {
@@ -261,6 +408,11 @@ const config = {
   inventoryFrance,
   inventoryPortugal,
   faqQuestionsAnswers,
+  prices,
+  homesImages,
+  homesPortugal,
+  siteCodes,
+  pricesTwo,
 };
 
 export default config;
