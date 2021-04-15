@@ -272,28 +272,6 @@ const faqQuestionsAnswers = [
   },
 ];
 
-const prices = {
-  "05-02": { 2: 190, 3: 210 },
-  "05-09": { 2: 190, 3: 210 },
-  "05-16": { 2: 190, 3: 210 },
-  "05-23": { 2: 270, 3: 300 },
-  "05-30": { 2: 240, 3: 265 },
-  "06-06": { 2: 240, 3: 265 },
-  "06-13": { 2: 360, 3: 400 },
-  "06-20": { 2: 460, 3: 500 },
-  "06-27": { 2: 585, 3: 640 },
-  "07-04": { 2: 615, 3: 675 },
-  "07-11": { 2: 640, 3: 700 },
-  "07-18": { 2: 750, 3: 795 },
-  "07-25": { 2: 750, 3: 795 },
-  "08-01": { 2: 750, 3: 795 },
-  "08-08": { 2: 750, 3: 795 },
-  "08-15": { 2: 750, 3: 795 },
-  "08-22": { 2: 595, 3: 625 },
-  "08-29": { 2: 240, 3: 265 },
-  "09-05": { 2: 240, 3: 265 },
-};
-
 const homesImages = [
   {
     image: HomesImage0,
@@ -381,26 +359,26 @@ const siteCodes = [
   { key: "CP", name: "Calico Park", url: "calicopark" },
 ];
 
-const pricesTwo = [
-  { weekCommencing: "2-May", 2: 190, 3: 210 },
-  { weekCommencing: "9-May", 2: 190, 3: 210 },
-  { weekCommencing: "16-May", 2: 190, 3: 210 },
-  { weekCommencing: "23-May", 2: 270, 3: 300 },
-  { weekCommencing: "30-May", 2: 240, 3: 265 },
-  { weekCommencing: "6-Jun", 2: 240, 3: 265 },
-  { weekCommencing: "13-Jun", 2: 360, 3: 400 },
-  { weekCommencing: "20-Jun", 2: 460, 3: 500 },
-  { weekCommencing: "27-Jun", 2: 585, 3: 640 },
-  { weekCommencing: "4-Jul", 2: 615, 3: 675 },
-  { weekCommencing: "11-Jul", 2: 640, 3: 700 },
-  { weekCommencing: "18-Jul", 2: 750, 3: 795 },
-  { weekCommencing: "25-Jul", 2: 750, 3: 795 },
-  { weekCommencing: "1-Aug", 2: 750, 3: 795 },
-  { weekCommencing: "8-Aug", 2: 750, 3: 795 },
-  { weekCommencing: "15-Aug", 2: 750, 3: 795 },
-  { weekCommencing: "22-Aug", 2: 595, 3: 625 },
-  { weekCommencing: "29-Aug", 2: 240, 3: 265 },
-  { weekCommencing: "5-Sep", 2: 240, 3: 265 },
+const prices = [
+  { weekCommencing: new Date("2-May"), 2: 190, 3: 210 },
+  { weekCommencing: new Date("9-May"), 2: 190, 3: 210 },
+  { weekCommencing: new Date("16-May"), 2: 190, 3: 210 },
+  { weekCommencing: new Date("23-May"), 2: 270, 3: 300 },
+  { weekCommencing: new Date("30-May"), 2: 240, 3: 265 },
+  { weekCommencing: new Date("6-Jun"), 2: 240, 3: 265 },
+  { weekCommencing: new Date("13-Jun"), 2: 360, 3: 400 },
+  { weekCommencing: new Date("20-Jun"), 2: 460, 3: 500 },
+  { weekCommencing: new Date("27-Jun"), 2: 585, 3: 640 },
+  { weekCommencing: new Date("4-Jul"), 2: 615, 3: 675 },
+  { weekCommencing: new Date("11-Jul"), 2: 640, 3: 700 },
+  { weekCommencing: new Date("18-Jul"), 2: 750, 3: 795 },
+  { weekCommencing: new Date("25-Jul"), 2: 750, 3: 795 },
+  { weekCommencing: new Date("1-Aug"), 2: 750, 3: 795 },
+  { weekCommencing: new Date("8-Aug"), 2: 750, 3: 795 },
+  { weekCommencing: new Date("15-Aug"), 2: 750, 3: 795 },
+  { weekCommencing: new Date("22-Aug"), 2: 595, 3: 625 },
+  { weekCommencing: new Date("29-Aug"), 2: 240, 3: 265 },
+  { weekCommencing: new Date("5-Sep"), 2: 240, 3: 265 },
 ];
 
 const config = {
@@ -412,7 +390,7 @@ const config = {
   homesImages,
   homesPortugal,
   siteCodes,
-  pricesTwo,
+  prices,
 };
 
 export default config;

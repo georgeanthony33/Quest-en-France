@@ -24,6 +24,10 @@
 
 .search-sidebar {
   width: 30vw;
+  height: calc(100vh - 76px);
+  top: 76px;
+  position: sticky;
+  position: -webkit-sticky;
   background-color: whitesmoke;
   border-right: 1px var(--lightGreyTextColour) solid;
 }
@@ -31,15 +35,14 @@
 .search-results {
   width: 70vw;
   background-color: whitesmoke;
-  overflow: scroll;
 }
 
 .main-body {
   display: flex;
-  background: center url("../../assets/LandingPageBackground.jpg");
+  background: center url(/static/media/LandingPageBackground.1e90200e.jpg);
   background-repeat: no-repeat;
   background-size: cover;
-  height: 720px;
+  background-attachment: fixed;
 }
 
 .search-dates {
@@ -74,6 +77,10 @@
     object-fit: contain;
     border-radius: 10px;
   }
+}
+
+#SearchCard.container:hover {
+  border: rgb(117, 117, 117) 2px solid;
 }
 
 }

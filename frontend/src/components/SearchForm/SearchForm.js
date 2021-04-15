@@ -43,7 +43,34 @@ const SearchForm = (props) => {
 
   const dropdownNode = useRef();
 
-  // const twoBedPrice
+  const getDaysArray = function (start, end) {
+    const endDate = new Date(end);
+    var currentDate = new Date(start);
+    var arr = [];
+    while (currentDate <= endDate) {
+      arr.push(new Date(currentDate));
+      currentDate.setDate(currentDate.getDate() + 1);
+    }
+    return arr;
+  };
+
+  const currentYear = new Date().getFullYear();
+
+  const includedStartDates = [
+    ...getDaysArray(new Date(currentYear, 4, 2), new Date(currentYear, 8, 7)),
+    ...getDaysArray(
+      new Date(currentYear + 1, 4, 2),
+      new Date(currentYear + 1, 8, 7),
+    ),
+  ];
+
+  const includedEndDates = [
+    ...getDaysArray(new Date(currentYear, 4, 6), new Date(currentYear, 8, 11)),
+    ...getDaysArray(
+      new Date(currentYear + 1, 4, 2),
+      new Date(currentYear + 1, 8, 12),
+    ),
+  ];
 
   if (!sites) return null;
 
@@ -106,6 +133,7 @@ const SearchForm = (props) => {
               dateFormat="d MMMM yyyy"
               name="date"
               required={true}
+              includeDates={includedStartDates}
             />
           </div>
         </div>
@@ -119,6 +147,7 @@ const SearchForm = (props) => {
               dateFormat="d MMMM yyyy"
               name="date"
               required={true}
+              includeDates={includedEndDates}
             />
           </div>
         </div>

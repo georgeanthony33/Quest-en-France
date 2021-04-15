@@ -24,7 +24,6 @@ const Site = (props) => {
   const [adults, setAdults] = useState(1);
   const [kids, setKids] = useState(0);
   const [selectedTab, setSelectedTab] = useState("details");
-  console.log(selectedTab);
 
   const getSiteData = async (id) => {
     const siteData = await axios.get(`/api/sites/${id}/`);

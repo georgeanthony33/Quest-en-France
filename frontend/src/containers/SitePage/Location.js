@@ -2,7 +2,6 @@ import React from "react";
 import GoogleMapReact from "google-map-react";
 
 const REACT_APP_GOOGLE_MAPS_API_KEY = process.env.REACT_APP_GOOGLE_MAPS_API_KEY;
-console.log(REACT_APP_GOOGLE_MAPS_API_KEY);
 
 const AnyReactComponent = ({ text }) => <div>{text}</div>;
 
