@@ -1,6 +1,6 @@
 @import './../../styles/main.scss';
 
-#SearchPage {
+#BookHome {
 
   .top-banner {
     margin-top: 76px;
@@ -22,8 +22,8 @@
     padding: 5px 40px 50px;
   }
 
-  .search-sidebar {
-    width: 265px;
+  .booking-sidebar {
+    width: 30vw;
     height: calc(100vh - 76px);
     top: 76px;
     position: sticky;
@@ -32,15 +32,13 @@
     border-right: 1px var(--lightGreyTextColour) solid;
   }
 
-  .search-results {
+  .booking-info {
     width: 70vw;
-    max-width: 700px;
     background-color: whitesmoke;
   }
 
   .main-body {
     display: flex;
-    justify-content: center;
     background: center url(/static/media/LandingPageBackground.1e90200e.jpg);
     background-repeat: no-repeat;
     background-size: cover;
@@ -50,48 +48,59 @@
   .search-dates {
     flex-direction: column;
   }
-
+  
   .guest-numbers {
     flex-direction: column;
   }
-
+  
   .is-full {
     width: 208px;
   }
-
+  
   .search-header {
     display: none;
   }
 
-  .site-picker {
-    width: 184px;
-    justify-content: space-between;
+  .carousel {
+    height: 300px;
+    max-width: 600px;
+    width: 85%;
+    @media (max-width: 768px) {
+      height: fit-content;
+    }
+  }
+
+  .homecard-container:hover {
+    .homecard-text-container {
+      background-color: rgba(0, 0, 0, 0.575);
+      transform: translateY(-140px);
+      margin: 15px;
+      height: 98px;
+      @media (max-width: 840px) {
+        margin: 10px 20px 0px 20px;
+        border-radius: 0 0 10px 10px;
+      }
+    }
+  }
+
+  .alice-image {
+    width: 100%;
+    height: 100%;
   }
 
   .check-in, .adults {
     margin-bottom: 0;
   }
 
-  #SearchCard.container {
-    width: 100%;
-    height: 200px;
-    border-bottom: var(--lightGreyTextColour) 1px solid;
+  .book-home-submit {
     display: flex;
-    padding: 20px;
-
-    .image-container {
-      height: 100%;
-    }
-
-    img {
-      height: 100%;
-      object-fit: contain;
-      border-radius: 10px;
-    }
+    align-items: center;
+    justify-content: space-around;
   }
 
-  #SearchCard.container:hover {
-    border: var(--lightGreyTextColour) 2px solid;
+  .total-price {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
-
 }

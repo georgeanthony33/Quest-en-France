@@ -6,7 +6,7 @@
   background: center url("../../assets/LandingPageBackground.jpg");
   background-repeat: no-repeat;
   background-size: cover;
-  height: calc(100vh - 80px);
+  height: calc(100vh - 76px + 0.75rem);
   margin-top: 66px;
   width: 100vw;
   position: relative;
@@ -41,7 +41,6 @@
   border-radius: 10px;
   padding: 30px 35px 0 35px;
   margin-left: 15vw;
-  margin-bottom: 10vh;
   @media (max-width: 768px) {
     margin: 50px auto;
     padding: 30px 35px;
@@ -136,47 +135,6 @@
   @media (max-width: 768px) {
     height: fit-content;
   }
-}
-
-div.carousel-button {
-  height: 50px;
-  width: 50px;
-  cursor: pointer;
-  position: absolute;
-  top: 48%;
-  display: inline-block;
-  @media (max-width: 768px) {
-    display: none;
-  }
-}
-
-div.carousel-button.prev {
-  left: -40px;
-  @media (max-width: 1244px) {
-    left: -35px;
-  }
-  @media (max-width: 1034px) {
-    left: -20px;
-  }
-}
-
-div.carousel-button.next {
-  right: -40px;
-  @media (max-width: 1244px) {
-    right: -35px;
-  }
-  @media (max-width: 1034px) {
-    right: -20px;
-  }
-}
-
-.carousel-button {
-  transition: 0.5s;
-  opacity: 0.5;
-}
-
-.carousel-button:hover {
-  opacity: 1;
 }
 
 .homecard-container {

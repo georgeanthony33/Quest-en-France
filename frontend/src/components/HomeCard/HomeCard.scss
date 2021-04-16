@@ -1,0 +1,54 @@
+@import "./../../styles/main.scss";
+
+#HomeCard {
+
+.homecard-container {
+  height: 300px;
+  width: fit-content;
+  z-index: 2;
+  margin: 0 auto;
+  @media (max-width: 768px) {
+    height: 70vw;
+  }
+}
+
+.alice-image {
+  height: 280px;
+  padding: 15px;
+  border-radius: 30px;
+  object-fit: cover;
+  @media (max-width: 840px) {
+    padding: 20px;
+  }
+  @media (max-width: 768px) {
+    height: 70vw;
+  }
+}
+
+.homecard-container:hover {
+  .homecard-text-container {
+    background-color: rgba(0, 0, 0, 0.575);
+    transform: translateY(-140px);
+    margin: 15px;
+    height: 98px;
+    @media (max-width: 840px) {
+      margin: 10px 20px 0px 20px;
+      border-radius: 0 0 10px 10px;
+    }
+  }
+}
+
+.homecard-text-container {
+  background-color: rgba(0, 0, 0, 0.24);
+  transform: translateY(-140px);
+  margin: 15px;
+  height: 98px;
+  transition: 0.5s;
+  border-radius: 0 0 15px 15px;
+  @media (max-width: 840px) {
+    margin: 10px 20px 0px 20px;
+    border-radius: 0 0 10px 10px;
+  }
+}
+
+}

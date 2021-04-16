@@ -9,6 +9,7 @@ import SitePage from "./containers/SitePage/SitePage";
 import Homes from "./containers/Homes/Homes";
 import FAQs from "./containers/FAQs/FAQs";
 import AllSitesPage from "./containers/AllSitesPage/AllSitesPage";
+import BookHome from "./containers/BookHome/BookHome";
 
 const App = () => (
   <BrowserRouter>
@@ -22,6 +23,11 @@ const App = () => (
           <Route exact path="/sites/:slug" component={SitePage} />
           <Route exact path="/homes" component={Homes} />
           <Route exact path="/faqs" component={FAQs} />
+          <Route
+            exact
+            path="/bookHome/:siteSlug/:plotSlug"
+            component={BookHome}
+          />
         </Switch>
       </div>
     </>

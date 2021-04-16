@@ -1,0 +1,46 @@
+@import "./../../styles/main.scss";
+
+#Carousel {
+
+div.carousel-button {
+  height: 50px;
+  width: 50px;
+  cursor: pointer;
+  position: absolute;
+  top: 48%;
+  display: inline-block;
+  @media (max-width: 768px) {
+    display: none;
+  }
+}
+
+div.carousel-button.prev {
+  // left: -40px;
+  // @media (max-width: 1244px) {
+  //   left: -35px;
+  // }
+  // @media (max-width: 1034px) {
+  //   left: -20px;
+  // }
+}
+
+div.carousel-button.next {
+  right: -40px;
+  @media (max-width: 1244px) {
+    right: -35px;
+  }
+  @media (max-width: 1034px) {
+    right: -20px;
+  }
+}
+
+.carousel-button {
+  transition: 0.5s;
+  opacity: 0.5;
+}
+
+.carousel-button:hover {
+  opacity: 1;
+}
+
+}

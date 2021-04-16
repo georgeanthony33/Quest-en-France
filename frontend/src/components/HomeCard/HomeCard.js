@@ -1,5 +1,5 @@
 import React from "react";
-import "../../containers/Homes/Homes.scss";
+import "./HomeCard.scss";
 
 const HomeCard = ({ image, homeType, room }) => (
   <div id="HomeCard" className="homecard-container">

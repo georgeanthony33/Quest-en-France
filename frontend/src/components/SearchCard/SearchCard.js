@@ -9,7 +9,7 @@ import config from "../../util/Config";
 import "./SearchCard.scss";
 
 const SearchCard = (props) => {
-  const { home_type, site, plot, pull_out_bed, veranda, tv } = props.home;
+  const { site, plot, pull_out_bed, veranda, tv, bedrooms } = props.home;
   const { checkin, checkout, adults, kids, chosenSite, totalPrice } = props;
 
   const siteSlug = config.siteCodes.filter(
@@ -20,8 +20,8 @@ const SearchCard = (props) => {
     site.name === "Calico Park"
       ? HomesImage8
       : veranda === "Semi-covered"
-      ? HomesImage6
-      : HomesImage7;
+        ? HomesImage6
+        : HomesImage7;
 
   return (
     <Link
@@ -36,14 +36,15 @@ const SearchCard = (props) => {
           <img alt="full veranda" src={imageURL} />
         </div>
         <div className="body">
-          <h2>{home_type}</h2>
+          <h2 className="search-card-title">
+            {bedrooms} Bed Mobile with {veranda} Veranda
+          </h2>
           <p>
             {site.name}, Plot {plot}
           </p>
           {pull_out_bed > 0 && <p>Pull out bed</p>}
           {tv !== 0 && <p>Television included</p>}
-          <p>{veranda} veranda</p>
-          <p>£ {totalPrice}</p>
+          <p className="search-card-title">Total Price: £ {totalPrice}</p>
         </div>
       </div>
     </Link>

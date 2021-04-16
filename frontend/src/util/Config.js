@@ -354,9 +354,9 @@ const homesPortugal = [
 ];
 
 const siteCodes = [
-  { key: "LODO", name: "L’Oceano d’Or", url: "loceanodor" },
-  { key: "LG", name: "Les Genets", url: "lesgenets" },
-  { key: "CP", name: "Calico Park", url: "calicopark" },
+  { id: 1, key: "LODO", name: "L’Oceano d’Or", url: "loceanodor" },
+  { id: 2, key: "LG", name: "Les Genets", url: "lesgenets" },
+  { id: 3, key: "CP", name: "Calico Park", url: "calicopark" },
 ];
 
 const prices = [
@@ -386,7 +386,6 @@ const config = {
   inventoryFrance,
   inventoryPortugal,
   faqQuestionsAnswers,
-  prices,
   homesImages,
   homesPortugal,
   siteCodes,

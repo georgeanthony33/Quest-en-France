@@ -86,7 +86,7 @@ const SearchPage = (props) => {
           Homes available on your chosen dates
         </h2>
       </div>
-      <section className="section main-body p-6">
+      <section className="section main-body pt-6 pr-6 pl-6 pb-0">
         <div className="search-sidebar">
           <SearchForm
             optionsSelected={{ chosenSite, checkin, checkout, adults, kids }}
@@ -98,6 +98,7 @@ const SearchPage = (props) => {
               setKids,
             }}
             columnAdjuster="is-full"
+            currentPage={"SearchPage"}
           />
         </div>
         <div className="search-results">

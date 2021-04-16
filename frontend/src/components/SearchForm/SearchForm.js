@@ -6,7 +6,12 @@ import axios from "axios";
 import helperFunctions from "../../util/HelperFunctions";
 
 const SearchForm = (props) => {
-  const { optionsSelected, selectOptionFunctions, columnAdjuster } = props;
+  const {
+    optionsSelected,
+    selectOptionFunctions,
+    columnAdjuster,
+    currentPage,
+  } = props;
   const { chosenSite, checkin, checkout, adults, kids } = optionsSelected;
   const {
     setChosenSite,
@@ -30,16 +35,16 @@ const SearchForm = (props) => {
   const [isActive, setIsActive] = useState("");
 
   useEffect(() => {
+    const handleClickAway = (e) => {
+      if (props.currentPage === "BookHome") return;
+      if (dropdownNode.current.contains(e.target)) return;
+      setIsActive("");
+    };
     document.addEventListener("click", handleClickAway);
     return () => {
       document.removeEventListener("click", handleClickAway);
     };
-  }, []);
-
-  const handleClickAway = (e) => {
-    if (dropdownNode.current.contains(e.target)) return;
-    setIsActive("");
-  };
+  }, [props.currentPage]);
 
   const dropdownNode = useRef();
 
@@ -81,46 +86,48 @@ const SearchForm = (props) => {
       </h2>
       <br />
 
-      <div className="columns" id="site-picker-wrapper">
-        <div className="field column">
-          <label className="label">Where</label>
+      {currentPage !== "BookHome" && (
+        <div className="columns" id="site-picker-wrapper">
+          <div className="field column">
+            <label className="label">Where</label>
 
-          <div
-            className={`dropdown ${isActive}`}
-            ref={dropdownNode}
-            onClick={(e) => {
-              e.preventDefault();
-              !isActive ? setIsActive("is-active") : setIsActive("");
-            }}
-          >
-            <div className="dropdown-trigger">
-              <button
-                className="button site-picker"
-                aria-haspopup="true"
-                aria-controls="dropdown-menu"
-              >
-                <span>{chosenSite}</span>
-                <span className="icon is-small">
-                  <i className="fas fa-angle-down" aria-hidden="true"></i>
-                </span>
-              </button>
-            </div>
-            <div className="dropdown-menu" id="dropdown-menu" role="menu">
-              <div className="dropdown-content">
-                {sites.map((site) => (
-                  <button
-                    className="dropdown-item anchor-button"
-                    key={site.id}
-                    onClick={() => setChosenSite(site.name)}
-                  >
-                    {site.name}
-                  </button>
-                ))}
+            <div
+              className={`dropdown ${isActive}`}
+              ref={dropdownNode}
+              onClick={(e) => {
+                e.preventDefault();
+                !isActive ? setIsActive("is-active") : setIsActive("");
+              }}
+            >
+              <div className="dropdown-trigger">
+                <button
+                  className="button site-picker"
+                  aria-haspopup="true"
+                  aria-controls="dropdown-menu"
+                >
+                  <span>{chosenSite}</span>
+                  <span className="icon is-small">
+                    <i className="fas fa-angle-down" aria-hidden="true"></i>
+                  </span>
+                </button>
+              </div>
+              <div className="dropdown-menu" id="dropdown-menu" role="menu">
+                <div className="dropdown-content">
+                  {sites.map((site) => (
+                    <button
+                      className="dropdown-item anchor-button"
+                      key={site.id}
+                      onClick={() => setChosenSite(site.name)}
+                    >
+                      {site.name}
+                    </button>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
+      )}
 
       <div className="columns search-dates">
         <div className={`field column ${columnAdjuster} check-in`}>
@@ -181,16 +188,34 @@ const SearchForm = (props) => {
           </div>
         </div>
       </div>
-      <div className="home-submit">
-        <Link
-          to={{
-            pathname: "/search",
-            state: { checkin, checkout, adults, kids, chosenSite },
-          }}
-        >
-          <input className="button is-danger" type="submit" value="Search" />
-        </Link>
-      </div>
+
+      {currentPage === "SearchPage" ? null : currentPage === "BookHome" ? (
+        <div className="book-home-submit">
+          <div className="total-price">
+            <p>Total</p>
+            <p>£1000</p>
+          </div>
+          <Link
+            to={{
+              pathname: "/",
+              state: { checkin, checkout, adults, kids, chosenSite },
+            }}
+          >
+            <input className="button is-danger" type="submit" value="Book" />
+          </Link>
+        </div>
+      ) : (
+        <div className="home-submit">
+          <Link
+            to={{
+              pathname: "/search",
+              state: { checkin, checkout, adults, kids, chosenSite },
+            }}
+          >
+            <input className="button is-danger" type="submit" value="Search" />
+          </Link>
+        </div>
+      )}
     </form>
   );
 };

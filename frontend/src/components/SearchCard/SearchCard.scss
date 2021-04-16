@@ -2,4 +2,8 @@
 
 a#SearchCard {
   color: var(--greyTextColour);
+
+  .search-card-title {
+    font-weight: 700;
+  }
 }
