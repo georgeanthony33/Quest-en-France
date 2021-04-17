@@ -10,6 +10,7 @@ const NavBar = () => {
   const [navOpen, setNavOpen] = useState(false);
   const [isHover, setIsHover] = useState(false);
   // const [ scrollY, setScrollY ] = useState(0)
+  const [isUserMenuOpen, setIsUserMenuOpen] = useState(false);
 
   const toggleNavbar = () => {
     setNavOpen(!navOpen);
@@ -143,14 +144,15 @@ const NavBar = () => {
           </Link>
         </div>
         <div className="navbar-end">
-          <Link
+          <div
             className={`navbar-item has-text-white ${
               navOpen ? "has-text-black" : "has-text-white"
             }`}
-            to="`/profile`"
+            onClick={() => setIsUserMenuOpen(!isUserMenuOpen)}
           >
-            Bookings
-          </Link>
+            <i className="fas fa-user-circle"></i>
+            {isUserMenuOpen ? <div className="user-menu"></div> : null}
+          </div>
         </div>
       </div>
     </nav>
