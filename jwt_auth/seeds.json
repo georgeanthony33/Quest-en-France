@@ -1,15 +1,15 @@
 [
 {
   "model": "jwt_auth.user",
-  "pk": 1,
+  "pk": 5,
   "fields": {
-    "password": "pbkdf2_sha256$150000$MvlU19VIDA4W$sD/NVpEJKlrUYYlzKtndGRdQbzwO+DjGrtZZDk0oOek=",
-    "last_login": "2020-05-03T16:14:58.047Z",
+    "password": "pbkdf2_sha256$150000$834NOaHIISjj$3V9oTp0bEw/fvA33D5iJ/47RcsLELjSTaY/I/FJd1PU=",
+    "last_login": "2021-04-23T23:29:04.232Z",
     "is_superuser": true,
     "username": "admin",
     "is_staff": true,
     "is_active": true,
-    "date_joined": "2020-05-03T16:14:49.287Z",
+    "date_joined": "2021-04-23T23:28:44.694Z",
     "first_name": "",
     "last_name": "",
     "date_of_birth": null,

@@ -10,6 +10,8 @@ import Homes from "./containers/Homes/Homes";
 import FAQs from "./containers/FAQs/FAQs";
 import AllSitesPage from "./containers/AllSitesPage/AllSitesPage";
 import BookHome from "./containers/BookHome/BookHome";
+import LoginRegister from "./containers/LoginRegister/LoginRegister";
+import ProfilePage from "./containers/ProfilePage/ProfilePage";
 
 const App = () => (
   <BrowserRouter>
@@ -22,6 +24,9 @@ const App = () => (
           <Route exact path="/sites" component={AllSitesPage} />
           <Route exact path="/sites/:slug" component={SitePage} />
           <Route exact path="/homes" component={Homes} />
+          <Route exact path="/login" component={LoginRegister} />
+          <Route exact path="/register" component={LoginRegister} />
+          <Route exact path="/myprofile" component={ProfilePage} />
           <Route exact path="/faqs" component={FAQs} />
           <Route
             exact

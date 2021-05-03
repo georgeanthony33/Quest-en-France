@@ -1,0 +1,123 @@
+@import "./../../styles/main.scss";
+
+#LoginRegister {
+  background: center url("../../assets/LandingPageBackground.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: calc(100vh - 76px);
+  margin-top: 66px;
+  width: 100vw;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  @media (max-width: 768px) {
+    height: fit-content;
+    margin-top: 54px;
+  }
+
+  .form-container {
+    width: 90%;
+    max-width: 550px;
+    height: 555px;
+    background-color: var(--whiteSmokeColour);
+    border-radius: 15px;
+
+    .top-banner {
+      border-radius: 15px 15px 0 0;
+    }
+  }
+
+  .top-banner {
+    width: 100%;
+    padding: 8px 0px 1px 0px;
+    background-color: var(--whiteSmokeColour);
+    font-weight: 700;
+  }
+
+  .auth-tabs {
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    text-size-adjust: 100%;
+    line-height: 1.5;
+    user-select: none;
+    white-space: nowrap;
+    font-weight: 700;
+    font-size: 20px;
+    box-sizing: border-box;
+    font-family: 'Khula', sans-serif;
+    cursor: pointer;
+    text-decoration: none;
+    align-items: center;
+    border-bottom-color: #dbdbdb;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    color: var(--greyTextColour);
+    display: flex;
+    justify-content: center;
+    margin-bottom: -1px;
+    padding: 0.5em 1em;
+    vertical-align: top;
+    width: 100%;
+    background-color: whitesmoke;
+  
+    > span {
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+      text-size-adjust: 100%;
+      line-height: 1.5;
+      user-select: none;
+      white-space: nowrap;
+      cursor: pointer;
+      color: var(--greyTextColour);
+      font-size: 20px;
+      box-sizing: border-box;
+      font-family: 'Khula', sans-serif;
+      font-style: inherit;
+      font-weight: inherit;
+    }
+  }
+  
+  li.is-active button.homes-tabs {
+    border-bottom-color: var(--grey-text-colour);
+    color: var(--grey-text-colour);
+  }
+
+  .inputs-row {
+    display: flex;
+  }
+
+  form {
+    padding: 20px 35px;
+  }
+
+  .date-picker {
+    z-index: 4;
+  }
+
+  .date-of-birth {
+    div {
+      width: 100%;
+    }
+  }
+
+  .action-button {
+    input {
+      width: 115px;
+    }
+  }
+
+  .register-icon {
+    width: 2.1em;
+    height: 100%;
+  }
+
+  .already-logged-in {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 40px;
+  }
+
+}

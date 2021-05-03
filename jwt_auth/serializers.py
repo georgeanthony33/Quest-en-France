@@ -14,7 +14,7 @@ class SiteSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Site
-        fields = ('name', 'country', 'short_description', 'images', 'latitude', 'longitude')
+        fields = ('name', 'country', 'short_description', 'latitude', 'longitude')
 
 class ReviewSerializer(serializers.ModelSerializer):
 
@@ -63,7 +63,6 @@ class UserSerializer(serializers.ModelSerializer):
     password_confirmation = serializers.CharField(write_only=True)
 
     def validate(self, data):
-
         password = data.pop('password')
         password_confirmation = data.pop('password_confirmation')
 

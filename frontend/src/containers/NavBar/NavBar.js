@@ -30,6 +30,10 @@ const NavBar = () => {
   // }, [])
   const sites = config.sites;
 
+  // const userMenu = () => {
+  //   return <div className="user-menu"></div>;
+  // };
+
   return (
     // <div className='NavBar'>
     /* <nav className={scrollY < 45 ? 'navbar is-size-5 contacts-nav is-transparent' : 'closed'}>
@@ -151,7 +155,14 @@ const NavBar = () => {
             onClick={() => setIsUserMenuOpen(!isUserMenuOpen)}
           >
             <i className="fas fa-user-circle"></i>
-            {isUserMenuOpen ? <div className="user-menu"></div> : null}
+            {isUserMenuOpen ? (
+              <div className="user-menu">
+                <Link to="/login">Login</Link>
+                <Link to="/register">Register</Link>
+                <Link to="/bookings">My Bookings</Link>
+                <Link to="/myprofile">My Profile</Link>
+              </div>
+            ) : null}
           </div>
         </div>
       </div>

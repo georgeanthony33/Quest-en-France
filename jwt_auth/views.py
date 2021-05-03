@@ -41,12 +41,12 @@ class LoginView(APIView):
 
             return Response({
                 'token': token,
-                'message': f'Welcome back {user.first_name}',
+                'message': f'Logged in as {user.first_name}',
                 'user': serialized_user.data
             })
 
         except User.DoesNotExist:
-            raise PermissionDenied({'message': 'Invalid Credentails'})
+            raise PermissionDenied({'message': 'Account does not exist'})
 
 class ProfileView(APIView):
 
