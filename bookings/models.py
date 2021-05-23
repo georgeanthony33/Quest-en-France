@@ -12,7 +12,8 @@ class Booking(models.Model):
     currency = models.CharField(max_length=3)
     booking_date = models.DateField(auto_now_add=True)
     user = models.ForeignKey(User, related_name='bookings', null=True, on_delete=models.CASCADE)
-    additional_comments = models.CharField(max_length=10000)
+    additional_comments = models.CharField(max_length=10000, blank=True)
+    stripeCustomerId = models.CharField(max_length=100, blank=True)
 
     def __str__(self):
         return f'{self.user.first_name} {self.user.last_name} - {self.start_date} to {self.end_date}'

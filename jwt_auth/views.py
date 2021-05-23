@@ -8,7 +8,7 @@ from django.contrib.auth import get_user_model
 from django.conf import settings
 import jwt
 
-from .serializers import UserSerializer, PopulatedUserSerializer
+from .serializers import UserSerializer, EditUserSerializer, PopulatedUserSerializer
 User = get_user_model()
 
 class RegisterView(APIView):
@@ -62,9 +62,8 @@ class ProfileView(APIView):
     #     serialized_user = PopulatedUserSerializer(user)
     #     return Response(serialized_user.data)
 
-    def put(self, request, pk):
+    def put(self, request):
         try:
-            # user = User.objects.get(pk=pk)
             user = User.objects.get(pk=request.user.id)
             serialized_user = UserSerializer(user)
             if serialized_user.data['id'] != request.user.id:

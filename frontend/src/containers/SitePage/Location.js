@@ -1,40 +1,78 @@
-import React from "react";
-import GoogleMapReact from "google-map-react";
+import React, { useState } from "react";
+import { Map, InfoWindow, Marker, GoogleApiWrapper } from "google-maps-react";
+import config from "../../util/Config";
 
-const REACT_APP_GOOGLE_MAPS_API_KEY = process.env.REACT_APP_GOOGLE_MAPS_API_KEY;
+const Location = (props) => {
+  const { site } = props;
+  const { latitude, longitude } = site;
 
-const AnyReactComponent = ({ text }) => <div>{text}</div>;
+  const [showingInfoWindow, setShowingInfoWindow] = useState(false);
+  const [activeMarker, setActiveMarker] = useState({});
+  const [selectedPlace, setSelectedPlace] = useState({});
 
-const Location = () => {
-  const defaultProps = {
-    center: {
-      lat: 59.95,
-      lng: 30.33,
-    },
-    zoom: 11,
+  const onMarkerClick = (props, marker) => {
+    setSelectedPlace(props);
+    setActiveMarker(marker);
+    setShowingInfoWindow(true);
   };
 
-  // const site = props.site;
+  const onMapClicked = () => {
+    if (showingInfoWindow) {
+      setShowingInfoWindow(false);
+      setActiveMarker(null);
+    }
+  };
+
+  const containerStyle = {
+    position: "relative",
+    width: "100%",
+    height: "calc(480px + 1rem)",
+  };
+
+  const mapStyles = {
+    height: "480px",
+  };
+
+  const siteConfig = config.sites.filter(
+    (site) => site.label === props.site.name,
+  )[0];
+
+  const address = siteConfig.address;
 
   return (
-    <div id="Location" className="columns is-centered">
-      <div className="column is-half-desktop is-two-thirds-tablet is-full-mobile">
-        <div style={{ height: "100vh", width: "100%" }}>
-          <GoogleMapReact
-            bootstrapURLKeys={{ key: REACT_APP_GOOGLE_MAPS_API_KEY }}
-            defaultCenter={defaultProps.center}
-            defaultZoom={defaultProps.zoom}
-          >
-            <AnyReactComponent
-              lat={59.955413}
-              lng={30.337844}
-              text="My Marker"
-            />
-          </GoogleMapReact>
-        </div>
-      </div>
+    <div id="Location">
+      <h3 className="title is-3">Location</h3>
+      <h5 className="title is-5 mb-2">
+        {site.name}, {address}
+      </h5>
+      <p>Latitude: {site.latitude} north</p>
+      <p className="mb-4">Longitude: {site.longitude} west</p>
+      <Map
+        google={props.google}
+        initialCenter={{
+          lat: latitude,
+          lng: longitude,
+        }}
+        containerStyle={containerStyle}
+        style={mapStyles}
+        onClick={onMapClicked}
+      >
+        <Marker
+          title={address}
+          name={address}
+          position={{ lat: latitude, lng: longitude }}
+          onClick={onMarkerClick}
+        />
+        <InfoWindow marker={activeMarker} visible={showingInfoWindow}>
+          <div>
+            <h1>{selectedPlace.name}</h1>
+          </div>
+        </InfoWindow>
+      </Map>
     </div>
   );
 };
 
-export default Location;
+export default GoogleApiWrapper({
+  apiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY,
+})(Location);

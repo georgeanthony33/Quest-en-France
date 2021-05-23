@@ -2,196 +2,249 @@
 
 #SitePage {
 
-.outer-container {
-  margin-top: 50px;
-}
+  .outer-container {
+    margin-top: 50px;
+  }
 
-.top-banner {
-  margin-top: 76px;
-  height: fit-content;
-  padding: 8px 20px;
-  background-color: var(--whiteSmokeColour);
-  display: flex;
-  align-items: center;
-  @media (max-width: 768px) {
+  .top-banner {
+    margin-top: 76px;
+    height: fit-content;
+    padding: 8px 20px;
+    background-color: var(--whiteSmokeColour);
+    display: flex;
+    align-items: center;
+    @media (max-width: 768px) {
+      flex-direction: column;
+    }
+  }
+
+  .top-outer-container {
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-top: -50px;
+    width: 100vw;
+    position: relative;
+    height: calc(100vh - 161px);
+    @media (max-width: 768px) {
+      height: calc(95vh + 160px);
+      background-size: contain;
+    }
+  }
+
+  .sitepage-search {
+    height: 460px;
+    width: 520px;
+    background-color: whitesmoke;
+    border-radius: 10px;
+    padding: 30px 35px 0 35px;
+    @media (max-width: 768px) {
+      width: 100%;
+      max-width: 400px;
+      min-width: 320px;
+      height: fit-content;
+      margin: 0 auto;
+      margin-top: -50px;
+      padding-bottom: 30px;
+    }
+  }
+
+  .sitepage-search#Les {
+    @media (max-width: 768px) {
+      margin-top: -20px;
+    }
+  }
+
+  .L’Oceano {
+    background-image: url('../../assets/Panoramics/loceanodor.jpg');
+  }
+
+  .Les {
+    background-image: url('../../assets/Panoramics/lesgenets.jpg');
+  }
+
+  .Calico {
+    background-image: url('../../assets/Panoramics/calicopark.jpg');
+  }
+
+  .area {
+    margin-top: 0.7rem;
+  }
+
+  .content {
+    margin-top: 12px;
+  }
+
+  .top {
+    padding: 30px 50px;
+  }
+
+  .date-input {
+    width: 94%;
+  }
+
+  #guests-input {
+    width: 94%;
+  }
+
+  .navbar {
+    position: absolute;
+    z-index: 1;
+    color: white;
+    top: 65px;
+    position: -webkit-sticky;
+    position: sticky;
+    background-color: hsl(0, 0%, 96%);
+    opacity: 0.95;
+    color: var(--greyTextColour);
+    font-size: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+  }
+
+  span.tick {
+    margin-right: 7px;
+  }
+
+  .facilities {
+    margin-left: 50px;
+    padding: 20px;
+  }
+
+  .page-carousel > li > {
+    width: 650px;
+  }
+
+  .page-carousel {
+    height: 400px;
+    width: 100vw;
+    padding-right: 50px;
+    text-align: center;
+    img {
+      height: 450px;
+    }
+    div.carousel-button {
+      top: -450px;
+    }
+    div.carousel-button.prev {
+      text-align: left;
+      right: 350px;
+    }
+    div.carousel-button.next {
+      text-align: right;
+      left: 350px;
+    }
+  }
+
+  .check-availability {
+    text-align: right;
+    margin-right: 3%;
+  }
+
+  .anchor-button {
+    text-size-adjust: 100%;
+    line-height: 1.5;
+    font-size: 20px;
+    margin: 0 3vw;
+    padding-top: 5px;
+    text-decoration: none;
+    font-weight: 500;
+    color: var(--greyTextColour);
+    background-color: whitesmoke;
+  }
+
+  .top-inner-container {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    @media (max-width: 768px) {
+      justify-content: center;
+      margin: 0 auto;
+    }
+  }
+
+  .tab-container {
+    max-width: 1400px;
+  }
+
+  #Attractions {
+    display: flex;
     flex-direction: column;
   }
-}
 
-.top-outer-container {
-  background-repeat: no-repeat;
-  background-size: cover;
-  margin-top: -50px;
-  width: 100vw;
-  position: relative;
-  height: calc(100vh - 161px);
-  @media (max-width: 768px) {
-    height: calc(95vh + 160px);
-    background-size: contain;
+  #Location > div > div {
+    border: 1px solid var(--lightGreyTextColour);
+    border-radius: 20px;
   }
-}
 
-.sitepage-search {
-  height: 460px;
-  width: 520px;
-  background-color: whitesmoke;
-  border-radius: 10px;
-  padding: 30px 35px 0 35px;
-  @media (max-width: 768px) {
-    width: 100%;
-    max-width: 400px;
-    min-width: 320px;
-    height: fit-content;
-    margin: 0 auto;
-    margin-top: -50px;
-    padding-bottom: 30px;
+  #Gallery {
+    position: relative;
+
+    .loader {
+      font-size: 10px;
+      margin: 50px auto;
+      text-indent: -9999em;
+      width: 11em;
+      height: 11em;
+      border-radius: 50%;
+      // background: #ffffff;
+      background: -moz-linear-gradient(left, var(--redColour) 10%, rgba(255, 255, 255, 0) 42%);
+      background: -webkit-linear-gradient(left, var(--redColour) 10%, rgba(255, 255, 255, 0) 42%);
+      background: -o-linear-gradient(left, var(--redColour) 10%, rgba(255, 255, 255, 0) 42%);
+      background: -ms-linear-gradient(left, var(--redColour) 10%, rgba(255, 255, 255, 0) 42%);
+      background: linear-gradient(to right, var(--redColour) 10%, rgba(255, 255, 255, 0) 42%);
+      position: relative;
+      -webkit-animation: load3 1.4s infinite linear;
+      animation: load3 1.4s infinite linear;
+      -webkit-transform: translateZ(0);
+      -ms-transform: translateZ(0);
+      transform: translateZ(0);
+      border: none;
+    }
+    .loader:before {
+      width: 50%;
+      height: 50%;
+      background: var(--redColour);
+      border-radius: 100% 0 0 0;
+      position: absolute;
+      top: 0;
+      left: 0;
+      content: '';
+    }
+    .loader:after {
+      background: white;
+      width: 75%;
+      height: 75%;
+      border-radius: 50%;
+      content: '';
+      margin: auto;
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+    }
+    @-webkit-keyframes load3 {
+      0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+      }
+      100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+      }
+    }
+    @keyframes load3 {
+      0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+      }
+      100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+      }
+    }
   }
-}
-
-.sitepage-search#Les {
-  @media (max-width: 768px) {
-    margin-top: -20px;
-  }
-}
-
-.L’Oceano {
-  background-image: url('../../assets/Panoramics/loceanodor.jpg');
-}
-
-.Les {
-  background-image: url('../../assets/Panoramics/lesgenets.jpg');
-}
-
-.Calico {
-  background-image: url('../../assets/Panoramics/calicopark.jpg');
-}
-
-.area {
-  margin-top: 0.7rem;
-}
-
-.content {
-  margin-top: 12px;
-}
-
-.top {
-  padding: 30px 50px;
-}
-
-.carousel-container {
-  text-align: center;
-}
-
-.carousel {
-  height: 400px;
-}
-
-.carousel > .alice-carousel > div.alice-carousel__next-btn, .carousel > .alice-carousel > div.alice-carousel__prev-btn {
-  position: relative;
-  top: -240px;
-  display: inline-block;
-  width: fit-content;
-}
-
-div.alice-carousel__next-btn {
-  text-align: right;
-  left: 280px;
-}
-
-div.alice-carousel__prev-btn {
-  text-align: left;
-  right: 250px;
-}
-
-.alice-image {
-  height: 400px;
-}
-
-.date-input {
-  width: 94%;
-}
-
-#guests-input {
-  width: 94%;
-}
-
-.navbar {
-  position: absolute;
-  z-index: 1;
-  color: white;
-  top: 65px;
-  position: -webkit-sticky;
-  position: sticky;
-  background-color: hsl(0, 0%, 96%);
-  opacity: 0.95;
-  color: var(--greyTextColour);
-  font-size: 24px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 50px;
-}
-
-span.tick {
-  margin-right: 7px;
-}
-
-.facilities {
-  margin: 0 50px;
-  padding: 20px;
-}
-
-.page-carousel > li > {
-  width: 650px;
-}
-
-.page-carousel {
-  height: 400px;
-  width: 100vw;
-  padding-right: 50px;
-  text-align: center;
-  img {
-    height: 450px;
-  }
-  div.carousel-button {
-    top: -450px;
-  }
-  div.carousel-button.prev {
-    text-align: left;
-    right: 350px;
-  }
-  div.carousel-button.next {
-    text-align: right;
-    left: 350px;
-  }
-}
-
-.check-availability {
-  text-align: right;
-  margin-right: 3%;
-}
-
-.anchor-button {
-  text-size-adjust: 100%;
-  line-height: 1.5;
-  font-size: 20px;
-  margin: 0 3vw;
-  padding-top: 5px;
-  text-decoration: none;
-  font-weight: 500;
-  color: var(--greyTextColour);
-  background-color: whitesmoke;
-}
-
-.top-inner-container {
-  display: flex;
-  align-items: center;
-  height: 100%;
-  width: 100%;
-  @media (max-width: 768px) {
-    justify-content: center;
-    margin: 0 auto;
-  }
-}
-
 }

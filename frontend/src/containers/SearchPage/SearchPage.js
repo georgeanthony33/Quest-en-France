@@ -112,6 +112,7 @@ const SearchPage = (props) => {
               kids={kids}
               chosenSite={chosenSite}
               totalPrice={totalPrices[home.bedrooms]}
+              currentPage="SearchPage"
             />
           ))}
         </div>

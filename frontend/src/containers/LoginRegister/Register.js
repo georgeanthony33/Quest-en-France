@@ -1,13 +1,30 @@
 import React, { useState } from "react";
 import axios from "axios";
 import Auth from "../../util/Auth";
-import { headers } from "../../lib/headers";
+import { headers, headersToken } from "../../lib/headers";
 import "react-datepicker/dist/react-datepicker.css";
 
 const Register = (props) => {
-  const [firstName, setFirstName] = useState();
-  const [surname, setSurname] = useState();
-  const [email, setEmail] = useState();
+  const { currentPage, userData } = props;
+
+  const [firstName, setFirstName] = useState(
+    userData &&
+      Object.entries(userData)
+        .filter((entry) => entry[0] === "first_name")
+        .map((entry) => entry[1])[0],
+  );
+  const [surname, setSurname] = useState(
+    userData &&
+      Object.entries(userData)
+        .filter((entry) => entry[0] === "last_name")
+        .map((entry) => entry[1])[0],
+  );
+  const [email, setEmail] = useState(
+    userData &&
+      Object.entries(userData)
+        .filter((entry) => entry[0] === "email")
+        .map((entry) => entry[1])[0],
+  );
 
   const currentDate = new Date();
   currentDate.setFullYear(currentDate.getFullYear() - 30);
@@ -15,11 +32,36 @@ const Register = (props) => {
   const [password, setPassword] = useState();
   const [passwordConfirmation, setPasswordConfirmation] = useState();
 
-  const [phoneNumber, setPhoneNumber] = useState();
-  const [addressLineOne, setAddressLineOne] = useState();
-  const [addressLineTwo, setAddressLineTwo] = useState();
-  const [city, setCity] = useState();
-  const [postcode, setPostcode] = useState();
+  const [phoneNumber, setPhoneNumber] = useState(
+    userData &&
+      Object.entries(userData)
+        .filter((entry) => entry[0] === "phone_number")
+        .map((entry) => entry[1])[0],
+  );
+  const [addressLineOne, setAddressLineOne] = useState(
+    userData &&
+      Object.entries(userData)
+        .filter((entry) => entry[0] === "address_first_line")
+        .map((entry) => entry[1])[0],
+  );
+  const [addressLineTwo, setAddressLineTwo] = useState(
+    userData &&
+      Object.entries(userData)
+        .filter((entry) => entry[0] === "address_second_line")
+        .map((entry) => entry[1])[0],
+  );
+  const [city, setCity] = useState(
+    userData &&
+      Object.entries(userData)
+        .filter((entry) => entry[0] === "address_town")
+        .map((entry) => entry[1])[0],
+  );
+  const [postcode, setPostcode] = useState(
+    userData &&
+      Object.entries(userData)
+        .filter((entry) => entry[0] === "address_postcode")
+        .map((entry) => entry[1])[0],
+  );
 
   // const [registerError, setRegisterError] = useState();
   // const [loginError, setLoginError] = useState();
@@ -39,7 +81,7 @@ const Register = (props) => {
     }
   };
 
-  const handleRegister = async (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const registerData = {
       first_name: firstName,
@@ -57,17 +99,43 @@ const Register = (props) => {
       password_confirmation: passwordConfirmation,
     };
 
-    try {
-      await axios.post("/api/register/", registerData);
-      handleLogin();
-    } catch (err) {
-      // setRegisterError("Incorrect Credentials");
-      console.log("Incorrect Credentials");
+    const updateDetailsData = {
+      first_name: firstName,
+      second_name: surname,
+      last_name: surname,
+      username: email,
+      email: email,
+      address_first_line: addressLineOne,
+      address_second_line: addressLineTwo,
+      address_town: city,
+      address_postcode: postcode,
+      address_country: "United Kingdom",
+      phone_number: phoneNumber,
+    };
+
+    if (currentPage !== "ProfilePage") {
+      try {
+        await axios.post("/api/register/", registerData);
+        handleLogin();
+      } catch (err) {
+        // setRegisterError("Incorrect Credentials");
+        console.log("Incorrect Credentials");
+      }
+    } else if (currentPage === "ProfilePage") {
+      try {
+        await axios.put("/api/profile/", updateDetailsData, headersToken);
+      } catch (err) {
+        // setRegisterError("Incorrect Credentials");
+        console.log("Incorrect Credentials", err);
+      }
     }
   };
 
   return (
     <form>
+      {currentPage === "ProfilePage" && (
+        <h3 className="title is-3">Update Contact Details</h3>
+      )}
       <div className="columns names mb-0">
         <div className="field column mb-0">
           <label className="label mb-0">First Name</label>
@@ -121,39 +189,41 @@ const Register = (props) => {
           </span> */}
         </p>
       </div>
-      <div className="columns names mb-0">
-        <div className="field column mb-0">
-          <label className="label mb-0">Password</label>
-          <p className="control has-icons-left">
-            <input
-              className="input"
-              type="password"
-              placeholder="Password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
-            <span className="icon is-small is-left register-icon">
-              <i className="fas fa-lock"></i>
-            </span>
-          </p>
-        </div>
+      {currentPage !== "ProfilePage" && (
+        <div className="columns names mb-0">
+          <div className="field column mb-0">
+            <label className="label mb-0">Password</label>
+            <p className="control has-icons-left">
+              <input
+                className="input"
+                type="password"
+                placeholder="Password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
+              <span className="icon is-small is-left register-icon">
+                <i className="fas fa-lock"></i>
+              </span>
+            </p>
+          </div>
 
-        <div className="field column mb-0">
-          <label className="label mb-0">Password Confirmation</label>
-          <p className="control has-icons-left">
-            <input
-              className="input"
-              type="password"
-              placeholder="Password Confirmation"
-              value={passwordConfirmation}
-              onChange={(e) => setPasswordConfirmation(e.target.value)}
-            />
-            <span className="icon is-small is-left register-icon">
-              <i className="fas fa-lock"></i>
-            </span>
-          </p>
+          <div className="field column mb-0">
+            <label className="label mb-0">Password Confirmation</label>
+            <p className="control has-icons-left">
+              <input
+                className="input"
+                type="password"
+                placeholder="Password Confirmation"
+                value={passwordConfirmation}
+                onChange={(e) => setPasswordConfirmation(e.target.value)}
+              />
+              <span className="icon is-small is-left register-icon">
+                <i className="fas fa-lock"></i>
+              </span>
+            </p>
+          </div>
         </div>
-      </div>
+      )}
 
       <div className="columns names mb-0">
         <div className="field column mb-0">
@@ -243,9 +313,11 @@ const Register = (props) => {
         > */}
             <input
               className="button is-danger"
-              value="Register"
+              value={
+                currentPage === "ProfilePage" ? "Update Details" : "Register"
+              }
               type="submit"
-              onClick={handleRegister}
+              onClick={handleSubmit}
             />
             {/* </Link> */}
           </div>

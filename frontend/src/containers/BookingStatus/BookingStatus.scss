@@ -1,0 +1,142 @@
+@import './../../styles/main.scss';
+
+#BookingStatus {
+
+  .top-banner {
+    margin-top: 76px;
+    padding: 0 50px 23px 50px;
+    height: -moz-fit-content;
+    height: fit-content;
+    background-color: var(--whiteSmokeColour);
+    display: flex;
+    align-items: flex-end;
+    min-height: 100px;
+  }
+
+  .banner-subtitle {
+    margin-bottom: 5px;
+    margin-left: 50px;
+  }
+
+  .booking-info {
+    background-color: whitesmoke;
+    padding-top: 2rem;
+    width: calc(100vw - 96px - 325px);
+    max-width: 964px;
+  }
+
+  .booking-status {
+    width: 325px;
+    height: calc(100vh - 76px);
+    top: 76px;
+    padding: 2rem 2.5rem;
+    position: sticky;
+    position: -webkit-sticky;
+    background-color: whitesmoke;
+    border-right: 1px var(--lightGreyTextColour) solid;
+  }
+  
+  .main-body {
+    display: flex;
+    justify-content: center;
+    background: center url(/static/media/LandingPageBackground.1e90200e.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+  }
+
+  #Carousel {
+    margin: 0 auto;
+    padding: 0;
+    max-width: 550px;
+    position: relative;
+
+    .prev {
+      left: 0px;
+      @media (max-width: 1023px) {
+        left: -25px;
+      }
+    }
+
+    .next {
+      right: 0px;
+      @media (max-width: 1023px) {
+        right: -25px;
+      }
+    }
+  }
+
+  .carousel-button {
+    top: calc(50% - 25px);
+  }
+  
+  .alice-image {
+    padding: 20px;
+  }
+  
+  .homecard-container:hover {
+    .homecard-text-container {
+      margin: 10px 20px 0px 20px;
+      border-radius: 0 0 10px 10px;
+    }
+  }
+  
+  .homecard-text-container {
+    margin: 10px 20px 0px 20px;
+    border-radius: 0 0 10px 10px;
+  }
+
+  .book-home-submit {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+  }
+
+  .total-price {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .pay-button {
+    padding: 0.7rem 2rem;
+    width: 100%;
+    margin: 1rem 0;
+    color: white;
+    font-weight: bold;
+    font-size: medium;
+    background-color: #556cd6;
+    border: 0;
+  }
+
+  .modal {
+    position: absolute;
+    background-color: var(--whiteSmokeColour);
+  }
+
+  .Overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rebeccapurple;
+  }
+
+  p, p * {
+    font-size: 18px;
+  }
+
+  a {
+    color: var(--greyTextColour)
+  }
+
+  hr {
+    background-color: var(--lightGreyTextColour);
+    height: 1px;
+  }
+
+  .book-home-button, .book-home-submit {
+    font-size: 19px;
+  }
+}

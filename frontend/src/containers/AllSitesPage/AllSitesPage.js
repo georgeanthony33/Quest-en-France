@@ -44,7 +44,7 @@ const AllSitesPage = () => {
         </h3>
       </div>
 
-      <section className="section has-background-light main-section">
+      <section className="section main-section">
         <div className="container">
           {/* <h1 className="title has-text-weight-bold is-size-2">Explore our sites</h1>
         <h2 className="has-text-weight-bold AllSitesPage">Book your dream holiday in one of our 3 prestigious mobile sites in France or Portugal.</h2> */}

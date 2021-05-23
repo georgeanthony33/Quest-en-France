@@ -5,8 +5,7 @@ const Details = (props) => {
 
   return (
     <div id="Details" className="columns">
-      <div className="column is-1"></div>
-      <div className="column is-6">
+      <div className="column is-7">
         <p className="has-text-weight-bold">
           {site.long_description_paragraphs[0].text}
         </p>

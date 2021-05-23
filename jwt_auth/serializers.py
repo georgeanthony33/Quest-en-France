@@ -9,7 +9,6 @@ from bookings.models import Booking, Person, Ferry
 
 User = get_user_model()
 
-
 class SiteSerializer(serializers.ModelSerializer):
 
     class Meta:
@@ -65,6 +64,7 @@ class UserSerializer(serializers.ModelSerializer):
     def validate(self, data):
         password = data.pop('password')
         password_confirmation = data.pop('password_confirmation')
+        print('hello', password == password_confirmation)
 
         if password != password_confirmation:
             raise serializers.ValidationError({'password_confirmation': 'Passwords do not match'})
@@ -80,6 +80,12 @@ class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = ('__all__')
+
+class EditUserSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = User
+        fields = ('id', 'first_name', 'last_name', 'email', 'address_first_line', 'address_second_line', 'address_town', 'address_postcode', 'address_country', 'phone_number')
 
 class PopulatedUserSerializer(UserSerializer):
 

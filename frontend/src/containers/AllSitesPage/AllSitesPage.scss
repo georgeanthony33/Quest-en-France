@@ -1,17 +1,16 @@
 #AllSitesPage {
 
-.top-banner {
-  margin-top: 76px;
-  height: fit-content;
-  padding: 8px 20px;
-  background-color: white;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
+  background-color: var(--greyBackgroundColour);
+  height: calc(100vh - 76px);
 
-.main-section {
-  min-height: 100vw;
-}
+  .top-banner {
+    margin-top: 76px;
+    height: fit-content;
+    padding: 8px 20px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
 
 }

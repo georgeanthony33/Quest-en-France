@@ -1,12 +1,57 @@
 # pylint: disable=no-member
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from rest_framework.status import HTTP_404_NOT_FOUND, HTTP_201_CREATED, HTTP_422_UNPROCESSABLE_ENTITY, HTTP_204_NO_CONTENT, HTTP_202_ACCEPTED, HTTP_401_UNAUTHORIZED
+from rest_framework.status import HTTP_200_OK, HTTP_404_NOT_FOUND, HTTP_201_CREATED, HTTP_422_UNPROCESSABLE_ENTITY, HTTP_204_NO_CONTENT, HTTP_202_ACCEPTED, HTTP_401_UNAUTHORIZED
 from rest_framework.permissions import IsAuthenticated
 from .models import Booking, Person, Ferry
 from homes.models import Home
 from .serializers import BookingSerializer, PopulatedBookingSerializer, PersonSerializer, FerrySerializer
 import datetime
+import stripe
+
+class PaymentDetailsView(APIView):
+
+    stripe.api_key = 'sk_test_51HP8LdIjBNRGWKqww2iOkmadjmLZyBVFnZxmN87mkufttb8v6m98ehakWV67nVMyBCqLcqX8JsKCKrV8jIW5LlCh00LP3LNBEG'
+
+    def post(self, request):
+        data = request.data
+        email = data['email']
+        payment_method_id = data['payment_method_id']
+        total_amount = data['total_amount']
+        description = data['description']
+        extra_msg = ''
+
+        # checking if customer with provided email already exists
+        customer_data = stripe.Customer.list(email=email).data
+
+        # if the array is empty it means the email has not been used yet  
+        if len(customer_data) == 0:
+        # creating customer
+            customer = stripe.Customer.create(
+            email=email, payment_method=payment_method_id)
+
+        else:
+            customer = customer_data[0]
+            extra_msg = "Customer already exists."
+
+        stripe.PaymentIntent.create(
+            customer=customer, 
+            payment_method=payment_method_id,  
+            currency='GBP',
+            amount=total_amount,
+            description=description,
+            confirm=True
+        )
+        
+        return Response(status=HTTP_200_OK, 
+            data={
+                'message': 'Success',
+                'data': {
+                    'customer_id': customer.id,
+                    'extra_msg': extra_msg
+                }
+            }
+        )
 
 class BookingListView(APIView):
 

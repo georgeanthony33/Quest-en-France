@@ -1,34 +1,50 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import axios from "axios";
-// import { Link, withRouter } from "react-router-dom";
-// import AliceCarousel from "react-alice-carousel";
-import "react-alice-carousel/lib/alice-carousel.css";
 import Details from "./Details";
 import Gallery from "./Gallery";
 import Location from "./Location";
 import Attractions from "./Attractions";
+import helperFunctions from "../../util/HelperFunctions";
+import config from "../../util/Config";
 
 import "./SitePage.scss";
 
 const Site = (props) => {
   const [site, setSite] = useState("");
   const [siteID, setSiteID] = useState("");
+
   const [checkin, setCheckin] = useState(
     new Date().setDate(new Date().getDate() + 1),
   );
   const [checkout, setCheckout] = useState(
     new Date().setDate(new Date().getDate() + 7),
   );
+  const { dateDiffInDays } = helperFunctions;
+  const { includedStartDates, includedEndDates } = config;
+  const validIncludedEndDates = checkin
+    ? includedEndDates.filter(
+      (date) => dateDiffInDays(new Date(checkin), date) >= 6,
+    )
+    : includedEndDates;
+
   const [adults, setAdults] = useState(1);
   const [kids, setKids] = useState(0);
   const [selectedTab, setSelectedTab] = useState("details");
 
+  const [loading, setLoading] = useState(false);
+
   const getSiteData = async (id) => {
+    setLoading(true);
     const siteData = await axios.get(`/api/sites/${id}/`);
     setSite(siteData.data);
   };
+
+  useEffect(() => {
+    setLoading(false);
+  }, [site]);
 
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   useEffect(() => {
@@ -90,6 +106,7 @@ const Site = (props) => {
                         dateFormat="d MMMM yyyy"
                         name="date"
                         required
+                        includeDates={includedStartDates}
                       />
                     </div>
                   </div>
@@ -103,6 +120,7 @@ const Site = (props) => {
                         dateFormat="d MMMM yyyy"
                         name="date"
                         required
+                        includeDates={validIncludedEndDates}
                       />
                     </div>
                   </div>
@@ -139,12 +157,25 @@ const Site = (props) => {
                   </div>
                 </div>
                 <div className="check-availability">
-                  <input
-                    className="button is-danger"
-                    type="submit"
-                    value="Check Availability"
-                    id="details red-button"
-                  />
+                  <Link
+                    to={{
+                      pathname: "/search",
+                      state: {
+                        checkin,
+                        checkout,
+                        adults,
+                        kids,
+                        chosenSite: site.name,
+                      },
+                    }}
+                  >
+                    <input
+                      className="button is-danger"
+                      type="submit"
+                      value="Check Availability"
+                      id="details red-button"
+                    />
+                  </Link>
                 </div>
               </form>
             </div>
@@ -191,11 +222,15 @@ const Site = (props) => {
           </button>
         </nav>
 
-        <section className="section has-background-white">
-          {selectedTab === "details" && <Details site={site} />}
-          {selectedTab === "gallery" && <Gallery site={site} />}
-          {selectedTab === "attractions" && <Attractions site={site} />}
-          {selectedTab === "location" && <Location site={site} />}
+        <section className="section has-background-white p-6">
+          <div className="tab-container pl-6 pr-6">
+            {selectedTab === "details" && <Details site={site} />}
+            {selectedTab === "gallery" && (
+              <Gallery site={site} loading={loading} />
+            )}
+            {selectedTab === "attractions" && <Attractions site={site} />}
+            {selectedTab === "location" && <Location site={site} />}
+          </div>
         </section>
       </div>
     </div>

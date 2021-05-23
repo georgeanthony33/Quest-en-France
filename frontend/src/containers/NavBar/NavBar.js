@@ -1,67 +1,120 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef, useContext } from "react";
 import { Link, withRouter } from "react-router-dom";
-// import { notify } from 'react-notify-toast'
-// import Auth from "../../components/Common/Auth";
-// import Logo from "../../assets/Logos/QeF.png";
 import "./NavBar.scss";
 import config from "../../util/Config";
+import axios from "axios";
+import Auth from "../../util/Auth";
+import { Notyf } from "notyf";
 
-const NavBar = () => {
-  const [navOpen, setNavOpen] = useState(false);
+export const notyf = new Notyf({
+  duration: 2000,
+  ripple: true,
+  position: {
+    x: "center",
+    y: "top",
+  },
+  types: [
+    {
+      type: "login",
+      className: 'notyf-login',
+      background: "#23C552",
+      icon: {
+        className: "fas fa-sign-in-alt",
+        tagName: "i",
+        color: 'white'
+      },
+    },
+    {
+      type: "logout",
+      className: 'notyf-login',
+      background: "#D70103",
+      icon: {
+        className: "fas fa-sign-out-alt",
+        tagName: "i",
+        color: 'white'
+      },
+    },
+  ],
+});
+
+const NavBar = (props) => {
+
+  const [burgerNavOpen, setBurgerNavOpen] = useState(false);
   const [isHover, setIsHover] = useState(false);
-  // const [ scrollY, setScrollY ] = useState(0)
   const [isUserMenuOpen, setIsUserMenuOpen] = useState(false);
 
-  const toggleNavbar = () => {
-    setNavOpen(!navOpen);
+  const toggleBurgerNav = () => {
+    setBurgerNavOpen(!burgerNavOpen);
   };
 
-  // const handleLogout = () => {
-  //   Auth.logout()
-  //   // notify.show('Come back soon!', 'custom', 3000, { background: '#FFFFF0' })
-  //   this.props.history.push('/')
-  // }
+  const headersToken = {
+    headers: { Authorization: `Bearer ${Auth.getToken()}` },
+  };
 
-  // const userID = Auth.getPayload().sub
+  const [loginDetails, setLoginDetails] = useState(null);
+  useEffect(() => {
+    const getLoginDetails = async () => {
+      if (headersToken.headers.Authorization === "Bearer null") {
+        setLoginDetails(false);
+      } else {
+        try {
+          const response = await axios.get("/api/profile/", headersToken);
+          setLoginDetails(response.data);
+        } catch (err) {
+          console.log(err);
+        }
+      }
+    };
+    getLoginDetails();
+  }, [props?.location?.state?.token, props.location.pathname]);
 
-  // useEffect(() => {
-  //   window.addEventListener('scroll', () => setScrollY(window.scrollY))
-  //   return () => window.removeEventListener('scroll', () => setScrollY(window.scrollY))
-  // }, [])
+  const { first_name, last_name } = loginDetails || {}
+
+  const handleLogout = () => {
+    Auth.logout();
+    setLoginDetails(null);
+    notyf.open({
+      type: 'logout',
+      message: 'Logged out'
+    });
+    props.history.push("/");
+  };
+
+  const userMenuNode = useRef();
+  useEffect(() => {
+    const handleClickAway = (e) => {
+      if (userMenuNode?.current && userMenuNode.current.contains(e.target)) return;
+      setIsUserMenuOpen(false);
+    };
+    document.addEventListener("click", handleClickAway);
+    return () => {
+      document.removeEventListener("click", handleClickAway);
+    };
+  }, []);
+
+  const mobileNavNode = useRef();
+  useEffect(() => {
+    const handleClickAway = (e) => {
+      if (mobileNavNode?.current && mobileNavNode.current.contains(e.target)) return;
+      setBurgerNavOpen(false);
+    };
+    document.addEventListener("click", handleClickAway);
+    return () => {
+      document.removeEventListener("click", handleClickAway);
+    };
+  }, []);
+
   const sites = config.sites;
 
-  // const userMenu = () => {
-  //   return <div className="user-menu"></div>;
-  // };
-
   return (
-    // <div className='NavBar'>
-    /* <nav className={scrollY < 45 ? 'navbar is-size-5 contacts-nav is-transparent' : 'closed'}>
-        <div className="container">
-          <div className={`navbar-menu ${navOpen ? 'is-active' : ''}`}>
-            <div className="navbar-brand">
-              <a href="mailto:georgeanthony33@gmail.com">
-                <div className="contact-links">
-                  <i className="fas fa-envelope"></i>
-                  <p>sales@questenfrance.com</p>
-                </div>
-              </a>
-              <div className="contact-links">
-                <i className="fas fa-phone"></i>
-                <p>+441204 415425 or +447985 093397</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </nav> */
-
     <nav
       id="NavBar"
       className={`navbar is-size-5 is-fixed-top is-black ${
-        navOpen ? "has-text-black" : "has-text-white"
+        burgerNavOpen ? "has-text-black" : "has-text-white"
       }`}
       role="navigation"
       aria-label="main navigation"
+      ref={mobileNavNode}
     >
       <div className="navbar-brand">
         <Link className="navbar-item" to="/">
@@ -69,35 +122,35 @@ const NavBar = () => {
         </Link>
         <button
           style={{ height: "72px" }}
-          className="navbar-burger anchor-button"
+          className={`navbar-burger anchor-button ${burgerNavOpen && "is-active"}`}
           aria-label="menu"
           aria-expanded="false"
-          navOpen={navOpen}
-          onClick={toggleNavbar}
+          burgerNavOpen={burgerNavOpen}
+          onClick={toggleBurgerNav}
         >
           <span aria-hidden="true"></span>
           <span aria-hidden="true"></span>
           <span aria-hidden="true"></span>
         </button>
       </div>
-      <div className={`navbar-menu ${navOpen && "is-active"}`}>
+      <div className={`navbar-menu ${burgerNavOpen && "is-active mobile-menu"}`}>
         <div className="navbar-start">
-          {!navOpen ? (
+          {!burgerNavOpen ? (
             <>
               <div
                 className={`navbar-item has-dropdown ${isHover && "is-active"}`}
                 onMouseEnter={() => setIsHover(true)}
                 onMouseLeave={() => setIsHover(false)}
               >
-                <Link className={"navbar-link has-text-white "} to="/sites">
+                <Link className="navbar-link has-text-white dropdown-arrow" to="/sites">
                   Sites
                 </Link>
 
-                <div className="navbar-dropdown">
+                <div className="navbar-dropdown" id="navbar-dropdown">
                   {sites.map((site, index) => (
                     <Link
                       key={index}
-                      className="navbar-item"
+                      className="navbar-item has-text-white"
                       to={`/sites/${site.id}`}
                     >
                       {site.label}
@@ -107,127 +160,137 @@ const NavBar = () => {
               </div>
             </>
           ) : (
-            <>
-              <Link className={"navbar-item has-text-white "} to="/sites">
+            <div className="mobile-dropdown">
+              <Link className={"navbar-link has-text-white dropdown-arrow"} to="/sites">
                 Sites
               </Link>
-              {sites.map((site, index) => (
-                <Link
-                  key={index}
-                  className="navbar-item"
-                  to={`/sites/${site.id}`}
-                >
-                  {site.label}
-                </Link>
-              ))}
-            </>
+              <div className="navbar-dropdown">
+                {sites.map((site, index) => (
+                  <Link
+                    key={index}
+                    className="navbar-item has-text-white"
+                    to={`/sites/${site.id}`}
+                  >
+                    {site.label}
+                  </Link>
+                ))}
+              </div>
+            </div>
           )}
           <Link
-            className={`navbar-item has-text-white ${
-              navOpen ? "has-text-black" : "has-text-white"
-            }`}
+            className="navbar-item has-text-white"
             to="/homes"
           >
             Our Homes
           </Link>
           <Link
-            className={`navbar-item has-text-white ${
-              navOpen ? "has-text-black" : "has-text-white"
-            }`}
+            className="navbar-item has-text-white"
             to="/faqs"
           >
             FAQs
           </Link>
           <Link
-            className={`navbar-item has-text-white ${
-              navOpen ? "has-text-black" : "has-text-white"
-            }`}
+            className="navbar-item has-text-white"
             to="/"
           >
             Contact Us
           </Link>
         </div>
-        <div className="navbar-end">
+        <div className={`navbar-end ${burgerNavOpen && "navbar-end-mobile"}`}>
+          {burgerNavOpen ? 
+          loginDetails ?
+          <>
+            <Link
+              className="navbar-item has-text-white is-flex is-align-items-center"
+              id="mobile"
+              to={{
+                pathname: "/myprofile",
+                state: {
+                  preSelection: "contactDetails",
+                },
+              }}
+            >
+              <i className="fas fa-user-circle mobile-icon"></i>
+              <p className="profile-link">{first_name} {last_name}</p>
+            </Link>
+            <Link
+              className="navbar-item has-text-white"
+              to={{
+                pathname: "/myprofile",
+                state: {
+                  preSelection: "myBookings",
+                },
+              }}
+            >
+              My Bookings
+            </Link>
+            <p className="navbar-item has-text-white is-flex is-align-items-center mobile-logout" onClick={handleLogout}><i className="fas fa-sign-out-alt mobile-icon"></i>Logout</p>
+          </>
+            :
+          <>
+            <Link
+              to={{
+                pathname: "/login",
+                state: {
+                  falsifyLoginDetails: false,
+                },
+              }}
+            >
+              Login
+            </Link>
+            <Link to="/register">Register</Link>
+          </>
+          :
           <div
-            className={`navbar-item has-text-white ${
-              navOpen ? "has-text-black" : "has-text-white"
-            }`}
+            className="navbar-item has-text-white"
             onClick={() => setIsUserMenuOpen(!isUserMenuOpen)}
+            ref={userMenuNode}
           >
-            <i className="fas fa-user-circle"></i>
+            <i className="desktop fas fa-user-circle"></i>
             {isUserMenuOpen ? (
               <div className="user-menu">
-                <Link to="/login">Login</Link>
-                <Link to="/register">Register</Link>
-                <Link to="/bookings">My Bookings</Link>
-                <Link to="/myprofile">My Profile</Link>
+                {!loginDetails && (
+                  <>
+                    <Link
+                      to={{
+                        pathname: "/login",
+                        state: {
+                          falsifyLoginDetails: false,
+                        },
+                      }}
+                    >
+                      Login
+                    </Link>
+                    <Link to="/register">Register</Link>
+                  </>
+                )}
+                <Link
+                  to={{
+                    pathname: "/myprofile",
+                    state: {
+                      preSelection: "myBookings",
+                    },
+                  }}
+                >
+                  My Bookings
+                </Link>
+                <Link
+                  to={{
+                    pathname: "/myprofile",
+                    state: {
+                      preSelection: "contactDetails",
+                    },
+                  }}
+                >
+                  My Profile
+                </Link>
+                {loginDetails && <p onClick={handleLogout}>Logout</p>}
               </div>
             ) : null}
-          </div>
+          </div>}
         </div>
       </div>
     </nav>
-
-    /* <nav class="navbar" role="navigation" aria-label="main navigation">
-  <div class="navbar-brand">
-    <a class="navbar-item" href="https://bulma.io">
-      <img src="https://bulma.io/images/bulma-logo.png" width="112" height="28" />
-    </a>
-
-    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
-    </a>
-  </div>
-
-  <div id="navbarBasicExample" class="navbar-menu">
-    <div class="navbar-start">
-      <a class="navbar-item">
-        Home
-      </a>
-
-      <a class="navbar-item">
-        Documentation
-      </a>
-
-      <div class="navbar-item has-dropdown is-hoverable">
-        <a class="navbar-link">
-          More
-        </a>
-
-        <div class="navbar-dropdown">
-          <a class="navbar-item">
-            About
-          </a>
-          <a class="navbar-item">
-            Jobs
-          </a>
-          <a class="navbar-item">
-            Contact
-          </a>
-          <hr class="navbar-divider">
-          <a class="navbar-item">
-            Report an issue
-          </a>
-        </div>
-      </div>
-    </div>
-
-    <div class="navbar-end">
-      <div class="navbar-item">
-        <div class="buttons">
-          <a class="button is-primary">
-            <strong>Sign up</strong>
-          </a>
-          <a class="button is-light">
-            Log in
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-</nav> */
   );
 };
 

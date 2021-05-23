@@ -6,8 +6,10 @@
   --redColour: #D70103;
   --darkGreyColour: #201e1e;
   --greyTextColour: #4a4a4a;
+  --greyBackgroundColour: #363636;
   --lightGreyTextColour: hsl(0, 0%, 71%);
   --whiteSmokeColour: rgba(245, 245, 245, 0.97);
+  --whiteLinkHoverColour: #e6e6e6;
 
   //* Screen Widths
 }
@@ -37,6 +39,24 @@
 p#heading {
   padding: 22px 20px 15px 20px;
   background-color: var(--redColour)
+}
+
+.notyf-login {
+  max-width: 350px;
+
+  .notyf__wrapper {
+    padding-right: 12px;
+  }
+
+  .notyf__icon {
+    height: 28px;
+    margin-right: 18px;
+    margin-left: 4px;
+  }
+
+  .notyf__message {
+    margin-bottom: -4px;
+  }
 }
 
 @custom-media --maxMobileWidth (min-width: 768px);

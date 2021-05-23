@@ -1,31 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import Auth from "../../util/Auth";
-import { headers, headersToken } from "../../lib/headers";
+import { headers } from "../../lib/headers";
+import { notyf } from "../NavBar/NavBar";
 
 const Login = (props) => {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
 
-  // const [loginError, setLoginError] = useState();
-
-  const [loginDetails, setLoginDetails] = useState();
-
-  useEffect(() => {
-    const getLoginDetails = async () => {
-      if (headersToken.headers.Authorization === "Bearer null") {
-        setLoginDetails(null);
-      } else {
-        try {
-          const response = await axios.get("/api/profile/", headersToken);
-          setLoginDetails(response.data);
-        } catch (err) {
-          console.log(err);
-        }
-      }
-    };
-    getLoginDetails();
-  }, []);
+  const [loginError, setLoginError] = useState(false);
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -36,20 +19,32 @@ const Login = (props) => {
         headers,
       );
       Auth.setToken(res.data.token);
-      props.history.push("/myprofile");
+      const { first_name, last_name } = res.data.user;
+      notyf.open({
+        type: "login",
+        message: `Logged in as ${first_name} ${last_name}`,
+      });
+      props.history.push({
+        pathname: "/myprofile",
+        state: { token: res.data.token },
+      });
     } catch (err) {
       console.log(err);
-      // setLoginError("Incorrect Credentials");
+      setLoginError("Incorrect email or password");
     }
   };
 
-  const handleLogout = () => {
-    Auth.logout();
-    setLoginDetails(null);
-  };
-
-  return !loginDetails ? (
+  return (
     <form>
+      {loginError && (
+        <div className="notification error-message is-danger is-light">
+          <button
+            className="delete close-error-message"
+            onClick={() => setLoginError(false)}
+          ></button>
+          {loginError}
+        </div>
+      )}
       <div className="field mb-3">
         <label className="label mb-0">Email</label>
         <p className="control is-expanded has-icons-left has-icons-right">
@@ -86,48 +81,15 @@ const Login = (props) => {
       </div>
       <div className="column is-flex is-justify-content-center">
         <div className="action-button">
-          {/* <Link
-          to={{
-            pathname: "/search",
-            state: { checkin, checkout, adults, kids, chosenSite },
-          }}
-        > */}
           <input
             className="button is-danger"
             value="Login"
             type="submit"
             onClick={handleLogin}
           />
-          {/* </Link> */}
         </div>
       </div>
     </form>
-  ) : (
-    <div className="already-logged-in">
-      <p>
-        Logged in as{" "}
-        <a href="/myprofile">
-          {loginDetails.first_name} {loginDetails.last_name}
-        </a>
-      </p>
-      <div className="column is-flex is-justify-content-center">
-        <div className="action-button">
-          {/* <Link
-          to={{
-            pathname: "/search",
-            state: { checkin, checkout, adults, kids, chosenSite },
-          }}
-        > */}
-          <input
-            className="button is-danger"
-            value="Logout"
-            // type="submit"
-            onClick={handleLogout}
-          />
-          {/* </Link> */}
-        </div>
-      </div>
-    </div>
   );
 };
 

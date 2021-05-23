@@ -1,3 +1,5 @@
+import helperFunctions from "./HelperFunctions";
+
 import HomesImage0 from "../assets/HomesImages/HomesImage0.jpg";
 import HomesImage1 from "../assets/HomesImages/HomesImage1.jpg";
 import HomesImage2 from "../assets/HomesImages/HomesImage2.jpg";
@@ -14,10 +16,29 @@ import kitchen2 from "../assets/PortugalHome/kitchen2.jpg";
 import lounge1 from "../assets/PortugalHome/lounge1.jpg";
 import lounge2 from "../assets/PortugalHome/lounge2.jpg";
 
+import CalicoParkSite from "../assets/SiteGallery/CP/the-campsite.jpeg";
+import SignPost from "../assets/SiteGallery/CP/signpost.jpeg";
+import Road from "../assets/SiteGallery/CP/road.jpeg";
+import FarmersGoats from "../assets/SiteGallery/CP/farmers-goats.jpeg";
+
+const { getDaysArray } = helperFunctions;
+
 const sites = [
-  { id: 1, label: "L’Oceano d’Or" },
-  { id: 2, label: "Les Genets" },
-  { id: 3, label: "Calico Park" },
+  {
+    id: 1,
+    label: "L’Oceano d’Or",
+    address: "84 Rue Georges Clemenceau, 85520 Jard-sur-Mer, France",
+  },
+  {
+    id: 2,
+    label: "Les Genets",
+    address: "55 Avenue des Épines, 85160 Saint-Jean-de-Monts, France",
+  },
+  {
+    id: 3,
+    label: "Calico Park",
+    address: "Apartado 51, 8901-907 Vila Nova de Cacela, Portugal",
+  },
 ];
 
 const inventoryFrance = {
@@ -268,7 +289,7 @@ const faqQuestionsAnswers = [
   },
   {
     "What is your cancellation policy?":
-      'In the event of a cancellation, refunds of amounts paid (less the deposit) will be made if Quest en France Holidays are able to re-let the "Mobile Home", and any expenses or losses incurred in so doing will be deducted from the refundable amount. The Client is strongly recommended to arrange a comprehensive travel insurance policy (including cancellation cover) and to have full cover for the party’s personal belongings, public liability etc, since these are not covered by the Owner\'s insurance.',
+      "In the event of a cancellation, refunds of amounts paid (less the deposit) will be made if Quest en France Holidays are able to re-let the \"Mobile Home\", and any expenses or losses incurred in so doing will be deducted from the refundable amount. The Client is strongly recommended to arrange a comprehensive travel insurance policy (including cancellation cover) and to have full cover for the party’s personal belongings, public liability etc, since these are not covered by the Owner's insurance.",
   },
 ];
 
@@ -381,6 +402,215 @@ const prices = [
   { weekCommencing: new Date("5-Sep"), 2: 240, 3: 265 },
 ];
 
+const siteGallery = {
+  LODO: [
+    {
+      image:
+        "https://www.questenfrance.com/wp-content/uploads/2015/12/Pool-entertainment.jpg",
+      text: "Pool entertainment",
+    },
+    {
+      image: "https://www.questenfrance.com/wp-content/uploads/2015/12/Bar.jpg",
+      text: "Bar",
+    },
+    {
+      image:
+        "https://www.questenfrance.com/wp-content/uploads/2015/12/Pool-complex.jpg",
+      text: "Pool complex",
+    },
+    {
+      image:
+        "https://www.questenfrance.com/wp-content/uploads/2015/12/Kids-play-area1.jpg",
+      text: "Kids playing area",
+    },
+    {
+      image:
+        "https://www.questenfrance.com/wp-content/uploads/2015/12/Main-pool-area.jpg",
+      text: "Main pool area",
+    },
+    {
+      image:
+        "https://www.questenfrance.com/wp-content/uploads/2015/12/Kids-activity.jpg",
+      text: "Kids activities",
+    },
+    {
+      image:
+        "https://www.questenfrance.com/wp-content/uploads/2015/12/Games-room.jpg",
+      text: "Games room",
+    },
+    {
+      image:
+        "https://www.questenfrance.com/wp-content/uploads/2015/12/View-of-leisure-activities.jpg",
+      text: "Leisure activities",
+    },
+    {
+      image:
+        "https://www.questenfrance.com/wp-content/uploads/2015/12/Campsite-entrance.jpg",
+      text: "Campsite entrance",
+    },
+    {
+      image:
+        "https://www.questenfrance.com/wp-content/uploads/2015/12/LOceano-from-air-2.jpg",
+      text: "Pool area",
+    },
+    {
+      image:
+        "https://www.questenfrance.com/wp-content/uploads/2015/12/Boules-area.jpg",
+      text: "Boules area",
+    },
+  ],
+  LG: [
+    {
+      image:
+        "https://www.questenfrance.com/wp-content/uploads/2015/12/outdoor-pools.jpg",
+      text: "Outdoor pool",
+    },
+    {
+      image:
+        "//www.questenfrance.com/wp-content/uploads/2015/12/Kids-play-area.jpg",
+      text: "Kids play area",
+    },
+    {
+      image:
+        "//www.questenfrance.com/wp-content/uploads/2015/12/les-genets-Pool-area.jpg",
+      text: "Pool area",
+    },
+    {
+      image:
+        "//www.questenfrance.com/wp-content/uploads/2015/12/les-genets-aqua-gym.jpg",
+      text: "Aqua gym",
+    },
+    {
+      image:
+        "//www.questenfrance.com/wp-content/uploads/2015/12/les-genets-pool-7.jpg",
+      text: "Pool",
+    },
+    {
+      image:
+        "//www.questenfrance.com/wp-content/uploads/2015/12/Outdoor-pool-complex-new.jpg",
+      text: "New outdoor pool complex",
+    },
+    {
+      image:
+        "//www.questenfrance.com/wp-content/uploads/2015/12/les-genets-kids-play-2.jpg",
+      text: "Kids play area",
+    },
+    {
+      image:
+        "//www.questenfrance.com/wp-content/uploads/2015/12/les-genets-indoor-pool-2.jpg",
+      text: "Indoor pool",
+    },
+    {
+      image:
+        "//www.questenfrance.com/wp-content/uploads/2020/02/New-Pool-Le-Genets.jpg",
+      text: "New pool",
+    },
+    {
+      image:
+        "//www.questenfrance.com/wp-content/uploads/2015/12/les-genets-jacuzzi.jpg",
+      text: "Jacuzzi",
+    },
+    {
+      image:
+        "//www.questenfrance.com/wp-content/uploads/2015/12/les-genets-pool4.jpg",
+      text: "Pool",
+    },
+    {
+      image:
+        "//www.questenfrance.com/wp-content/uploads/2015/12/les-genets-chutes-2.jpg",
+      text: "Water slides",
+    },
+    {
+      image:
+        "//www.questenfrance.com/wp-content/uploads/2020/02/New-indoor-outdoor-pool-Les-Genets1.jpg",
+      text: "New indoor/outdoor pool",
+    },
+    {
+      image:
+        "//www.questenfrance.com/wp-content/uploads/2015/12/les-genets-bar-2.jpg",
+      text: "Bar",
+    },
+    {
+      image:
+        "//www.questenfrance.com/wp-content/uploads/2015/12/Les-Genets-Baby-pool.jpg",
+      text: "Baby pool",
+    },
+    {
+      image:
+        "//www.questenfrance.com/wp-content/uploads/2015/11/lesgenets-outoor-pool.jpg",
+      text: "Outdoor pool",
+    },
+    {
+      image:
+        "//www.questenfrance.com/wp-content/uploads/2015/12/les-genets-table-tennis-room.jpg",
+      text: "Table tennis room",
+    },
+    {
+      image:
+        "//www.questenfrance.com/wp-content/uploads/2015/12/les-genets-pool-2.jpg",
+      text: "Pool",
+    },
+    {
+      image:
+        "//www.questenfrance.com/wp-content/uploads/2015/12/les-genets-slides.jpg",
+      text: "Water slides",
+    },
+    {
+      image:
+        "//www.questenfrance.com/wp-content/uploads/2015/12/les-genets-pool-terrace.jpg",
+      text: "Pool terrace",
+    },
+  ],
+  CP: [
+    {
+      image:
+        "https://www.questenfrance.com/wp-content/uploads/2015/12/Calico-Park-Pool.jpg",
+      text: "Pool",
+    },
+    {
+      image:
+        "https://www.questenfrance.com/wp-content/uploads/2015/12/cafe-at-the-pool.jpg",
+      text: "Cafe at the pool",
+    },
+    {
+      image:
+        "https://www.questenfrance.com/wp-content/uploads/2015/12/calico-park-restaurant-.jpg",
+      text: "Restaurant",
+    },
+    { image: CalicoParkSite, text: "The campsite" },
+    { image: SignPost, text: "Sign post" },
+    { image: Road, text: "Road through park" },
+    { image: FarmersGoats, text: "Farm goats" },
+  ],
+};
+
+const currentDate = new Date();
+const currentYear = currentDate.getFullYear();
+
+const includedStartDates = [
+  ...getDaysArray(new Date(currentYear, 4, 2), new Date(currentYear, 8, 7)),
+  ...getDaysArray(
+    new Date(currentYear + 1, 4, 2),
+    new Date(currentYear + 1, 8, 7),
+  ),
+];
+
+const nextValidStartDate = (function () {
+  for (let i = 0; i < includedStartDates.length; i++) {
+    if (currentDate < includedStartDates[i]) {
+      return includedStartDates[i];
+    }
+  }
+})();
+
+const includedEndDates = [
+  ...getDaysArray(new Date(currentYear, 4, 6), new Date(currentYear, 8, 11)),
+  ...getDaysArray(
+    new Date(currentYear + 1, 4, 2),
+    new Date(currentYear + 1, 8, 12),
+  ),
+];
+
 const config = {
   sites,
   inventoryFrance,
@@ -390,6 +620,10 @@ const config = {
   homesPortugal,
   siteCodes,
   prices,
+  siteGallery,
+  includedStartDates,
+  includedEndDates,
+  nextValidStartDate,
 };
 
 export default config;

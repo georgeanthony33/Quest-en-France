@@ -1,0 +1,113 @@
+@import './../../styles/main.scss';
+
+#Stripe {
+  background-color: var(--whiteSmokeColour);
+  box-shadow: 0px 0px 5px 5px hsl(0, 0%, 71%);
+  border-radius: 15px;
+  transform: translate(0px, 30px);
+
+  .close-button {
+    max-height: 30px !important;
+    max-width: 30px !important;
+    height: 30px !important;
+    width: 30px !important;
+    bottom: 3px !important;
+    left: 6px !important;
+  }
+
+  header {
+    border-radius: 15px 15px 0 0;
+    padding: 20px 25px 12px 25px;
+  }
+
+  body {
+    margin: 0;
+    padding: 0;
+  }
+
+  .App {
+    font-family: sans-serif;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+  }
+
+  .StripeElement {
+    margin: 15px auto;
+    padding: 10px 12px;
+    color: #32325d;
+    background-color: white;
+    border: 1px solid transparent;
+    border-radius: 4px;
+  }
+
+  .StripeElement--webkit-autofill {
+    background-color: #fefde5 !important;
+  }
+
+  .product {
+    width: 100%;
+    overflow: hidden;
+  }
+
+  h3.product-title {
+    font-size: 28px;
+    margin-bottom: 15px;
+  }
+
+  h4.product-price {
+    font-size: 24px;
+    margin: 0;
+    margin-bottom: 30px;
+    color: #777;
+    font-weight: 500;
+  }
+
+  #CheckoutForm {
+    border-radius: 0 0 15px 15px;
+    padding: 25px 20px 20px 25px;
+
+    img {
+      height: 50px;
+      width: 50px;
+      border-radius: 50%;
+    }
+
+    .contact {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: -10px;
+      color: darkred
+    }
+
+    .stripe-button {
+      margin: 0 auto;
+      width: 100%;
+      font-size: 20px;
+      letter-spacing: 0.5px;
+      font-weight: 500;
+    }
+
+    hr {
+      background-color: var(--lightGreyTextColour);
+      height: 1px;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+
+      .StripeElement {
+        margin: 10px auto 20px;
+        border: 1px solid hsl(0, 0%, 85%);;
+        padding: 12px;
+
+        * {
+          background-color: transparent;
+        }
+      }
+    }
+  }
+
+}

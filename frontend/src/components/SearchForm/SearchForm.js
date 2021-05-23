@@ -4,6 +4,7 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import axios from "axios";
 import helperFunctions from "../../util/HelperFunctions";
+import config from "../../util/Config";
 
 const SearchForm = (props) => {
   const {
@@ -11,6 +12,8 @@ const SearchForm = (props) => {
     selectOptionFunctions,
     columnAdjuster,
     currentPage,
+    setShowModal,
+    totalPrice,
   } = props;
   const { chosenSite, checkin, checkout, adults, kids } = optionsSelected;
   const {
@@ -21,12 +24,14 @@ const SearchForm = (props) => {
     setKids,
   } = selectOptionFunctions;
 
+  const { compare, dateDiffInDays } = helperFunctions;
+
   const [sites, setSites] = useState("");
 
   useEffect(() => {
     const getSiteData = async () => {
       const sites = await axios.get("/api/sites/");
-      const siteData = sites.data.sort(helperFunctions.compare);
+      const siteData = sites.data.sort(compare);
       setSites(siteData);
     };
     getSiteData();
@@ -48,34 +53,17 @@ const SearchForm = (props) => {
 
   const dropdownNode = useRef();
 
-  const getDaysArray = function (start, end) {
-    const endDate = new Date(end);
-    var currentDate = new Date(start);
-    var arr = [];
-    while (currentDate <= endDate) {
-      arr.push(new Date(currentDate));
-      currentDate.setDate(currentDate.getDate() + 1);
-    }
-    return arr;
+  const openModal = (e) => {
+    e.preventDefault();
+    setShowModal(true);
   };
 
-  const currentYear = new Date().getFullYear();
-
-  const includedStartDates = [
-    ...getDaysArray(new Date(currentYear, 4, 2), new Date(currentYear, 8, 7)),
-    ...getDaysArray(
-      new Date(currentYear + 1, 4, 2),
-      new Date(currentYear + 1, 8, 7),
-    ),
-  ];
-
-  const includedEndDates = [
-    ...getDaysArray(new Date(currentYear, 4, 6), new Date(currentYear, 8, 11)),
-    ...getDaysArray(
-      new Date(currentYear + 1, 4, 2),
-      new Date(currentYear + 1, 8, 12),
-    ),
-  ];
+  const { includedStartDates, includedEndDates } = config;
+  const validIncludedEndDates = checkin
+    ? includedEndDates.filter(
+      (date) => dateDiffInDays(new Date(checkin), date) >= 6,
+    )
+    : includedEndDates;
 
   if (!sites) return null;
 
@@ -154,7 +142,7 @@ const SearchForm = (props) => {
               dateFormat="d MMMM yyyy"
               name="date"
               required={true}
-              includeDates={includedEndDates}
+              includeDates={validIncludedEndDates}
             />
           </div>
         </div>
@@ -192,17 +180,19 @@ const SearchForm = (props) => {
       {currentPage === "SearchPage" ? null : currentPage === "BookHome" ? (
         <div className="book-home-submit">
           <div className="total-price">
-            <p>Total</p>
-            <p>£1000</p>
+            <p>
+              <strong>Total</strong>
+            </p>
+            <p>
+              <strong>£{totalPrice}</strong>
+            </p>
           </div>
-          <Link
-            to={{
-              pathname: "/",
-              state: { checkin, checkout, adults, kids, chosenSite },
-            }}
-          >
-            <input className="button is-danger" type="submit" value="Book" />
-          </Link>
+          <input
+            className="button is-danger book-home-button"
+            type="submit"
+            value="Book"
+            onClick={(e) => openModal(e)}
+          />
         </div>
       ) : (
         <div className="home-submit">

@@ -1,6 +1,7 @@
 import React from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import "bulma";
+import "notyf/notyf.min.css";
 
 import NavBar from "./containers/NavBar/NavBar";
 import HomePage from "./containers/LandingPage/LandingPage";
@@ -12,6 +13,7 @@ import AllSitesPage from "./containers/AllSitesPage/AllSitesPage";
 import BookHome from "./containers/BookHome/BookHome";
 import LoginRegister from "./containers/LoginRegister/LoginRegister";
 import ProfilePage from "./containers/ProfilePage/ProfilePage";
+import BookingStatus from "./containers/BookingStatus/BookingStatus";
 
 const App = () => (
   <BrowserRouter>
@@ -32,6 +34,11 @@ const App = () => (
             exact
             path="/bookHome/:siteSlug/:plotSlug"
             component={BookHome}
+          />
+          <Route
+            exact
+            path="/mybooking/:bookingSlug"
+            component={BookingStatus}
           />
         </Switch>
       </div>

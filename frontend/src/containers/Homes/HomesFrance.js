@@ -231,15 +231,16 @@ const HomesFrance = (props) => {
                 </input>
               </p>
             </div> */}
-
-            {config.inventoryFrance[selectedInventory].map((item, index) => (
-              <div key={index} className="panel-block inventoryItem">
-                <span className="panel-icon">
-                  <i className="fas fa-check-square" aria-hidden="true"></i>
-                </span>
-                {item}
-              </div>
-            ))}
+            <div className="inventory-items-container">
+              {config.inventoryFrance[selectedInventory].map((item, index) => (
+                <div key={index} className="panel-block inventoryItem">
+                  <span className="panel-icon">
+                    <i className="fas fa-check-square" aria-hidden="true"></i>
+                  </span>
+                  {item}
+                </div>
+              ))}
+            </div>
           </article>
         </div>
       </section>

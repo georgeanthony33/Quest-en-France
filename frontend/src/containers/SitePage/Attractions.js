@@ -49,7 +49,8 @@ const Attractions = (props) => {
     .key;
 
   return (
-    <div id="Attractions" className="columns">
+    <div id="Attractions">
+      <h3 className="title is-3">Nearby Attractions</h3>
       <div className="container">
         <div className="columns is-mobile is-multiline is-centered">
           {site.attractions.map((attraction, index) => (

@@ -21,9 +21,9 @@
   .search {
     padding: 5px 40px 50px;
   }
-
+  
   .booking-sidebar {
-    width: 30vw;
+    width: 264px;
     height: calc(100vh - 76px);
     top: 76px;
     position: sticky;
@@ -33,12 +33,15 @@
   }
 
   .booking-info {
-    width: 70vw;
+    width: calc(100vw - 96px - 263px);
+    max-width: 700px;
     background-color: whitesmoke;
+    padding-top: 2rem;
   }
 
   .main-body {
     display: flex;
+    justify-content: center;
     background: center url(/static/media/LandingPageBackground.1e90200e.jpg);
     background-repeat: no-repeat;
     background-size: cover;
@@ -61,31 +64,45 @@
     display: none;
   }
 
-  .carousel {
-    height: 300px;
+  #Carousel {
+    margin: 0 auto;
+    padding: 0;
     max-width: 600px;
-    width: 85%;
-    @media (max-width: 768px) {
-      height: fit-content;
-    }
-  }
+    position: relative;
 
-  .homecard-container:hover {
-    .homecard-text-container {
-      background-color: rgba(0, 0, 0, 0.575);
-      transform: translateY(-140px);
-      margin: 15px;
-      height: 98px;
-      @media (max-width: 840px) {
-        margin: 10px 20px 0px 20px;
-        border-radius: 0 0 10px 10px;
+    .prev {
+      left: 0px;
+      @media (max-width: 1023px) {
+        left: -25px;
+      }
+    }
+
+    .next {
+      right: 0px;
+      @media (max-width: 1023px) {
+        right: -25px;
       }
     }
   }
 
+  .carousel-button {
+    top: calc(50% - 25px);
+  }
+  
   .alice-image {
-    width: 100%;
-    height: 100%;
+    padding: 20px;
+  }
+  
+  .homecard-container:hover {
+    .homecard-text-container {
+      margin: 10px 20px 0px 20px;
+      border-radius: 0 0 10px 10px;
+    }
+  }
+  
+  .homecard-text-container {
+    margin: 10px 20px 0px 20px;
+    border-radius: 0 0 10px 10px;
   }
 
   .check-in, .adults {
@@ -102,5 +119,53 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+  }
+
+  .pay-button {
+    padding: 0.7rem 2rem;
+    width: 100%;
+    margin: 1rem 0;
+    color: white;
+    font-weight: bold;
+    font-size: medium;
+    background-color: #556cd6;
+    border: 0;
+  }
+
+  .modal {
+    position: absolute;
+    // height: 500px;
+    // width: 500px;
+    // top: 50%;
+    // left: 50%;
+    // right: 50%;
+    // bottom: 50%;
+    background-color: var(--whiteSmokeColour);
+  }
+
+  .Overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rebeccapurple;
+  }
+
+  p, p * {
+    font-size: 18px;
+  }
+
+  a {
+    color: var(--greyTextColour)
+  }
+
+  hr {
+    background-color: var(--lightGreyTextColour);
+    height: 1px;
+  }
+
+  .book-home-button, .book-home-submit {
+    font-size: 19px;
   }
 }

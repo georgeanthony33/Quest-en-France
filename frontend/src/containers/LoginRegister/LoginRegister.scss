@@ -120,4 +120,13 @@
     margin-top: 40px;
   }
 
+  .error-message {
+    padding: 1rem 1rem 0.75rem 1.25rem;
+
+    .close-error-message {
+      right: 1rem;
+      top: calc(50% - 10px);
+    }
+  }
+
 }

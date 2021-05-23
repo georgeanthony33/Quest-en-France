@@ -7,8 +7,9 @@ import config from "../../util/Config";
 
 import "./Homes.scss";
 
-const Site = () => {
-  const [selectedTab, setSelectedTab] = useState("France");
+const Homes = (props) => {
+  const siteCountry = props?.location?.state?.siteCountry && props.location.state.siteCountry;
+  const [selectedTab, setSelectedTab] = useState(siteCountry || "France");
 
   return (
     <div id="Homes" className="">
@@ -39,4 +40,4 @@ const Site = () => {
   );
 };
 
-export default Site;
+export default Homes;

@@ -8,12 +8,20 @@ const ChangePassword = (props) => {
   const [newPassword, setNewPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
 
-  const handleChangePassword = () => {
+  const handleChangePassword = async () => {
+    // try {
+    //   await axios.post("/api/register/", registerData);
+    //   handleLogin();
+    // } catch (err) {
+    //   // setRegisterError("Incorrect Credentials");
+    //   console.log("Incorrect Credentials");
+    // }
     return;
   };
 
   return (
-    <form id="changePassword">
+    <form id="ChangePassword">
+      <h3 className="title is-3">Update Password</h3>
       <div className="outer-container">
         <div className="field mb-4">
           <label className="label mb-1">Old Password</label>

@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "../../containers/SearchPage/SearchPage.scss";
 import HomesImage6 from "../../assets/HomesImages/HomesImage6.jpg";
 import HomesImage7 from "../../assets/HomesImages/HomesImage7.jpg";
 import HomesImage8 from "../../assets/HomesImages/HomesImage8.jpg";
@@ -10,14 +9,29 @@ import "./SearchCard.scss";
 
 const SearchCard = (props) => {
   const { site, plot, pull_out_bed, veranda, tv, bedrooms } = props.home;
-  const { checkin, checkout, adults, kids, chosenSite, totalPrice } = props;
+  const {
+    checkin,
+    checkout,
+    adults,
+    kids,
+    chosenSite,
+    totalPrice,
+    bookingId,
+    home,
+    currentPage,
+  } = props;
 
-  const siteSlug = config.siteCodes.filter(
-    (site) => site.name === chosenSite,
-  )[0].url;
+  const siteName = site.name;
+  const siteSlug =
+    chosenSite &&
+    config.siteCodes.filter((site) => site.name === chosenSite)[0].url;
+
+  const bookingSlug = `${
+    config.siteCodes.filter((site) => site.name === siteName)[0].url
+  }-${plot}-${bookingId}`;
 
   const imageURL =
-    site.name === "Calico Park"
+    siteName === "Calico Park"
       ? HomesImage8
       : veranda === "Semi-covered"
         ? HomesImage6
@@ -26,10 +40,25 @@ const SearchCard = (props) => {
   return (
     <Link
       id="SearchCard"
-      to={{
-        pathname: `bookHome/${siteSlug}/${plot}`,
-        state: { checkin, checkout, adults, kids, chosenSite },
-      }}
+      to={
+        currentPage === "SearchPage"
+          ? {
+              pathname: `bookHome/${siteSlug}/${plot}`,
+              state: {
+              checkin,
+              checkout,
+              adults,
+              kids,
+              chosenSite,
+              home,
+              totalPrice,
+            },
+            }
+          : {
+              pathname: `mybooking/${bookingSlug}`,
+              // state: { checkin, checkout, booking_date, home, booking_date },
+            }
+      }
     >
       <div id="SearchCard" className="container">
         <div className="image-container mr-4">
@@ -40,11 +69,16 @@ const SearchCard = (props) => {
             {bedrooms} Bed Mobile with {veranda} Veranda
           </h2>
           <p>
-            {site.name}, Plot {plot}
+            {siteName}, Plot {plot}
           </p>
-          {pull_out_bed > 0 && <p>Pull out bed</p>}
-          {tv !== 0 && <p>Television included</p>}
-          <p className="search-card-title">Total Price: £ {totalPrice}</p>
+          {pull_out_bed > 0 && currentPage === "SearchPage" && (
+            <p>Pull out bed</p>
+          )}
+          {tv !== 0 && currentPage === "SearchPage" && (
+            <p>Television included</p>
+          )}
+          {currentPage === "MyBookings" && `${checkin} to ${checkout}`}
+          <p className="search-card-title">Total Price: £{totalPrice}</p>
         </div>
       </div>
     </Link>
