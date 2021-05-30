@@ -34,8 +34,8 @@ const SearchCard = (props) => {
     siteName === "Calico Park"
       ? HomesImage8
       : veranda === "Semi-covered"
-        ? HomesImage6
-        : HomesImage7;
+      ? HomesImage6
+      : HomesImage7;
 
   return (
     <Link
@@ -43,21 +43,20 @@ const SearchCard = (props) => {
       to={
         currentPage === "SearchPage"
           ? {
-              pathname: `bookHome/${siteSlug}/${plot}`,
-              state: {
-              checkin,
-              checkout,
-              adults,
-              kids,
-              chosenSite,
-              home,
-              totalPrice,
-            },
-            }
+            pathname: `bookHome/${siteSlug}/${plot}`,
+            state: {
+                checkin,
+                checkout,
+                adults,
+                kids,
+                chosenSite,
+                home,
+                totalPrice,
+              },
+          }
           : {
-              pathname: `mybooking/${bookingSlug}`,
-              // state: { checkin, checkout, booking_date, home, booking_date },
-            }
+            pathname: `mybooking/${bookingSlug}`,
+          }
       }
     >
       <div id="SearchCard" className="container">

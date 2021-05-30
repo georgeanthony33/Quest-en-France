@@ -8,10 +8,12 @@ class Booking(models.Model):
     home = models.ForeignKey(Home, related_name='bookings', null=True, on_delete=models.SET_NULL)
     start_date = models.DateField()
     end_date = models.DateField()
-    price = models.SmallIntegerField()
+    price = models.FloatField()
     currency = models.CharField(max_length=3)
     booking_date = models.DateField(auto_now_add=True)
     user = models.ForeignKey(User, related_name='bookings', null=True, on_delete=models.CASCADE)
+    adults = models.SmallIntegerField(null=True)
+    kids = models.SmallIntegerField(null=True)
     additional_comments = models.CharField(max_length=10000, blank=True)
     stripeCustomerId = models.CharField(max_length=100, blank=True)
 

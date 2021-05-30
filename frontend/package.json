@@ -48,6 +48,7 @@
     ]
   },
   "devDependencies": {
+    "emailjs-com": "^2.6.4",
     "eslint-config-prettier": "^8.1.0",
     "eslint-loader": "^4.0.2",
     "eslint-plugin-prettier": "^3.3.1",

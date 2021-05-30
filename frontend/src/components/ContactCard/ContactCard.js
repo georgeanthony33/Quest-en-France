@@ -3,10 +3,11 @@ import George from "./George.jpg";
 
 import "./ContactCard.scss";
 
-const ContactCard = () => {
+const ContactCard = (props) => {
+  const { currentPage } = props;
   return (
     <div id="ContactCard" className="block">
-      <h4 className="title is-4">Contact</h4>
+      {currentPage !== "ContactUs" && <h4 className="title is-4">Contact</h4>}
       <div className="card contact">
         <div className="card-image pr-4">
           <figure className="image is-1by1 contact-image">
@@ -16,7 +17,9 @@ const ContactCard = () => {
         <div className="card-content pt-2 pl-0 pr-0 pb-1">
           <div className="media">
             <div className="media-content">
-              <p className="title is-4 mb-1">Hosted by George</p>
+              <p className="title is-4 mb-1">
+                Hosted by George {currentPage === "ContactUs" && "Anthony"}
+              </p>
               <a href="mailto:georgeanthony33@gmail.com">
                 <div className="contact-links">
                   <i className="fas fa-envelope"></i>

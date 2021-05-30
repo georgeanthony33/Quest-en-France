@@ -51,3 +51,9 @@ class PopulatedBookingSerializer(BookingSerializer):
     user = UserSerializer()
     people = PersonSerializer(many=True)
     ferry_quote = FerrySerializer(many=True)
+
+class EditBookingSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Booking
+        fields = '__all__'

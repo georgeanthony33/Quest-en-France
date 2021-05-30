@@ -14,7 +14,12 @@ const SearchForm = (props) => {
     currentPage,
     setShowModal,
     totalPrice,
+    excludedCheckinDates,
+    excludedCheckoutDates,
+    bookedDates,
+    availabilityMessage
   } = props;
+
   const { chosenSite, checkin, checkout, adults, kids } = optionsSelected;
   const {
     setChosenSite,
@@ -23,6 +28,10 @@ const SearchForm = (props) => {
     setAdults,
     setKids,
   } = selectOptionFunctions;
+
+  const handleCheckin = (checkin) => {
+    setCheckin(checkin)
+  }
 
   const { compare, dateDiffInDays } = helperFunctions;
 
@@ -42,7 +51,7 @@ const SearchForm = (props) => {
   useEffect(() => {
     const handleClickAway = (e) => {
       if (props.currentPage === "BookHome") return;
-      if (dropdownNode.current.contains(e.target)) return;
+      if (dropdownNode?.current?.contains(e.target)) return;
       setIsActive("");
     };
     document.addEventListener("click", handleClickAway);
@@ -58,11 +67,12 @@ const SearchForm = (props) => {
     setShowModal(true);
   };
 
-  const { includedStartDates, includedEndDates } = config;
+  const { includedStartDates, includedEndDates, currentDay, currentMonth, currentYear } = config;
+
   const validIncludedEndDates = checkin
     ? includedEndDates.filter(
-      (date) => dateDiffInDays(new Date(checkin), date) >= 6,
-    )
+        (date) => dateDiffInDays(new Date(checkin), date) >= 6,
+      )
     : includedEndDates;
 
   if (!sites) return null;
@@ -124,11 +134,14 @@ const SearchForm = (props) => {
             <DatePicker
               className="input"
               selected={checkin}
-              onChange={(checkin) => setCheckin(checkin, "checkin")}
+              onChange={(checkin) => handleCheckin(checkin)}
               dateFormat="d MMMM yyyy"
               name="date"
               required={true}
               includeDates={includedStartDates}
+              excludeDates={excludedCheckinDates}
+              highlightDates={bookedDates}
+              minDate={new Date(currentYear, currentMonth, currentDay + 1)}
             />
           </div>
         </div>
@@ -138,15 +151,26 @@ const SearchForm = (props) => {
             <DatePicker
               className="input"
               selected={checkout}
-              onChange={(checkout) => setCheckout(checkout, "checkout")}
+              onChange={(checkout) => setCheckout(checkout)}
               dateFormat="d MMMM yyyy"
               name="date"
               required={true}
               includeDates={validIncludedEndDates}
+              excludeDates={excludedCheckoutDates}
+              highlightDates={bookedDates}
+              minDate={new Date(currentYear, currentMonth, currentDay + 7)}
             />
           </div>
         </div>
       </div>
+
+      {availabilityMessage && (
+        <div className="notification error-message is-danger is-light">
+          <span class="icon has-text-warning">
+            <i class="fas fa-exclamation-triangle"></i>
+          </span>{availabilityMessage}
+        </div>
+      )}
 
       <div className="columns guest-numbers">
         <div className={`field column ${columnAdjuster} adults`}>
@@ -191,6 +215,7 @@ const SearchForm = (props) => {
             className="button is-danger book-home-button"
             type="submit"
             value="Book"
+            disabled={availabilityMessage}
             onClick={(e) => openModal(e)}
           />
         </div>

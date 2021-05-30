@@ -24,7 +24,6 @@ class RegisterView(APIView):
 class LoginView(APIView):
   
     def post(self, request):
-
         email = request.data.get('email')
         password = request.data.get('password')
 
@@ -56,11 +55,6 @@ class ProfileView(APIView):
         user = User.objects.get(pk=request.user.id)
         serialized_user = PopulatedUserSerializer(user)
         return Response(serialized_user.data)
-
-    # def get(self, request, pk):
-    #     user = User.objects.get(pk=pk)
-    #     serialized_user = PopulatedUserSerializer(user)
-    #     return Response(serialized_user.data)
 
     def put(self, request):
         try:

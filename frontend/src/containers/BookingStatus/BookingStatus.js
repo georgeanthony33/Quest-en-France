@@ -73,7 +73,7 @@ const BookingStatus = () => {
       padding: "0,",
     },
   };
-
+  console.log({ bookingData });
   return (
     <div id="BookingStatus">
       <Modal

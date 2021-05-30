@@ -3,6 +3,7 @@ import axios from "axios";
 import Auth from "../../util/Auth";
 import { headers, headersToken } from "../../lib/headers";
 import "react-datepicker/dist/react-datepicker.css";
+import { notyf } from "../NavBar/NavBar";
 
 const Register = (props) => {
   const { currentPage, userData } = props;
@@ -64,8 +65,7 @@ const Register = (props) => {
   );
 
   // const [registerError, setRegisterError] = useState();
-  // const [loginError, setLoginError] = useState();
-
+  const [loginError, setLoginError] = useState();
   const handleLogin = async () => {
     try {
       const res = await axios.post(
@@ -74,10 +74,18 @@ const Register = (props) => {
         headers,
       );
       Auth.setToken(res.data.token);
-      props.history.push("/myprofile");
+      const { first_name } = res.data.user;
+      notyf.open({
+        type: "login",
+        message: `Welcome, ${first_name}!`,
+      });
+      props.history.push({
+        pathname: "/myprofile",
+        state: { token: res.data.token },
+      });
     } catch (err) {
-      // setLoginError("Incorrect Credentials");
-      console.log("Incorrect Credentials");
+      console.log(err);
+      setLoginError("Login error");
     }
   };
 
@@ -119,7 +127,7 @@ const Register = (props) => {
         handleLogin();
       } catch (err) {
         // setRegisterError("Incorrect Credentials");
-        console.log("Incorrect Credentials");
+        console.log("Incorrect Credentials", err);
       }
     } else if (currentPage === "ProfilePage") {
       try {
@@ -305,12 +313,6 @@ const Register = (props) => {
         </div>
         <div className="column is-half is-flex is-justify-content-center is-align-items-flex-end">
           <div className="action-button is-flex is-align-items-center">
-            {/* <Link
-          to={{
-            pathname: "/search",
-            state: { checkin, checkout, adults, kids, chosenSite },
-          }}
-        > */}
             <input
               className="button is-danger"
               value={
@@ -319,7 +321,6 @@ const Register = (props) => {
               type="submit"
               onClick={handleSubmit}
             />
-            {/* </Link> */}
           </div>
         </div>
       </div>

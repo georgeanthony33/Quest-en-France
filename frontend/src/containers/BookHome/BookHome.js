@@ -2,29 +2,115 @@ import React, { useState, useEffect } from "react";
 import "react-datepicker/dist/react-datepicker.css";
 import Modal from 'react-modal';
 import config from "../../util/Config";
+import helperFunctions from "../../util/HelperFunctions";
 import SearchForm from "../../components/SearchForm/SearchForm";
 import Carousel from "../../components/Carousel/Carousel";
 import HomeCard from "../../components/HomeCard/HomeCard";
 import Stripe from "../../components/Stripe/Stripe";
 import ContactCard from "../../components/ContactCard/ContactCard";
+import axios from "axios";
 import { Link } from "react-router-dom";
 
 import "./BookHome.scss";
 
 const BookHome = (props) => {
-  const { site, plot, pull_out_bed, veranda, tv, bedrooms, home_type } = props.location.state.home;
-  const { name: siteName, country: siteCountry, short_description: siteShort_description, id: siteId } = site
+  const { id: homeId, bedrooms } = props.location.state.home || {}
   const searchParameters = props.location.state;
+  const { defaultCheckin, weekAfterDate, backendDateToDateObject, getDaysArray, addDays, calculateTotalPrice } = helperFunctions;
+
+  const [homeData, setHomeData] = useState(null)
+  useEffect(() => {
+    try {
+      const getHomeData = async () => {
+        const homeData = await axios.get(`/api/homes/${homeId}/`);
+        setHomeData(homeData.data);
+        return homeData.data
+      };
+      getHomeData().then(homeData => {
+        let bookedDates = []
+        let excludedCheckinDates = []
+        let excludedCheckoutDates = []
+    
+        homeData.bookings.forEach(booking => {
+          const startDateObject = backendDateToDateObject(booking.start_date)
+          const startDateLimit = addDays(startDateObject, -5);
+          
+          const endDateObject = backendDateToDateObject(booking.end_date)
+          const endDateLimit = addDays(endDateObject, 5);
+          
+          const bookingDates = getDaysArray(startDateObject, endDateObject)
+          const excludedStartDates = getDaysArray(startDateLimit, endDateObject)
+          const excludedEndDates = getDaysArray(startDateObject, endDateLimit)
+    
+          excludedCheckinDates.push(excludedStartDates)
+          excludedCheckoutDates.push(excludedEndDates)
+          bookedDates.push(bookingDates)
+        })
+        setBookedDates(bookedDates.flat())
+        setExcludedCheckinDates(excludedCheckinDates.flat())
+        setExcludedCheckoutDates(excludedCheckoutDates.flat())
+      })
+    } catch(err) {
+      console.log(err)
+    }
+  }, []);
+  const { site, plot, pull_out_bed, veranda, tv, home_type } = homeData || {}
+  const { name: siteName, country: siteCountry, short_description: siteShort_description, id: siteId } = site || {}
 
   const [chosenSite, setChosenSite] = useState(
     searchParameters?.chosenSite || "Choose a site",
   );
+    
   const [checkin, setCheckin] = useState(
-    searchParameters?.checkin || new Date().setDate(new Date().getDate() + 1),
+    searchParameters?.checkin || defaultCheckin(),
   );
   const [checkout, setCheckout] = useState(
-    searchParameters?.checkout || new Date().setDate(new Date().getDate() + 7),
+    searchParameters?.checkout || weekAfterDate(defaultCheckin()),
   );
+
+  useEffect(() => {
+    if ((new Date(checkout) - new Date(checkin)) / (1000 * 3600 * 24) < 6) {
+      setCheckout(new Date(weekAfterDate(checkin)));
+    }
+  }, [checkin]);
+
+  const { dateLongToISO } = helperFunctions;
+  const [availabilityMessage, setAvailabilityMessage] = useState(null)
+  useEffect(() => {
+    const checkinISO = dateLongToISO(checkin);
+    const checkoutISO = dateLongToISO(checkout);
+    const bookingData = {
+      start_date: checkinISO,
+      end_date: checkoutISO,
+      home: homeId,
+      price: 0,
+      currency: "GBP",
+      adults,
+      kids,
+    };
+
+    const fetchAvailability = async () => {
+      try {
+        const bookingResponse = await axios.post("/api/bookings/availability/", bookingData);
+        setAvailabilityMessage(bookingResponse.data.message)
+      } catch(err) {
+        console.log(err)
+      }
+    }
+    fetchAvailability()
+    
+  }, [checkin, checkout])
+
+  const [bookedDates, setBookedDates] = useState([])
+  const [excludedCheckinDates, setExcludedCheckinDates] = useState([])
+  const [excludedCheckoutDates, setExcludedCheckoutDates] = useState([])
+
+  const [totalPrice, setTotalPrice] = useState(searchParameters?.totalPrice || calculateTotalPrice(checkin, checkout));
+  useEffect(() => {
+    const totalPriceObject = calculateTotalPrice(checkin, checkout)
+    const totalPrice = Math.round((totalPriceObject[bedrooms] + Number.EPSILON) * 100) / 100
+    setTotalPrice(totalPrice)
+  }, [checkin, checkout]);
   const [adults, setAdults] = useState(searchParameters?.adults || 1);
   const [kids, setKids] = useState(searchParameters?.kids || 0);
 
@@ -47,6 +133,9 @@ const BookHome = (props) => {
       padding: '0,'
     }
   };
+
+  if (!(excludedCheckinDates &&
+    excludedCheckoutDates)) return
   
   return (
     <div id="BookHome">
@@ -55,7 +144,7 @@ const BookHome = (props) => {
         onRequestClose={() => setShowModal(false)}
         style={modalStyles}
       >
-        <Stripe setShowModal={setShowModal} home={props.location.state.home} searchParameters={searchParameters} {...props}/>
+        <Stripe setShowModal={setShowModal} home={homeData} searchParameters={{ chosenSite, checkin, checkout, adults, kids, totalPrice }} {...props}/>
       </Modal>
       <div className="top-banner">
         <h2 className="title has-text-weight-bold is-size-2 mb-0">
@@ -66,9 +155,8 @@ const BookHome = (props) => {
         <div className="booking-sidebar">
           <SearchForm
             optionsSelected={{ chosenSite, checkin, checkout, adults, kids }}
-            totalPrice={searchParameters.totalPrice}
+            totalPrice={totalPrice}
             selectOptionFunctions={{
-              setChosenSite,
               setCheckin,
               setCheckout,
               setAdults,
@@ -77,6 +165,10 @@ const BookHome = (props) => {
             columnAdjuster="is-full"
             currentPage={"BookHome"}
             setShowModal={setShowModal}
+            excludedCheckinDates={excludedCheckinDates && excludedCheckinDates}
+            excludedCheckoutDates={excludedCheckoutDates && excludedCheckoutDates}
+            bookedDates={bookedDates}
+            availabilityMessage={availabilityMessage}
           />
         </div>
         <div className="booking-info pl-6 pr-6">

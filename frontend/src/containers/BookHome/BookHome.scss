@@ -168,4 +168,22 @@
   .book-home-button, .book-home-submit {
     font-size: 19px;
   }
+
+  .error-message {
+    padding: 0.5rem 0.5rem 0.25rem 0.75rem;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+
+    span {
+      margin-right: 18px;
+      svg {
+        height: 1.3em;
+        width: 1.3em;
+        position: relative;
+        bottom: 3px;
+        margin-left: 0.3em;
+      }
+    }
+  }
 }

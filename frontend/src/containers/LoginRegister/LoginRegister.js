@@ -65,7 +65,7 @@ const LoginRegister = (props) => {
             </button>
           </li>
         </div>
-        {!loginDetails && selectedTab === "register" && <Register />}
+        {!loginDetails && selectedTab === "register" && <Register {...props} />}
         {!loginDetails && selectedTab === "login" && <Login {...props} />}
         {loginDetails && (
           <div className="already-logged-in">

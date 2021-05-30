@@ -1,8 +1,7 @@
 import React from "react";
 import { ElementsConsumer, CardElement } from "@stripe/react-stripe-js";
 import axios from "axios";
-import { headers, headersToken } from "../../lib/headers";
-import Auth from "../../util/Auth";
+import { headersToken } from "../../lib/headers";
 import George from "../../components/ContactCard/George.jpg";
 import helperFunctions from "../../util/HelperFunctions";
 
@@ -26,7 +25,7 @@ const CheckoutForm = (props) => {
     short_description: siteShort_description,
     id: siteId,
   } = site;
-  const { totalPrice, checkin, checkout } = searchParameters;
+  const { totalPrice, checkin, checkout, adults, kids } = searchParameters;
 
   const { dateLongToShort, dateLongToISO } = helperFunctions;
   const checkinShort = dateLongToShort(checkin);
@@ -36,8 +35,6 @@ const CheckoutForm = (props) => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-
-    const userPayload = Auth.getPayload();
 
     if (!stripe || !elements) {
       return;
@@ -49,30 +46,49 @@ const CheckoutForm = (props) => {
       type: "card",
       card: card,
     });
+    const bookingData = {
+      start_date: checkinISO,
+      end_date: checkoutISO,
+      home: homeId,
+      price: totalPrice,
+      currency: "GBP",
+      adults,
+      kids,
+    };
 
     try {
-      const stripeResponse = await axios.post(
-        "/api/bookings/save-stripe-info/",
-        {
-          email: "test2@test.com",
-          payment_method_id: paymentMethod.id,
-          total_amount: totalPrice * 100,
-          description: `Home ID: ${homeId}, Plot: ${plot}, Site: ${siteName}, Check-in: ${checkinShort}, Check-out: ${checkoutShort}`,
-        },
-      );
-      const { data } = stripeResponse;
-      const message = data.message;
-      const stripeCustomerId = data.data.customer_id;
-      if (message === "Success") {
-        const bookingResponse = await axios.post("/api/bookings/", {
-          start_date: checkinISO,
-          end_date: checkoutISO,
-          home: homeId,
-          price: totalPrice,
-          currency: "GBP",
-          stripeCustomerId,
-        });
-        // props.history.push("/bookingstatus");
+      const bookingResponse = await axios.post("/api/bookings/", bookingData);
+      const { data } = bookingResponse;
+      const bookingId = data.id;
+      if (
+        bookingResponse &&
+        bookingResponse.status &&
+        bookingResponse.status === 201
+      ) {
+        const stripeResponse = await axios.post(
+          "/api/bookings/save-stripe-info/",
+          {
+            email: "test2@test.com",
+            payment_method_id: paymentMethod.id,
+            total_amount: totalPrice,
+            description: `Home ID: ${homeId}, Plot: ${plot}, Site: ${siteName}, Check-in: ${checkinShort}, Check-out: ${checkoutShort}`,
+          },
+        );
+        const { data } = stripeResponse;
+        const message = data.message;
+        const stripeCustomerId = data.data.customer_id;
+
+        if (message === "Success") {
+          const bookingUpdateResponse = await axios.put(
+            `/api/bookings/${bookingId}/`,
+            {
+              ...bookingData,
+              stripeCustomerId,
+            },
+            headersToken,
+          );
+          props.history.push(`/mybooking/${bookingId}`);
+        }
       }
     } catch (err) {
       console.log(err);

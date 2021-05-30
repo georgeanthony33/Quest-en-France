@@ -5,7 +5,7 @@ from rest_framework.status import HTTP_200_OK, HTTP_404_NOT_FOUND, HTTP_201_CREA
 from rest_framework.permissions import IsAuthenticated
 from .models import Booking, Person, Ferry
 from homes.models import Home
-from .serializers import BookingSerializer, PopulatedBookingSerializer, PersonSerializer, FerrySerializer
+from .serializers import BookingSerializer, PopulatedBookingSerializer, PersonSerializer, FerrySerializer, EditBookingSerializer
 import datetime
 import stripe
 
@@ -17,16 +17,12 @@ class PaymentDetailsView(APIView):
         data = request.data
         email = data['email']
         payment_method_id = data['payment_method_id']
-        total_amount = data['total_amount']
+        total_amount = int(data['total_amount'] * 100)
         description = data['description']
         extra_msg = ''
 
-        # checking if customer with provided email already exists
-        customer_data = stripe.Customer.list(email=email).data
-
-        # if the array is empty it means the email has not been used yet  
+        customer_data = stripe.Customer.list(email=email).data 
         if len(customer_data) == 0:
-        # creating customer
             customer = stripe.Customer.create(
             email=email, payment_method=payment_method_id)
 
@@ -53,27 +49,51 @@ class PaymentDetailsView(APIView):
             }
         )
 
+class BookingAvailabilityView(APIView):
+
+    permission_classes = (IsAuthenticated, )
+
+    def post(self, request):
+        print('hello', request.data)
+        booking = BookingSerializer(data=request.data)
+
+        if booking.is_valid():
+            start_date = booking.validated_data.get('start_date')
+            end_date = booking.validated_data.get('end_date')
+            home = booking.validated_data.get('home')
+
+            is_occupied = Home.objects.filter(
+                bookings__end_date__gt=start_date,
+                bookings__start_date__lt=end_date,
+                id=home.id).exists()
+
+            if is_occupied:
+                return Response({'message': 'Selected dates unavailable'}, status=HTTP_200_OK)
+
+            return Response({'message': None}, status=HTTP_200_OK)
+
 class BookingListView(APIView):
 
     permission_classes = (IsAuthenticated, )
 
     def get(self, _request):
-
+        
         bookings = Booking.objects.all()
         serialized_bookings = PopulatedBookingSerializer(bookings, many=True)
 
         return Response(serialized_bookings.data)
 
     def post(self, request):
-
+        print('hiya', request.data)
         request.data['user'] = request.user.id
         booking = BookingSerializer(data=request.data)
 
         if booking.is_valid():
-
             start_date = booking.validated_data.get('start_date')
             end_date = booking.validated_data.get('end_date')
             home = booking.validated_data.get('home')
+            adults = booking.validated_data.get('adults')
+            kids = booking.validated_data.get('kids')
 
             if start_date.strftime("%a") == 'Tue' or start_date.strftime("%a") == 'Thu' or end_date.strftime("%a") == 'Tue' or end_date.strftime("%a") == 'Thu':
                 return Response({'message': 'no arrivals or departures on Tuesdays and Thursdays'}, status=HTTP_422_UNPROCESSABLE_ENTITY)
@@ -86,11 +106,14 @@ class BookingListView(APIView):
                 bookings__start_date__lt=end_date,
                 id=home.id).exists()
 
-            # filter_params = dict(end_date__lte=start_date, start_date__gte=end_date)
-            # is_occupied = Booking.objects.filter(**filter_params, home=home).exists()
-
             if is_occupied:
                 return Response({'message': 'home already booked for these dates'}, status=HTTP_422_UNPROCESSABLE_ENTITY)
+
+            if (adults + kids > 6):
+                return Response({'message': 'maximum of 6 people per home'}, status=HTTP_422_UNPROCESSABLE_ENTITY)
+
+            if (adults == 0):
+                return Response({'message': 'must be at least one adult'}, status=HTTP_422_UNPROCESSABLE_ENTITY)
 
             booking.save()
 
@@ -112,7 +135,6 @@ class BookingDetailView(APIView):
             return  Response({'message': 'Not Found'}, status=HTTP_404_NOT_FOUND)
 
     def put(self, request, pk):
-
         try:
             booking = Booking.objects.get(pk=pk)
             updated_booking = BookingSerializer(booking, data=request.data)

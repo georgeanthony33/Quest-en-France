@@ -4,6 +4,7 @@ import axios from "axios";
 import SearchForm from "../../components/SearchForm/SearchForm";
 import SearchCard from "../../components/SearchCard/SearchCard";
 import config from "../../util/Config";
+import helperFunctions from "../../util/HelperFunctions";
 
 import "./SearchPage.scss";
 
@@ -12,12 +13,20 @@ const SearchPage = (props) => {
   const [chosenSite, setChosenSite] = useState(
     searchParameters?.chosenSite || "Choose a site",
   );
+
+  const { defaultCheckin, weekAfterDate, calculateTotalPrice } = helperFunctions;
   const [checkin, setCheckin] = useState(
-    searchParameters?.checkin || new Date().setDate(new Date().getDate() + 1),
+    searchParameters?.checkin || defaultCheckin(),
   );
   const [checkout, setCheckout] = useState(
-    searchParameters?.checkout || new Date().setDate(new Date().getDate() + 7),
+    searchParameters?.checkout || weekAfterDate(defaultCheckin())
   );
+  useEffect(() => {
+    if ((new Date(checkout) - new Date(checkin)) / (1000 * 3600 * 24) < 6) {
+      setCheckout(new Date(weekAfterDate(checkin)));
+    }
+  }, [checkin]);
+  
   const [adults, setAdults] = useState(searchParameters?.adults || 1);
   const [kids, setKids] = useState(searchParameters?.kids || 0);
 
@@ -46,31 +55,7 @@ const SearchPage = (props) => {
 
   const [totalPrices, setTotalPrices] = useState(null);
   useEffect(() => {
-    let priceInfoForAllDays = [];
-    const checkinDate = new Date(checkin);
-    const checkoutDate = new Date(checkout);
-    const checkinYear = checkinDate.getFullYear();
-    const chosenYearPrices = config.prices.map((el) => {
-      const updatedDate = new Date(el.weekCommencing.setFullYear(checkinYear));
-      return { ...el, weekCommencing: updatedDate };
-    });
-
-    for (
-      let date = checkinDate;
-      date <= checkoutDate;
-      date.setDate(date.getDate() + 1)
-    ) {
-      const allPriceInfoForDay = chosenYearPrices
-        .filter((el) => el.weekCommencing <= date)
-        .slice(-1)[0];
-      priceInfoForAllDays.push(allPriceInfoForDay);
-    }
-    priceInfoForAllDays.pop()
-
-    const totalPrices = {
-      2: priceInfoForAllDays.reduce((totalPrice, day) => totalPrice + day[2], 0),
-      3: priceInfoForAllDays.reduce((totalPrice, day) => totalPrice + day[3], 0),
-    }
+    const totalPrices = calculateTotalPrice(checkin, checkout)
     setTotalPrices(totalPrices)
   }, [checkin, checkout]);
 
@@ -111,7 +96,7 @@ const SearchPage = (props) => {
               adults={adults}
               kids={kids}
               chosenSite={chosenSite}
-              totalPrice={totalPrices[home.bedrooms]}
+              totalPrice={Math.round((totalPrices[home.bedrooms] + Number.EPSILON) * 100) / 100}
               currentPage="SearchPage"
             />
           ))}

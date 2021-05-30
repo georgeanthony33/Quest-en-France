@@ -289,7 +289,7 @@ const faqQuestionsAnswers = [
   },
   {
     "What is your cancellation policy?":
-      "In the event of a cancellation, refunds of amounts paid (less the deposit) will be made if Quest en France Holidays are able to re-let the \"Mobile Home\", and any expenses or losses incurred in so doing will be deducted from the refundable amount. The Client is strongly recommended to arrange a comprehensive travel insurance policy (including cancellation cover) and to have full cover for the party’s personal belongings, public liability etc, since these are not covered by the Owner's insurance.",
+      'In the event of a cancellation, refunds of amounts paid (less the deposit) will be made if Quest en France Holidays are able to re-let the "Mobile Home", and any expenses or losses incurred in so doing will be deducted from the refundable amount. The Client is strongly recommended to arrange a comprehensive travel insurance policy (including cancellation cover) and to have full cover for the party’s personal belongings, public liability etc, since these are not covered by the Owner\'s insurance.',
   },
 ];
 
@@ -585,30 +585,41 @@ const siteGallery = {
 };
 
 const currentDate = new Date();
+const currentDay = currentDate.getDate();
+const currentMonth = currentDate.getMonth();
 const currentYear = currentDate.getFullYear();
 
 const includedStartDates = [
-  ...getDaysArray(new Date(currentYear, 4, 2), new Date(currentYear, 8, 7)),
+  ...getDaysArray(
+    new Date(currentYear, 4, 2),
+    new Date(currentYear, 8, 7),
+    "skip",
+  ),
   ...getDaysArray(
     new Date(currentYear + 1, 4, 2),
     new Date(currentYear + 1, 8, 7),
+    "skip",
   ),
 ];
 
-const nextValidStartDate = (function () {
-  for (let i = 0; i < includedStartDates.length; i++) {
-    if (currentDate < includedStartDates[i]) {
-      return includedStartDates[i];
-    }
-  }
-})();
-
 const includedEndDates = [
-  ...getDaysArray(new Date(currentYear, 4, 6), new Date(currentYear, 8, 11)),
+  ...getDaysArray(
+    new Date(currentYear, 4, 6),
+    new Date(currentYear, 8, 11),
+    "skip",
+  ),
   ...getDaysArray(
     new Date(currentYear + 1, 4, 2),
     new Date(currentYear + 1, 8, 12),
+    "skip",
   ),
+];
+
+const contactUsSubjects = [
+  { key: "general_enquiry", label: "General enquiry" },
+  { key: "booking_issue", label: "Booking issue" },
+  { key: "technical_issue", label: "Technical issue" },
+  { key: "other", label: "Other" },
 ];
 
 const config = {
@@ -623,7 +634,10 @@ const config = {
   siteGallery,
   includedStartDates,
   includedEndDates,
-  nextValidStartDate,
+  contactUsSubjects,
+  currentDay,
+  currentMonth,
+  currentYear,
 };
 
 export default config;

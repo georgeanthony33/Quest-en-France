@@ -16,18 +16,26 @@ const Site = (props) => {
   const [site, setSite] = useState("");
   const [siteID, setSiteID] = useState("");
 
-  const [checkin, setCheckin] = useState(
-    new Date().setDate(new Date().getDate() + 1),
-  );
-  const [checkout, setCheckout] = useState(
-    new Date().setDate(new Date().getDate() + 7),
-  );
-  const { dateDiffInDays } = helperFunctions;
-  const { includedStartDates, includedEndDates } = config;
+  const { dateDiffInDays, defaultCheckin, weekAfterDate } = helperFunctions;
+  const [checkin, setCheckin] = useState(defaultCheckin());
+  const [checkout, setCheckout] = useState(weekAfterDate(defaultCheckin()));
+  useEffect(() => {
+    if ((new Date(checkout) - new Date(checkin)) / (1000 * 3600 * 24) < 6) {
+      setCheckout(new Date(weekAfterDate(checkin)));
+    }
+  }, [checkin]);
+
+  const {
+    includedStartDates,
+    includedEndDates,
+    currentDay,
+    currentMonth,
+    currentYear,
+  } = config;
   const validIncludedEndDates = checkin
     ? includedEndDates.filter(
-      (date) => dateDiffInDays(new Date(checkin), date) >= 6,
-    )
+        (date) => dateDiffInDays(new Date(checkin), date) >= 6,
+      )
     : includedEndDates;
 
   const [adults, setAdults] = useState(1);
@@ -107,6 +115,9 @@ const Site = (props) => {
                         name="date"
                         required
                         includeDates={includedStartDates}
+                        minDate={
+                          new Date(currentYear, currentMonth, currentDay + 1)
+                        }
                       />
                     </div>
                   </div>
@@ -121,6 +132,9 @@ const Site = (props) => {
                         name="date"
                         required
                         includeDates={validIncludedEndDates}
+                        minDate={
+                          new Date(currentYear, currentMonth, currentDay + 7)
+                        }
                       />
                     </div>
                   </div>

@@ -191,7 +191,7 @@ const NavBar = (props) => {
           </Link>
           <Link
             className="navbar-item has-text-white"
-            to="/"
+            to="/contact"
           >
             Contact Us
           </Link>

@@ -11,18 +11,23 @@ import config from "../../util/Config";
 
 const LandingPage = () => {
   const [chosenSite, setChosenSite] = useState("Choose a site");
-  const [checkin, setCheckin] = useState(
-    new Date().setDate(new Date().getDate() + 1),
-  );
-  const [checkout, setCheckout] = useState(
-    new Date().setDate(new Date().getDate() + 7),
-  );
+
+  const { defaultCheckin, weekAfterDate } = helperFunctions;
+
+  const [checkin, setCheckin] = useState(defaultCheckin());
+  const [checkout, setCheckout] = useState(weekAfterDate(defaultCheckin()));
   const [adults, setAdults] = useState(1);
   const [kids, setKids] = useState(0);
 
   const [sites, setSites] = useState("");
   const [reviews, setReviews] = useState("");
   const [homeImages, setHomeImages] = useState();
+
+  useEffect(() => {
+    if ((new Date(checkout) - new Date(checkin)) / (1000 * 3600 * 24) < 6) {
+      setCheckout(new Date(weekAfterDate(checkin)));
+    }
+  }, [checkin]);
 
   useEffect(() => {
     const getSiteData = async () => {

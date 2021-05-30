@@ -14,6 +14,7 @@ import BookHome from "./containers/BookHome/BookHome";
 import LoginRegister from "./containers/LoginRegister/LoginRegister";
 import ProfilePage from "./containers/ProfilePage/ProfilePage";
 import BookingStatus from "./containers/BookingStatus/BookingStatus";
+import ContactUs from "./containers/ContactUs/ContactUs";
 
 const App = () => (
   <BrowserRouter>
@@ -23,6 +24,7 @@ const App = () => (
         <Switch>
           <Route exact path="/" component={HomePage} />
           <Route exact path="/search" component={SearchPage} />
+          <Route exact path="/contact" component={ContactUs} />
           <Route exact path="/sites" component={AllSitesPage} />
           <Route exact path="/sites/:slug" component={SitePage} />
           <Route exact path="/homes" component={Homes} />
