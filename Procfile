@@ -1,1 +1,1 @@
-web: python manage.py runserver --settings=project.settings.production 0.0.0.0:$PORT --noreload
+web: gunicorn quest:app
