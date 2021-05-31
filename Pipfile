@@ -13,7 +13,7 @@ psycopg2-binary = "*"
 pyjwt = "*"
 django-cors-headers = "*"
 django-heroku = "*"
-python-decouple == 3.4
+python-decouple == "3.4"
 
 [requires]
 python_version = "3.7"
