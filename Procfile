@@ -1,1 +1,1 @@
-web: python manage.py runserver --settings=project.settings.production 0.0.0.0:$PORT --noreload
+web: python manage.py runserver --settings=project.production 0.0.0.0:$PORT --noreload
