@@ -1,4 +1,4 @@
-from decouple import config
+import django_heroku
 from .base import *
 
 DEBUG = False
