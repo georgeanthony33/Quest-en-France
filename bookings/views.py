@@ -122,7 +122,6 @@ class BookingListView(APIView):
 class BookingDetailView(APIView):
 
     permission_classes = (IsAuthenticated, )
-    print(permission_classes)
 
     def get(self, _request, pk):
 
