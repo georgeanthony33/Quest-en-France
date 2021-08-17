@@ -51,8 +51,6 @@ class PaymentDetailsView(APIView):
 
 class BookingAvailabilityView(APIView):
 
-    permission_classes = (IsAuthenticated, )
-
     def post(self, request):
         print('hello', request.data)
         booking = BookingSerializer(data=request.data)
