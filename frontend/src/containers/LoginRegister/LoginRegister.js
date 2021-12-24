@@ -33,10 +33,10 @@ const LoginRegister = (props) => {
   };
 
   const [selectedTab, setSelectedTab] = useState(
-    props.match.path.slice(1, props.match.path.length),
+    props?.match?.path?.slice(1, props.match.path.length) || "login",
   );
   const setTab = (tab) => {
-    props.history.push({
+    props.history && props.history.push({
       pathname: `/${tab}`,
     });
     setSelectedTab(tab);

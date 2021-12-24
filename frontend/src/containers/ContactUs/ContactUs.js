@@ -11,7 +11,7 @@ const {
   REACT_APP_EMAILJS_SERVICE_ID,
 } = process.env;
 
-const ContactUs = (props) => {
+const ContactUs = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [subject, setSubject] = useState("general_enquiry");

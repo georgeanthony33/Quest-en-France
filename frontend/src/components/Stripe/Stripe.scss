@@ -63,6 +63,25 @@
     font-weight: 500;
   }
 
+  .login-message {
+    width: 90%;
+    margin: 20px auto;
+  }
+
+  #LoginRegister {
+    width: unset;
+    height: unset;
+    margin-top: 0;
+
+    .form-container {
+      margin-top: 0;
+    }
+
+    form {
+      padding: 20px 0px;
+    }
+  }
+
   #CheckoutForm {
     border-radius: 0 0 15px 15px;
     padding: 25px 20px 20px 25px;

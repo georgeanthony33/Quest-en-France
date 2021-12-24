@@ -79,10 +79,11 @@ const Register = (props) => {
         type: "login",
         message: `Welcome, ${first_name}!`,
       });
-      props.history.push({
+      props?.history && props.history.push({
         pathname: "/myprofile",
         state: { token: res.data.token },
       });
+      props?.setIsAuthenticated && props.setIsAuthenticated(true)
     } catch (err) {
       console.log(err);
       setLoginError("Login error");

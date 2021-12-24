@@ -79,7 +79,7 @@
     }
   }
   
-  li.is-active button.homes-tabs {
+  li.is-active button.homes-tabs, li.is-active button.auth-tabs {
     border-bottom-color: var(--grey-text-colour);
     color: var(--grey-text-colour);
   }

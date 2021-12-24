@@ -24,10 +24,12 @@ const Login = (props) => {
         type: "login",
         message: `Logged in as ${first_name} ${last_name}`,
       });
-      props.history.push({
-        pathname: "/myprofile",
-        state: { token: res.data.token },
-      });
+      props?.history &&
+        props.history.push({
+          pathname: "/myprofile",
+          state: { token: res.data.token },
+        });
+      props?.setIsAuthenticated && props.setIsAuthenticated(true)
     } catch (err) {
       console.log(err);
       setLoginError("Incorrect email or password");

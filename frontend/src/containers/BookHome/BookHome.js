@@ -10,6 +10,7 @@ import Stripe from "../../components/Stripe/Stripe";
 import ContactCard from "../../components/ContactCard/ContactCard";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import Auth from "../../util/Auth"
 
 import "./BookHome.scss";
 
@@ -134,6 +135,8 @@ const BookHome = (props) => {
     }
   };
 
+  const isAuthenticated = Auth.isAuthenticated()
+
   if (!(excludedCheckinDates &&
     excludedCheckoutDates)) return
   
@@ -144,7 +147,7 @@ const BookHome = (props) => {
         onRequestClose={() => setShowModal(false)}
         style={modalStyles}
       >
-        <Stripe setShowModal={setShowModal} home={homeData} searchParameters={{ chosenSite, checkin, checkout, adults, kids, totalPrice }} {...props}/>
+        <Stripe setShowModal={setShowModal} home={homeData} searchParameters={{ chosenSite, checkin, checkout, adults, kids, totalPrice }} isAuthenticated={isAuthenticated} {...props}/>
       </Modal>
       <div className="top-banner">
         <h2 className="title has-text-weight-bold is-size-2 mb-0">

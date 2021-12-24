@@ -4,10 +4,12 @@ import axios from "axios";
 import { headersToken } from "../../lib/headers";
 import George from "../../components/ContactCard/George.jpg";
 import helperFunctions from "../../util/HelperFunctions";
+import Auth from "../../util/Auth";
 
 import CardSection from "./CardSection";
 
 const CheckoutForm = (props) => {
+  const isAuthenticated = Auth.isAuthenticated();
   const { stripe, elements, home, searchParameters } = props;
   const {
     id: homeId,
@@ -36,6 +38,9 @@ const CheckoutForm = (props) => {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
+    !isAuthenticated &&
+      alert("In order to make this payment, please login or register");
+
     if (!stripe || !elements) {
       return;
     }
@@ -57,7 +62,11 @@ const CheckoutForm = (props) => {
     };
 
     try {
-      const bookingResponse = await axios.post("/api/bookings/", bookingData);
+      const bookingResponse = await axios.post(
+        "/api/bookings/",
+        bookingData,
+        headersToken,
+      );
       const { data } = bookingResponse;
       const bookingId = data.id;
       if (

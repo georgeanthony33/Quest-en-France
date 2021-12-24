@@ -52,7 +52,6 @@ class PaymentDetailsView(APIView):
 class BookingAvailabilityView(APIView):
 
     def post(self, request):
-        print('hello', request.data)
         booking = BookingSerializer(data=request.data)
 
         if booking.is_valid():
@@ -82,7 +81,6 @@ class BookingListView(APIView):
         return Response(serialized_bookings.data)
 
     def post(self, request):
-        print('hiya', request.data)
         request.data['user'] = request.user.id
         booking = BookingSerializer(data=request.data)
 
@@ -124,7 +122,6 @@ class BookingDetailView(APIView):
     permission_classes = (IsAuthenticated, )
 
     def get(self, _request, pk):
-
         try:
             booking = Booking.objects.get(pk=pk)
             serialized_booking = PopulatedBookingSerializer(booking)
