@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-// import Auth from "../../util/Auth";
+import Auth from "../../util/Auth";
 import "./ProfilePage.scss";
 import { headersToken } from "../../lib/headers";
 import ChangePassword from "./ChangePassword";
@@ -9,7 +9,7 @@ import MyBookings from "./MyBookings";
 
 const ProfilePage = (props) => {
   const { state } = props?.location
-  const { token, preSelection } = state || {}
+  const { token, preSelection } = state || { token: Auth.getToken() }
   const [userData, setUserData] = useState();
 
   useEffect(() => {
