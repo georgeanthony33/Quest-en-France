@@ -15,7 +15,7 @@
     "google-maps-react": "^2.0.6",
     "http-proxy-middleware": "^1.0.3",
     "js-cookie": "^2.2.1",
-    "node-sass": "^4.14.1",
+    "node-sass": "^7.0.0",
     "notyf": "^3.9.0",
     "pure-react-carousel": "^1.27.1",
     "react": "^16.13.1",
